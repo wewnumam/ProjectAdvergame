@@ -15,6 +15,8 @@ EditorBuildSettings:
     path: Assets/@Game/Scenes/SplashScreen.unity
     guid: 4e6586d87eddaee4488b8054f905dffd
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
+      guid: 4f04c0326b404b741a240195c94d11b8, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 939cee52495e8a04d86ef84009e682da,
       type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
