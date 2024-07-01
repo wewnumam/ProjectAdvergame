@@ -5,6 +5,7 @@ using System.Collections;
 using ProjectAdvergame.Module.Input;
 using ProjectAdvergame.Module.PlayerCharacter;
 using ProjectAdvergame.Module.StoneManager;
+using ProjectAdvergame.Module.CameraManager;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -14,12 +15,14 @@ namespace ProjectAdvergame.Scene.Gameplay
 
         private PlayerCharacterController _playerCharacter;
         private StoneManagerController _stoneManager;
+        private CameraManagerController _cameraManager;
 
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
                 new TapInputController(),
                 new PlayerCharacterController(),
+                new CameraManagerController(),
                 new StoneManagerController(),
             };
         }
@@ -28,6 +31,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         {
             return new IConnector[] {
                 new PlayerCharacterConnector(),
+                new CameraManagerConnector(),
                 new StoneManagerConnector(),
             };
         }
@@ -42,6 +46,7 @@ namespace ProjectAdvergame.Scene.Gameplay
             _view.SetButtonCallback(GoToGameplay);
 
             _playerCharacter.SetView(_view.PlayerCharacterView);
+            _cameraManager.SetView(_view.CameraManagerView);
             _stoneManager.SetView(_view.StoneManagerView);
 
             yield return null;

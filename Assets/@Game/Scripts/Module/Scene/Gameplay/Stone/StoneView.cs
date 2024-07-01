@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Utility;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,21 +11,20 @@ namespace ProjectAdvergame.Module.Stone
     {
         public Transform stoneObject;
         public float interval;
-        public UnityEvent onFinished;
         public bool isMove;
+
+        public UnityAction onFinished;
+
+        public void SetCallback(UnityAction onFinished)
+        {
+            this.onFinished = onFinished;
+        }
 
         public void SetStoneObjectPosition(StoneView previousStone, EnumManager.Direction direction)
         {
-            float offset = direction == EnumManager.Direction.LeftToRight ? -interval : interval;
+            float offset = direction == EnumManager.Direction.FromEast ? -interval : interval;
             stoneObject.position = previousStone.stoneObject.position + new Vector3(offset, 0, 1);
             isMove = true;
-        }
-
-        public void FlipStoneX()
-        {
-            Vector3 vector3 = stoneObject.position;
-            vector3.x *= -1;
-            stoneObject.position = vector3;
         }
 
         private void Update()
@@ -32,11 +32,19 @@ namespace ProjectAdvergame.Module.Stone
             if (!isMove) return;
 
             stoneObject.position = Vector3.MoveTowards(stoneObject.position, transform.position, Time.deltaTime);
+
             if (stoneObject.position == transform.position)
             {
                 onFinished?.Invoke();
                 isMove = false;
             }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag(TagManager.TAG_PLAYER))
+                foreach (var item in stoneObject.GetComponentsInChildren<Transform>())
+                    item.gameObject.SetActive(false);
         }
     }
 }

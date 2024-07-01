@@ -13,7 +13,12 @@ namespace ProjectAdvergame.Module.Stone
         public override void SetView(StoneView view)
         {
             base.SetView(view);
-            Debug.Log(view.gameObject.name);
+            view.SetCallback(OnFinished);
+        }
+
+        public void OnFinished()
+        {
+            Debug.Log($"{_view.gameObject.name} [FINISHED] ");
         }
     }
 }

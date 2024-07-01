@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Collider_Early
+  - Collider_Perfect
+  - Collider_Late
   layers:
   - Default
   - TransparentFX

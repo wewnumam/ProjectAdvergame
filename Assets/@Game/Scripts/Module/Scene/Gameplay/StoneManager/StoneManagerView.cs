@@ -3,6 +3,7 @@ using ProjectAdvergame.Module.Stone;
 using ProjectAdvergame.Utility;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ProjectAdvergame.Module.StoneManager
 {
@@ -12,6 +13,8 @@ namespace ProjectAdvergame.Module.StoneManager
         public EnumManager.Direction direction;
         public GameObject nextStoneManager;
 
+        private UnityAction onSwitchCamera;
+
         private void OnEnable()
         {
             for (int i = 0; i < stones.Count; i++)
@@ -19,7 +22,6 @@ namespace ProjectAdvergame.Module.StoneManager
                 if (i != 0)
                     stones[i].SetStoneObjectPosition(stones[i - 1], direction);
             }
-
         }
     }
 }

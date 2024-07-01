@@ -4,9 +4,9 @@ namespace ProjectAdvergame.Utility
     {
         public enum Direction
         {
-            LeftToRight,
-            RightToLeft,
-            UpToDown
+            FromEast,
+            FromWest,
+            FromNorth
         }
     }
 }

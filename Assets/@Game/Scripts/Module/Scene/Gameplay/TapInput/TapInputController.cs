@@ -37,7 +37,6 @@ namespace ProjectAdvergame.Module.Input
 
         private void OnTap(InputAction.CallbackContext context)
         {
-            Debug.Log("HALO");
             bool isOverUI = EventSystem.current.IsPointerOverGameObject();
             if (context.performed && !isOverUI)
             {
