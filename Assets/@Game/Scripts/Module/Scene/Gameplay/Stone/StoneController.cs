@@ -18,7 +18,7 @@ namespace ProjectAdvergame.Module.Stone
 
         public void OnFinished()
         {
-            Debug.Log($"{_view.gameObject.name} [FINISHED] ");
+            //Debug.Log($"{_view.gameObject.name} [FINISHED] ");
         }
     }
 }

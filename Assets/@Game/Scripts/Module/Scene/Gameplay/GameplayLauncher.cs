@@ -6,6 +6,7 @@ using ProjectAdvergame.Module.Input;
 using ProjectAdvergame.Module.PlayerCharacter;
 using ProjectAdvergame.Module.StoneManager;
 using ProjectAdvergame.Module.CameraManager;
+using ProjectAdvergame.Module.BeatAccuracyEvaluator;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -16,6 +17,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         private PlayerCharacterController _playerCharacter;
         private StoneManagerController _stoneManager;
         private CameraManagerController _cameraManager;
+        private BeatAccuracyEvaluatorController _beatAccuracyEvaluator;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -24,6 +26,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new PlayerCharacterController(),
                 new CameraManagerController(),
                 new StoneManagerController(),
+                new BeatAccuracyEvaluatorController(),
             };
         }
 
@@ -33,6 +36,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new PlayerCharacterConnector(),
                 new CameraManagerConnector(),
                 new StoneManagerConnector(),
+                new BeatAccuracyEvaluatorConnector(),
             };
         }
 
@@ -48,6 +52,7 @@ namespace ProjectAdvergame.Scene.Gameplay
             _playerCharacter.SetView(_view.PlayerCharacterView);
             _cameraManager.SetView(_view.CameraManagerView);
             _stoneManager.SetView(_view.StoneManagerView);
+            _beatAccuracyEvaluator.SetView(_view.BeatAccuracyEvaluatorView);
 
             yield return null;
         }
