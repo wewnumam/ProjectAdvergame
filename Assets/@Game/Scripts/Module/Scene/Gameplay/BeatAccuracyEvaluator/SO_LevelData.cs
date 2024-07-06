@@ -14,7 +14,7 @@ public class SO_LevelData : ScriptableObject
 public class Beat
 {
     public float interval;
-    [ShowAssetPreview(128, 128)]
+    [ShowAssetPreview(32, 32)]
     public GameObject prefab;
 }
 

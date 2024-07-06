@@ -9,12 +9,12 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         protected override void Connect()
         {
-            Subscribe<MovePlayerCharacterMessage>(_beatAccuracyEvaluator.OnTap);
+            Subscribe<TapInputMessageMessage>(_beatAccuracyEvaluator.OnTap);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<MovePlayerCharacterMessage>(_beatAccuracyEvaluator.OnTap);
+            Unsubscribe<TapInputMessageMessage>(_beatAccuracyEvaluator.OnTap);
         }
     }
 }

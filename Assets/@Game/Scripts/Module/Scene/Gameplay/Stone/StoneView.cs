@@ -1,50 +1,27 @@
 using Agate.MVC.Base;
-using ProjectAdvergame.Utility;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.Events;
+using ProjectAdvergame.Utility;
 
 namespace ProjectAdvergame.Module.Stone
 {
     public class StoneView : BaseView
     {
-        public Transform stoneObject;
-        public float interval;
-        public bool isMove;
+        public float duration;
+        public int index;
+        public EnumManager.Direction direction;
 
-        public UnityAction onFinished;
+        private UnityAction<EnumManager.Direction> onFinished;
 
-        public void SetCallback(UnityAction onFinished)
+        private void Start()
+        {
+            transform.DOMove(new Vector3(0, 0, index), duration).SetEase(Ease.Linear).OnComplete(() => onFinished?.Invoke(direction));
+        }
+
+        public void SetCallback(UnityAction<EnumManager.Direction> onFinished)
         {
             this.onFinished = onFinished;
-        }
-
-        public void SetStoneObjectPosition(StoneView previousStone, EnumManager.Direction direction)
-        {
-            float offset = direction == EnumManager.Direction.FromEast ? -interval : interval;
-            stoneObject.position = previousStone.stoneObject.position + new Vector3(offset, 0, 1);
-            isMove = true;
-        }
-
-        private void Update()
-        {
-            if (!isMove) return;
-
-            stoneObject.position = Vector3.MoveTowards(stoneObject.position, transform.position, Time.deltaTime);
-
-            if (stoneObject.position == transform.position)
-            {
-                onFinished?.Invoke();
-                isMove = false;
-            }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag(TagManager.TAG_PLAYER))
-                foreach (var item in stoneObject.GetComponentsInChildren<Transform>())
-                    item.gameObject.SetActive(false);
         }
     }
 }

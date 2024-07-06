@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using System;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.Stone
@@ -8,17 +9,6 @@ namespace ProjectAdvergame.Module.Stone
         public void Init(StoneView view)
         {
             SetView(view);
-        }
-
-        public override void SetView(StoneView view)
-        {
-            base.SetView(view);
-            view.SetCallback(OnFinished);
-        }
-
-        public void OnFinished()
-        {
-            //Debug.Log($"{_view.gameObject.name} [FINISHED] ");
         }
     }
 }

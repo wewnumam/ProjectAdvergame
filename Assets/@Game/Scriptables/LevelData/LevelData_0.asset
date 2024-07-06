@@ -15,21 +15,29 @@ MonoBehaviour:
   beatCollections:
   - beats:
     - interval: 3
-      prefab: {fileID: 0}
+      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+        type: 3}
     - interval: 2
-      prefab: {fileID: 0}
+      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+        type: 3}
     - interval: 4
-      prefab: {fileID: 0}
+      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+        type: 3}
     - interval: 3
-      prefab: {fileID: 0}
+      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+        type: 3}
     direction: 0
   - beats:
     - interval: 1
-      prefab: {fileID: 0}
+      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+        type: 3}
     - interval: 2
-      prefab: {fileID: 0}
+      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+        type: 3}
     - interval: 3
-      prefab: {fileID: 0}
+      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+        type: 3}
     - interval: 4
-      prefab: {fileID: 0}
+      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+        type: 3}
     direction: 1

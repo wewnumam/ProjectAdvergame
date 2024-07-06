@@ -1,7 +1,6 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
 using System.Collections;
-using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
@@ -40,7 +39,7 @@ namespace ProjectAdvergame.Module.Input
             bool isOverUI = EventSystem.current.IsPointerOverGameObject();
             if (context.performed && !isOverUI)
             {
-                Publish<MovePlayerCharacterMessage>(new MovePlayerCharacterMessage());
+                Publish<TapInputMessageMessage>(new TapInputMessageMessage());
             }
         }
     }

@@ -12,14 +12,14 @@ namespace ProjectAdvergame.Module.CameraManager
         {
             if (message.Direction == EnumManager.Direction.FromEast)
             {
-                _view.cameraEast.enabled = true;
-                _view.cameraWest.enabled = false;
+                _view.cameraEast.enabled = false;
+                _view.cameraWest.enabled = true;
                 _view.cameraSouth.enabled = false;
             }
             else if (message.Direction == EnumManager.Direction.FromWest)
             {
-                _view.cameraEast.enabled = false;
-                _view.cameraWest.enabled = true;
+                _view.cameraEast.enabled = true;
+                _view.cameraWest.enabled = false;
                 _view.cameraSouth.enabled = false;
             }
             else

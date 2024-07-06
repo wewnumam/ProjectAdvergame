@@ -9,19 +9,14 @@ namespace ProjectAdvergame.Module.StoneManager
 {
     public class StoneManagerView : BaseView
     {
-        public List<StoneView> stones;
-        public EnumManager.Direction direction;
-        public GameObject nextStoneManager;
+        public SO_LevelData levelData;
 
-        private UnityAction onSwitchCamera;
-
-        private void OnEnable()
+        public StoneView SpawnStone(GameObject prefab, Vector3 position, float duration, int index)
         {
-            for (int i = 0; i < stones.Count; i++)
-            {
-                if (i != 0)
-                    stones[i].SetStoneObjectPosition(stones[i - 1], direction);
-            }
+            GameObject obj = Instantiate(prefab, position, Quaternion.identity, transform);
+            obj.GetComponent<StoneView>().duration = duration;
+            obj.GetComponent<StoneView>().index = index;
+            return obj.GetComponent<StoneView>();
         }
     }
 }
