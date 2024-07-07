@@ -11,17 +11,27 @@ namespace ProjectAdvergame.Module.Stone
         public float duration;
         public int index;
         public EnumManager.Direction direction;
+        public StoneView previousStone;
 
-        private UnityAction<EnumManager.Direction> onFinished;
+        public UnityAction<StoneView> stoneFallEvent;
+        private UnityAction<EnumManager.Direction> switchCameraEvent;
 
         private void Start()
         {
-            transform.DOMove(new Vector3(0, 0, index), duration).SetEase(Ease.Linear).OnComplete(() => onFinished?.Invoke(direction));
+            transform.DOMove(new Vector3(0, 0, index), duration).SetEase(Ease.Linear).OnComplete(() => {
+                switchCameraEvent?.Invoke(direction);
+                previousStone?.Fall();
+            });
         }
 
-        public void SetCallback(UnityAction<EnumManager.Direction> onFinished)
+        public void Fall()
         {
-            this.onFinished = onFinished;
+            transform.DOMoveY(-10, 3);
+        }
+
+        public void SwitchCamera(UnityAction<EnumManager.Direction> switchCameraEvent)
+        {
+            this.switchCameraEvent = switchCameraEvent;
         }
     }
 }

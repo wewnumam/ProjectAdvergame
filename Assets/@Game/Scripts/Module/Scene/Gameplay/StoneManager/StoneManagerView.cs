@@ -10,13 +10,22 @@ namespace ProjectAdvergame.Module.StoneManager
     public class StoneManagerView : BaseView
     {
         public SO_LevelData levelData;
+        public List<StoneView> stones;
 
-        public StoneView SpawnStone(GameObject prefab, Vector3 position, float duration, int index)
+        private StoneView currentStone;
+
+        public StoneView SpawnStone(GameObject prefab, Vector3 position, float duration, int index, StoneView previousStone)
         {
             GameObject obj = Instantiate(prefab, position, Quaternion.identity, transform);
-            obj.GetComponent<StoneView>().duration = duration;
-            obj.GetComponent<StoneView>().index = index;
-            return obj.GetComponent<StoneView>();
+            
+            currentStone = obj.GetComponent<StoneView>();
+            currentStone.duration = duration;
+            currentStone.index = index;
+            currentStone.previousStone = previousStone;
+
+            stones.Add(currentStone);
+
+            return currentStone;
         }
     }
 }
