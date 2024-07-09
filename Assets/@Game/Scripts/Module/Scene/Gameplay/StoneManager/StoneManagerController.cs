@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
+using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.Stone;
 using ProjectAdvergame.Utility;
 using System.Collections.Generic;

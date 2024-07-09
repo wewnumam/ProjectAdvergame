@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using ProjectAdvergame.Module.LevelData;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;

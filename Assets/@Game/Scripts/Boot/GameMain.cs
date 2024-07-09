@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
+using ProjectAdvergame.Module.LevelData;
 using System.Collections;
 using UnityEngine;
 
@@ -9,12 +10,16 @@ namespace ProjectAdvergame.Boot
     {
         protected override IConnector[] GetConnectors()
         {
-            return null;
+            return new IConnector[] {
+                new LevelDataConnector(),
+            };
         }
 
         protected override IController[] GetDependencies()
         {
-            return null;
+            return new IController[] {
+                new LevelDataController(),
+            };
         }
 
         protected override IEnumerator StartInit()
