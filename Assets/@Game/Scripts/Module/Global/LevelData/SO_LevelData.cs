@@ -10,6 +10,7 @@ namespace ProjectAdvergame.Module.LevelData
     public class SO_LevelData : ScriptableObject
     {
         public List<BeatCollection> beatCollections;
+        public GameObject environmentPrefab;
     }
 
     [System.Serializable]

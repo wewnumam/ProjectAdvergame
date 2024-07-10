@@ -2174,6 +2174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelData: {fileID: 11400000, guid: 5daa64cb427a95542be9aa9725657d9c, type: 2}
+  stones: []
 --- !u!1 &1827706491
 GameObject:
   m_ObjectHideFlags: 0

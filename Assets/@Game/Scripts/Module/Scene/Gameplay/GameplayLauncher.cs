@@ -7,12 +7,15 @@ using ProjectAdvergame.Module.PlayerCharacter;
 using ProjectAdvergame.Module.StoneManager;
 using ProjectAdvergame.Module.CameraManager;
 using ProjectAdvergame.Module.BeatAccuracyEvaluator;
+using ProjectAdvergame.Module.LevelData;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
     public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
     {
         public override string SceneName {get {return "Gameplay";}}
+
+        private LevelDataController _levelData;
 
         private PlayerCharacterController _playerCharacter;
         private StoneManagerController _stoneManager;

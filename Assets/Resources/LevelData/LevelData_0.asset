@@ -41,3 +41,5 @@ MonoBehaviour:
       prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
         type: 3}
     direction: 1
+  environmentPrefab: {fileID: 6312222697657816425, guid: c9ac261b40ae43b4ead1721d3783e485,
+    type: 3}
