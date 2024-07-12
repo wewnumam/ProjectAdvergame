@@ -1,15 +1,18 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ProjectAdvergame.Boot
 {
     public class SplashScreen : BaseSplash<SplashScreen>
     {
-        [SerializeField]
-        private GameObject _splashUI;
-        [SerializeField]
-        private GameObject _transitionUI;
+        [SerializeField] GameObject _splashUI;
+        [SerializeField] GameObject _transitionUI;
+        [SerializeField] bool showGameInfo;
+        [SerializeField] TMP_Text versionText;
+        [SerializeField] TMP_Text activeSceneText;
 
         protected override IMain GetMain()
         {
@@ -44,6 +47,17 @@ namespace ProjectAdvergame.Boot
         {
             base.FinishTransition();
             _transitionUI.SetActive(false);
+
+            if (showGameInfo)
+            {
+                versionText.SetText(Application.version);
+                activeSceneText.SetText(SceneManager.GetActiveScene().name);
+            }
+            else
+            {
+                versionText.enabled = false;
+                activeSceneText.enabled = false;
+            }
         }
 
     }

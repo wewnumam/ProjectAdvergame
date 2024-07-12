@@ -2,6 +2,7 @@ using ProjectAdvergame.Boot;
 using Agate.MVC.Base;
 using Agate.MVC.Core;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -21,6 +22,8 @@ namespace ProjectAdvergame.Scene.MainMenu
 
         protected override IEnumerator LaunchScene()
         {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
+
             yield return null;
         }
 

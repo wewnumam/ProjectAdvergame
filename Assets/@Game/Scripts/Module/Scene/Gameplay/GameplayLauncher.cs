@@ -8,6 +8,7 @@ using ProjectAdvergame.Module.StoneManager;
 using ProjectAdvergame.Module.CameraManager;
 using ProjectAdvergame.Module.BeatAccuracyEvaluator;
 using ProjectAdvergame.Module.LevelData;
+using UnityEngine.SceneManagement;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -45,6 +46,8 @@ namespace ProjectAdvergame.Scene.Gameplay
 
         protected override IEnumerator LaunchScene()
         {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
+
             yield return null;
         }
 
