@@ -9,6 +9,7 @@ using ProjectAdvergame.Module.CameraManager;
 using ProjectAdvergame.Module.BeatAccuracyEvaluator;
 using ProjectAdvergame.Module.LevelData;
 using UnityEngine.SceneManagement;
+using ProjectAdvergame.Module.GamePause;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -31,6 +32,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new CameraManagerController(),
                 new StoneManagerController(),
                 new BeatAccuracyEvaluatorController(),
+                new GamePauseController(),
             };
         }
 
@@ -41,6 +43,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new CameraManagerConnector(),
                 new StoneManagerConnector(),
                 new BeatAccuracyEvaluatorConnector(),
+                new GamePauseConnector(),
             };
         }
 

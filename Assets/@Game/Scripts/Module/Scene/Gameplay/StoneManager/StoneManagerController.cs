@@ -3,6 +3,7 @@ using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.Stone;
 using ProjectAdvergame.Utility;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,8 +11,6 @@ namespace ProjectAdvergame.Module.StoneManager
 {
     public class StoneManagerController : ObjectController<StoneManagerController, StoneManagerView>
     {
-        
-
         public override void SetView(StoneManagerView view)
         {
             base.SetView(view);
@@ -40,6 +39,10 @@ namespace ProjectAdvergame.Module.StoneManager
                     StoneView previousStone = currentBeatIndex > 1 ? stones[currentBeatIndex - 2] : null;
 
                     StoneView stone = view.SpawnStone(beat.prefab, position, currentTotalInterval, currentBeatIndex, previousStone);
+                    StoneController instance = new StoneController();
+                    InjectDependencies(instance);
+                    instance.Init(stone);
+
                     stones.Add(stone);
 
                     currentBeatIndex++;
@@ -56,6 +59,14 @@ namespace ProjectAdvergame.Module.StoneManager
                 }
 
                 currentBeatCollectionIndex++;
+            }
+        }
+
+        internal void StartPlay(StartPlayMessage message)
+        {
+            foreach (var stone in _view.stones)
+            {
+                stone.Play();
             }
         }
 

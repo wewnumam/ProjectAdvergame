@@ -39,6 +39,10 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
                 SetText("PERFECT");
             }
         }
+        internal void OnStartPlay(StartPlayMessage message)
+        {
+            _view.isPlaying = true;
+        }
 
         private void SetText(string text)
         {
@@ -46,5 +50,6 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             _view.accuracyText.transform.localScale = Vector3.zero;
             _view.accuracyText.transform.DOScale(Vector3.one, .25f);
         }
+
     }
 }

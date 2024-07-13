@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using NaughtyAttributes;
 using ProjectAdvergame.Module.LevelData;
 using TMPro;
 using UnityEngine;
@@ -11,16 +12,17 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
     {
         public SO_LevelData levelData;
         public float minPerfectTapPhase = .5f;
-        public int tapIndex;
         private UnityAction onTapLate;
 
         [Header("Indicator")]
         public Slider indicator;
         public TMP_Text accuracyText;
-
-        public int currentBeatCollectionIndex { get; private set; }
-        public int currentBeatIndex { get; private set; }
-        public float currentInterval { get; private set; }
+        
+        [Header("Current State"), ReadOnly] public bool isPlaying;
+        [ReadOnly] public int tapIndex;
+        [ReadOnly] public int currentBeatCollectionIndex;
+        [ReadOnly] public int currentBeatIndex;
+        [ReadOnly] public float currentInterval;
 
         private void Start()
         {
@@ -29,6 +31,9 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         private void Update()
         {
+            if (!isPlaying)
+                return;
+
             if (!HasNextBeatCollection())
                 return;
 

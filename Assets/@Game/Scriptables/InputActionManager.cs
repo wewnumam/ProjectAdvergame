@@ -87,6 +87,15 @@ namespace ProjectAdvergame.Module.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba79cfdb-691f-443e-ab25-e355ec9f9d2f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -122,6 +131,17 @@ namespace ProjectAdvergame.Module.Input
                     ""action"": ""TapStart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9ed812b-dca8-401a-9d6e-8e1fb3a62daf"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -134,6 +154,7 @@ namespace ProjectAdvergame.Module.Input
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_TapStart = m_UI.FindAction("TapStart", throwIfNotFound: true);
+            m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -242,11 +263,13 @@ namespace ProjectAdvergame.Module.Input
         private readonly InputActionMap m_UI;
         private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
         private readonly InputAction m_UI_TapStart;
+        private readonly InputAction m_UI_Pause;
         public struct UIActions
         {
             private @InputActionManager m_Wrapper;
             public UIActions(@InputActionManager wrapper) { m_Wrapper = wrapper; }
             public InputAction @TapStart => m_Wrapper.m_UI_TapStart;
+            public InputAction @Pause => m_Wrapper.m_UI_Pause;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -259,6 +282,9 @@ namespace ProjectAdvergame.Module.Input
                 @TapStart.started += instance.OnTapStart;
                 @TapStart.performed += instance.OnTapStart;
                 @TapStart.canceled += instance.OnTapStart;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
 
             private void UnregisterCallbacks(IUIActions instance)
@@ -266,6 +292,9 @@ namespace ProjectAdvergame.Module.Input
                 @TapStart.started -= instance.OnTapStart;
                 @TapStart.performed -= instance.OnTapStart;
                 @TapStart.canceled -= instance.OnTapStart;
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
             }
 
             public void RemoveCallbacks(IUIActions instance)
@@ -290,6 +319,7 @@ namespace ProjectAdvergame.Module.Input
         public interface IUIActions
         {
             void OnTapStart(InputAction.CallbackContext context);
+            void OnPause(InputAction.CallbackContext context);
         }
     }
 }

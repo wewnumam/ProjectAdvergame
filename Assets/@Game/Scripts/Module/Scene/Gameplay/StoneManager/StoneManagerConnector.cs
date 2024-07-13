@@ -9,10 +9,12 @@ namespace ProjectAdvergame.Module.StoneManager
 
         protected override void Connect()
         {
+            Subscribe<StartPlayMessage>(_stoneManager.StartPlay);
         }
 
         protected override void Disconnect()
         {
+            Unsubscribe<StartPlayMessage>(_stoneManager.StartPlay);
         }
     }
 }

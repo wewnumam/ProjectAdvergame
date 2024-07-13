@@ -16,7 +16,7 @@ namespace ProjectAdvergame.Module.Stone
         public UnityAction<StoneView> stoneFallEvent;
         private UnityAction<EnumManager.Direction> switchCameraEvent;
 
-        private void Start()
+        public void Play()
         {
             float positionX = 0;
             
