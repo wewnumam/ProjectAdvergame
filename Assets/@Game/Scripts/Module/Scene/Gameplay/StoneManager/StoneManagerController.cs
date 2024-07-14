@@ -11,11 +11,18 @@ namespace ProjectAdvergame.Module.StoneManager
 {
     public class StoneManagerController : ObjectController<StoneManagerController, StoneManagerView>
     {
+        private List<BeatCollection> _beatCollections;
+        
+        public void SetBeatCollections(List<BeatCollection> beatCollections)
+        {
+            _beatCollections = beatCollections;
+        }
+
         public override void SetView(StoneManagerView view)
         {
             base.SetView(view);
-
-            SwitchCamera(view.levelData.beatCollections[0].direction);
+            
+            SwitchCamera(_beatCollections[0].direction);
 
             EnumManager.Direction currentDirection;
             List<StoneView> stones = new List<StoneView>();
@@ -24,7 +31,7 @@ namespace ProjectAdvergame.Module.StoneManager
             int currentBeatIndex = 1;
             float currentTotalInterval = 0;
 
-            foreach (var beatCollection in view.levelData.beatCollections)
+            foreach (var beatCollection in _beatCollections)
             {
                 currentDirection = beatCollection.direction;
 
@@ -49,7 +56,7 @@ namespace ProjectAdvergame.Module.StoneManager
 
                     if (IsEndOfBeatCollection(currentBeatCollectionIndex, currentBeatIndex, beatCollection))
                     {
-                        stone.direction = view.levelData.beatCollections[currentBeatCollectionIndex + 1].direction;
+                        stone.direction = _beatCollections[currentBeatCollectionIndex + 1].direction;
                         stone.SwitchCamera(SwitchCamera);
                     }
                     else
@@ -72,7 +79,7 @@ namespace ProjectAdvergame.Module.StoneManager
 
         private bool IsEndOfBeatCollection(int currentBeatCollectionIndex, int currentBeatIndex, BeatCollection beatCollection)
         {
-            return currentBeatCollectionIndex < _view.levelData.beatCollections.Count - 1 && currentBeatIndex == beatCollection.beats.Count;
+            return currentBeatCollectionIndex < _beatCollections.Count - 1 && currentBeatIndex == beatCollection.beats.Count;
         }
 
         private void SwitchCamera(EnumManager.Direction direction)

@@ -9,8 +9,8 @@ namespace ProjectAdvergame.Module.LevelData
         public override IEnumerator Initialize()
         {
             SO_LevelData levelData = Resources.Load<SO_LevelData>(@"LevelData/LevelData_0");
-            GameObject.Instantiate(levelData.environmentPrefab);
-            
+            _model.SetCurrentLevelData(levelData);
+
             return base.Initialize();
         }
     }

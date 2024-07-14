@@ -4,6 +4,6 @@ namespace ProjectAdvergame.Module.LevelData
 {
     public interface ILevelDataModel : IBaseModel
     {
-
+        SO_LevelData CurrentLevelData { get; }
     }
 }

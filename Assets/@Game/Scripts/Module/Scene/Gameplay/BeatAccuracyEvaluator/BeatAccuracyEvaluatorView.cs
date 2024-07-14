@@ -1,6 +1,7 @@
 using Agate.MVC.Base;
 using NaughtyAttributes;
 using ProjectAdvergame.Module.LevelData;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,7 +11,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 {
     public class BeatAccuracyEvaluatorView : BaseView
     {
-        public SO_LevelData levelData;
+        [ReadOnly] public List<BeatCollection> beatCollections;
         public float minPerfectTapPhase = .5f;
         private UnityAction onTapLate;
 
@@ -46,7 +47,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
                 if (HasNextBeat())
                 {
-                    currentInterval = levelData.beatCollections[currentBeatCollectionIndex].beats[currentBeatIndex].interval;
+                    currentInterval = beatCollections[currentBeatCollectionIndex].beats[currentBeatIndex].interval;
                     currentBeatIndex++;
                 }
                 else
@@ -75,9 +76,9 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         private bool IsCurrentIntervalHasElapsed() => currentInterval < 0;
 
-        private bool HasNextBeatCollection() => currentBeatCollectionIndex < levelData.beatCollections.Count;
+        private bool HasNextBeatCollection() => currentBeatCollectionIndex < beatCollections.Count;
 
-        private bool HasNextBeat() => currentBeatIndex < levelData.beatCollections[currentBeatCollectionIndex].beats.Count;
+        private bool HasNextBeat() => currentBeatIndex < beatCollections[currentBeatCollectionIndex].beats.Count;
 
         public bool IsPhaseEarly() => currentInterval >= minPerfectTapPhase;
 

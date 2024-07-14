@@ -1,17 +1,27 @@
 using Agate.MVC.Base;
 using DG.Tweening;
 using ProjectAdvergame.Message;
+using ProjectAdvergame.Module.LevelData;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 {
     public class BeatAccuracyEvaluatorController : ObjectController<BeatAccuracyEvaluatorController, BeatAccuracyEvaluatorView>
     {
+        private List<BeatCollection> _beatCollections;
+
+        public void SetBeatCollections(List<BeatCollection> beatCollections)
+        {
+            _beatCollections = beatCollections;
+        }
+
         public override void SetView(BeatAccuracyEvaluatorView view)
         {
             base.SetView(view);
             view.SetCallback(OnTapLate);
+            view.beatCollections = _beatCollections;
         }
 
         private void MovePlayerCharacter()

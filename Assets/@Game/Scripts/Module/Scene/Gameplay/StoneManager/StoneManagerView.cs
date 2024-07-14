@@ -1,17 +1,15 @@
 using Agate.MVC.Base;
+using NaughtyAttributes;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.Stone;
-using ProjectAdvergame.Utility;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace ProjectAdvergame.Module.StoneManager
 {
     public class StoneManagerView : BaseView
     {
-        public SO_LevelData levelData;
-        public List<StoneView> stones;
+        [ReadOnly] public List<StoneView> stones;
 
         private StoneView currentStone;
 

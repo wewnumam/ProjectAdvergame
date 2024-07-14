@@ -451,9 +451,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 528435059}
+  - component: {fileID: 528435060}
   - component: {fileID: 528435058}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: MusicPlayerView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,8 +470,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1fd9c79f0a17dd440b86887c111cdf44, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -564,12 +565,25 @@ Transform:
   m_GameObject: {fileID: 528435057}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8499708, y: 1.2474952, z: 5.7287617}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1192199069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &528435060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528435057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5280c384331a2847a649d0ace1df8e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 528435058}
 --- !u!1 &590984511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,6 +1303,7 @@ Transform:
   - {fileID: 1809309390}
   - {fileID: 357604692}
   - {fileID: 1964196676}
+  - {fileID: 528435059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1192199070
@@ -1307,6 +1322,7 @@ MonoBehaviour:
   StoneManagerView: {fileID: 1809309391}
   CameraManagerView: {fileID: 357604693}
   BeatAccuracyEvaluatorView: {fileID: 1964196675}
+  MusicPlayerView: {fileID: 528435060}
   _button: {fileID: 1166554635}
 --- !u!1 &1250831696
 GameObject:
@@ -2630,7 +2646,7 @@ GameObject:
   - component: {fileID: 1964196676}
   - component: {fileID: 1964196675}
   m_Layer: 0
-  m_Name: BeatAccuracyEvaluator
+  m_Name: BeatAccuracyEvaluatorView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2650,9 +2666,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelData: {fileID: 11400000, guid: 5daa64cb427a95542be9aa9725657d9c, type: 2}
   minPerfectTapPhase: 0.5
-  tapIndex: 0
   indicator: {fileID: 1663452747}
   accuracyText: {fileID: 891990025}
+  isPlaying: 0
+  tapIndex: 0
+  currentBeatCollectionIndex: 0
+  currentBeatIndex: 0
+  currentInterval: 0
 --- !u!4 &1964196676
 Transform:
   m_ObjectHideFlags: 0
@@ -2750,4 +2770,3 @@ SceneRoots:
   - {fileID: 1250831699}
   - {fileID: 1041648041}
   - {fileID: 1192199069}
-  - {fileID: 528435059}
