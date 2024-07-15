@@ -1,8 +1,8 @@
 using Agate.MVC.Base;
 using DG.Tweening;
 using ProjectAdvergame.Message;
+using ProjectAdvergame.Utility;
 using ProjectAdvergame.Module.LevelData;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,13 +27,14 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         private void MovePlayerCharacter()
         {
             _view.tapIndex++;
-            Publish<MovePlayerCharacterMessage>(new MovePlayerCharacterMessage());
+            Publish(new MovePlayerCharacterMessage());
         }
 
         private void OnTapLate()
         {
             MovePlayerCharacter();
             SetText("LATE");
+            Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Late));
         }
 
         internal void OnTap(TapInputMessageMessage message)
@@ -43,10 +44,12 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             if (_view.IsPhaseEarly())
             {
                 SetText("EARLY");
+                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Early));
             }
             else if (_view.IsPhasePerfect())
             {
                 SetText("PERFECT");
+                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Perfect));
             }
         }
         internal void OnStartPlay(StartPlayMessage message)

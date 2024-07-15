@@ -2,6 +2,13 @@ namespace ProjectAdvergame.Utility
 {
     public class EnumManager
     {
+        public enum BeatAccuracy
+        {
+            Early,
+            Perfect,
+            Late
+        }
+
         public enum Direction
         {
             FromEast,

@@ -12,6 +12,7 @@ using UnityEngine.SceneManagement;
 using ProjectAdvergame.Module.GamePause;
 using ProjectAdvergame.Module.MusicPlayer;
 using UnityEngine;
+using ProjectAdvergame.Module.Score;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -26,6 +27,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         private CameraManagerController _cameraManager;
         private BeatAccuracyEvaluatorController _beatAccuracyEvaluator;
         private MusicPlayerController _musicPlayer;
+        private ScoreController _score;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -37,6 +39,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new BeatAccuracyEvaluatorController(),
                 new GamePauseController(),
                 new MusicPlayerController(),
+                new ScoreController(),
             };
         }
 
@@ -49,6 +52,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new BeatAccuracyEvaluatorConnector(),
                 new GamePauseConnector(),
                 new MusicPlayerConnector(),
+                new ScoreConnector(),
             };
         }
 
@@ -63,6 +67,8 @@ namespace ProjectAdvergame.Scene.Gameplay
 
             _view.SetButtonCallback(GoToGameplay);
 
+            Instantiate(_levelData.Model.CurrentLevelData.environmentPrefab);
+
             _playerCharacter.SetView(_view.PlayerCharacterView);
             _cameraManager.SetView(_view.CameraManagerView);
 
@@ -74,6 +80,8 @@ namespace ProjectAdvergame.Scene.Gameplay
             
             _musicPlayer.SetMusicClip(_levelData.Model.CurrentLevelData.musicClip);
             _musicPlayer.SetView(_view.MusicPlayerView);
+
+            _score.SetView(_view.ScoreView);
 
             yield return null;
         }

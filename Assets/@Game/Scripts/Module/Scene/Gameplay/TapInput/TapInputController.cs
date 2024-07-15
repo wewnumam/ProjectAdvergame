@@ -23,7 +23,7 @@ namespace ProjectAdvergame.Module.Input
 
         private void OnPause(InputAction.CallbackContext context)
         {
-            Publish<GamePauseMessage>(new GamePauseMessage());
+            Publish(new GamePauseMessage());
         }
 
         public void OnGameOver(GameOverMessage message)
@@ -37,7 +37,7 @@ namespace ProjectAdvergame.Module.Input
             if (context.performed && !isOverUI && !_isPlaying)
             {
                 _inputActionsManager.Character.Enable();
-                Publish<StartPlayMessage>(new StartPlayMessage());
+                Publish(new StartPlayMessage());
                 _isPlaying = true;
             }
         }
@@ -47,7 +47,7 @@ namespace ProjectAdvergame.Module.Input
             bool isOverUI = EventSystem.current.IsPointerOverGameObject();
             if (context.performed && !isOverUI)
             {
-                Publish<TapInputMessageMessage>(new TapInputMessageMessage());
+                Publish(new TapInputMessageMessage());
             }
         }
     }

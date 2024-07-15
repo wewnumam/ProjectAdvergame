@@ -17,18 +17,10 @@ namespace ProjectAdvergame.Module.Stone
         private UnityAction<EnumManager.Direction> switchCameraEvent;
 
         public void Play()
-        {
-            float positionX = 0;
-            
-            if (direction == EnumManager.Direction.FromEast)
-                positionX = -.5f;
-            else if (direction == EnumManager.Direction.FromWest)
-                positionX = .5f;
-            
-            transform.DOMove(new Vector3(positionX, 0, index), duration).SetEase(Ease.Linear).OnComplete(() => {
+        {   
+            transform.DOMove(new Vector3(0, 0, index), duration).SetEase(Ease.Linear).OnComplete(() => {
                 switchCameraEvent?.Invoke(direction);
                 previousStone?.Fall();
-                transform.DOMoveX(0, .5f);
             });
         }
 

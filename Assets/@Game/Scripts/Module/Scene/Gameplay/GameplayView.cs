@@ -7,6 +7,7 @@ using ProjectAdvergame.Module.StoneManager;
 using ProjectAdvergame.Module.CameraManager;
 using ProjectAdvergame.Module.BeatAccuracyEvaluator;
 using ProjectAdvergame.Module.MusicPlayer;
+using ProjectAdvergame.Module.Score;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -17,6 +18,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         public CameraManagerView CameraManagerView;
         public BeatAccuracyEvaluatorView BeatAccuracyEvaluatorView;
         public MusicPlayerView MusicPlayerView;
+        public ScoreView ScoreView;
 
         [SerializeField]
         private Button _button;
