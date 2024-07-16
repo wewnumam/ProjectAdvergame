@@ -13,6 +13,7 @@ using ProjectAdvergame.Module.GamePause;
 using ProjectAdvergame.Module.MusicPlayer;
 using UnityEngine;
 using ProjectAdvergame.Module.Score;
+using ProjectAdvergame.Module.GameConstants;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -20,6 +21,7 @@ namespace ProjectAdvergame.Scene.Gameplay
     {
         public override string SceneName {get {return "Gameplay";}}
 
+        private GameConstantsController _gameConstants;
         private LevelDataController _levelData;
 
         private PlayerCharacterController _playerCharacter;
@@ -75,12 +77,16 @@ namespace ProjectAdvergame.Scene.Gameplay
             _stoneManager.SetBeatCollections(_levelData.Model.CurrentLevelData.beatCollections);
             _stoneManager.SetView(_view.StoneManagerView);
 
+            _beatAccuracyEvaluator.SetMinPerfectTapPhase(_gameConstants.Model.GameConstants.minPerfectTapPhase);
             _beatAccuracyEvaluator.SetBeatCollections(_levelData.Model.CurrentLevelData.beatCollections);
             _beatAccuracyEvaluator.SetView(_view.BeatAccuracyEvaluatorView);
             
             _musicPlayer.SetMusicClip(_levelData.Model.CurrentLevelData.musicClip);
             _musicPlayer.SetView(_view.MusicPlayerView);
 
+            _score.SetScoreEarlyAmount(_gameConstants.Model.GameConstants.scoreEarlyAmount);
+            _score.SetScorePerfectAmount(_gameConstants.Model.GameConstants.scorePerfectAmount);
+            _score.SetScoreLateAmount(_gameConstants.Model.GameConstants.scoreLateAmount);
             _score.SetView(_view.ScoreView);
 
             yield return null;

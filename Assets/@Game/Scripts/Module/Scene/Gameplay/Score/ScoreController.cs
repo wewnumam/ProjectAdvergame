@@ -6,9 +6,13 @@ namespace ProjectAdvergame.Module.Score
 {
     public class ScoreController : ObjectController<ScoreController, ScoreModel, IScoreModel, ScoreView>
     {
+        public void SetScoreEarlyAmount(int amount) => _model.SetScoreEarlyAmount(amount);
+        public void SetScorePerfectAmount(int amount) => _model.SetScorePerfectAmount(amount);
+        public void SetScoreLateAmount(int amount) => _model.SetScoreLateAmount(amount);
+
         internal void AddScore(BeatAccuracyMessage message)
         {
-            Debug.Log(message.BeatAccuracy);
+            _model.AddScore(message.BeatAccuracy);
             _model.AddAccuracies(message.BeatAccuracy);
         }
     }

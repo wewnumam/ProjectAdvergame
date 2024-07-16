@@ -11,8 +11,8 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 {
     public class BeatAccuracyEvaluatorView : BaseView
     {
+        [ReadOnly] public float minPerfectTapPhase;
         [ReadOnly] public List<BeatCollection> beatCollections;
-        public float minPerfectTapPhase = .5f;
         private UnityAction onTapLate;
 
         [Header("Indicator")]

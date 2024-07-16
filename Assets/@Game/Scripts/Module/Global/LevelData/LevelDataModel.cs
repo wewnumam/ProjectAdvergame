@@ -9,6 +9,7 @@ namespace ProjectAdvergame.Module.LevelData
         public void SetCurrentLevelData(SO_LevelData levelData)
         {
             CurrentLevelData = levelData;
+            SetDataAsDirty();
         }
     }
 }

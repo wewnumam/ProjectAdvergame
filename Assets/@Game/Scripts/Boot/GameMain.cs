@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
+using ProjectAdvergame.Module.GameConstants;
 using ProjectAdvergame.Module.LevelData;
 using System.Collections;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace ProjectAdvergame.Boot
         {
             return new IController[] {
                 new LevelDataController(),
+                new GameConstantsController(),
             };
         }
 

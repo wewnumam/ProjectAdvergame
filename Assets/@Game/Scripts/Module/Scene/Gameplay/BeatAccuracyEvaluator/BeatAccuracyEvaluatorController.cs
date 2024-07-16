@@ -10,7 +10,13 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 {
     public class BeatAccuracyEvaluatorController : ObjectController<BeatAccuracyEvaluatorController, BeatAccuracyEvaluatorView>
     {
+        private float _minPerfectTapPhase;
         private List<BeatCollection> _beatCollections;
+
+        public void SetMinPerfectTapPhase(float minPerfectTapPhase)
+        {
+            _minPerfectTapPhase = minPerfectTapPhase;
+        }
 
         public void SetBeatCollections(List<BeatCollection> beatCollections)
         {
@@ -22,6 +28,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             base.SetView(view);
             view.SetCallback(OnTapLate);
             view.beatCollections = _beatCollections;
+            view.minPerfectTapPhase = _minPerfectTapPhase;
         }
 
         private void MovePlayerCharacter()
