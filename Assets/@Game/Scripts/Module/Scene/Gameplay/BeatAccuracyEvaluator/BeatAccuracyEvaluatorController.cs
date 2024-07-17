@@ -26,7 +26,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         public override void SetView(BeatAccuracyEvaluatorView view)
         {
             base.SetView(view);
-            view.SetCallback(OnTapLate);
+            view.SetCallback(OnTapLate, OnBeatCollectionEnd);
             view.beatCollections = _beatCollections;
             view.minPerfectTapPhase = _minPerfectTapPhase;
         }
@@ -59,6 +59,12 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
                 Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Perfect));
             }
         }
+
+        private void OnBeatCollectionEnd()
+        {
+            Publish(new SwitchCameraMessage(EnumManager.Direction.FromNorth));
+        }
+
         internal void OnStartPlay(StartPlayMessage message)
         {
             _view.isPlaying = true;

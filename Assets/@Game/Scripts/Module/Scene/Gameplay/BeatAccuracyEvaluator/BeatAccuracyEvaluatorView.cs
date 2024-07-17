@@ -14,6 +14,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         [ReadOnly] public float minPerfectTapPhase;
         [ReadOnly] public List<BeatCollection> beatCollections;
         private UnityAction onTapLate;
+        private UnityAction onBeatCollectionEnd;
 
         [Header("Indicator")]
         public Slider indicator;
@@ -36,7 +37,11 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
                 return;
 
             if (!HasNextBeatCollection())
+            {
+                isPlaying = false;
+                onBeatCollectionEnd?.Invoke();
                 return;
+            }
 
             currentInterval -= Time.deltaTime;
 
@@ -69,9 +74,10 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             #endregion
         }
 
-        public void SetCallback(UnityAction onTapLate)
+        public void SetCallback(UnityAction onTapLate, UnityAction onBeatCollectionEnd)
         {
             this.onTapLate = onTapLate;
+            this.onBeatCollectionEnd = onBeatCollectionEnd;
         }
 
         private bool IsCurrentIntervalHasElapsed() => currentInterval < 0;
