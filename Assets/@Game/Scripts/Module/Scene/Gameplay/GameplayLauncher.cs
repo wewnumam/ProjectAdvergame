@@ -14,6 +14,7 @@ using ProjectAdvergame.Module.MusicPlayer;
 using UnityEngine;
 using ProjectAdvergame.Module.Score;
 using ProjectAdvergame.Module.GameConstants;
+using ProjectAdvergame.Module.Health;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -30,6 +31,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         private BeatAccuracyEvaluatorController _beatAccuracyEvaluator;
         private MusicPlayerController _musicPlayer;
         private ScoreController _score;
+        private HealthController _health;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -42,6 +44,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new GamePauseController(),
                 new MusicPlayerController(),
                 new ScoreController(),
+                new HealthController(),
             };
         }
 
@@ -55,6 +58,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new GamePauseConnector(),
                 new MusicPlayerConnector(),
                 new ScoreConnector(),
+                new HealthConnector(),
             };
         }
 
@@ -88,6 +92,9 @@ namespace ProjectAdvergame.Scene.Gameplay
             _score.SetScorePerfectAmount(_gameConstants.Model.GameConstants.scorePerfectAmount);
             _score.SetScoreLateAmount(_gameConstants.Model.GameConstants.scoreLateAmount);
             _score.SetView(_view.ScoreView);
+
+            _health.SetCurrentHealth(_gameConstants.Model.GameConstants.initialHealth);
+            _health.SetView(_view.HealthView);
 
             yield return null;
         }

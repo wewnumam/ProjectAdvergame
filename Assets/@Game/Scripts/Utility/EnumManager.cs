@@ -15,5 +15,11 @@ namespace ProjectAdvergame.Utility
             FromWest,
             FromNorth
         }
+
+        public enum StoneType
+        {
+            Normal,
+            AddHealth
+        }
     }
 }

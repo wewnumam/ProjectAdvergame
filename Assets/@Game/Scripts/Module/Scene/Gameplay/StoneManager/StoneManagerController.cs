@@ -45,7 +45,7 @@ namespace ProjectAdvergame.Module.StoneManager
 
                     StoneView previousStone = currentBeatIndex > 1 ? stones[currentBeatIndex - 2] : null;
 
-                    StoneView stone = view.SpawnStone(beat.prefab, position, currentTotalInterval, currentBeatIndex, previousStone);
+                    StoneView stone = view.SpawnStone(beat.prefab, position, currentTotalInterval, currentBeatIndex, beat.type, previousStone);
                     StoneController instance = new StoneController();
                     InjectDependencies(instance);
                     instance.Init(stone);

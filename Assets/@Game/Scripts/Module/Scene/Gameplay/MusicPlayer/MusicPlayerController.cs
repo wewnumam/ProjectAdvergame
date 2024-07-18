@@ -15,11 +15,16 @@ namespace ProjectAdvergame.Module.MusicPlayer
         {
             musicClip = clip;
         }
-
         internal void StartPlay(StartPlayMessage message)
         {
             _view.audioSource.clip = musicClip;
             _view.audioSource.Play();
         }
+
+        internal void OnPause(GamePauseMessage message)
+        {
+            _view.audioSource.Stop();
+        }
+
     }
 }

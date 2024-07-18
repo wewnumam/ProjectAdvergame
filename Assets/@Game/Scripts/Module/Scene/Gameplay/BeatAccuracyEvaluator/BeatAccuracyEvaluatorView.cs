@@ -84,12 +84,14 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         private bool HasNextBeatCollection() => currentBeatCollectionIndex < beatCollections.Count;
 
-        private bool HasNextBeat() => currentBeatIndex < beatCollections[currentBeatCollectionIndex].beats.Count;
+        public bool HasNextBeat() => currentBeatIndex < beatCollections[currentBeatCollectionIndex].beats.Count;
 
         public bool IsPhaseEarly() => currentInterval >= minPerfectTapPhase;
 
         public bool IsPhasePerfect() => currentInterval < minPerfectTapPhase;
 
         public bool IsPhaseLate() => tapIndex < currentBeatIndex;
+
+        public bool IsCurrentBeatAddHealth() => beatCollections[currentBeatCollectionIndex].beats[currentBeatIndex - 1].type == Utility.EnumManager.StoneType.AddHealth;
     }
 }

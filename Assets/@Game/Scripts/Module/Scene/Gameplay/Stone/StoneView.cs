@@ -3,15 +3,17 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 using ProjectAdvergame.Utility;
+using NaughtyAttributes;
 
 namespace ProjectAdvergame.Module.Stone
 {
     public class StoneView : BaseView
     {
-        public float duration;
-        public int index;
-        public EnumManager.Direction direction;
-        public StoneView previousStone;
+        [ReadOnly] public float duration;
+        [ReadOnly] public int index;
+        [ReadOnly] public EnumManager.Direction direction;
+        [ReadOnly] public EnumManager.StoneType stoneType;
+        [ReadOnly] public StoneView previousStone;
 
         public UnityAction<StoneView> stoneFallEvent;
         private UnityAction<EnumManager.Direction> switchCameraEvent;

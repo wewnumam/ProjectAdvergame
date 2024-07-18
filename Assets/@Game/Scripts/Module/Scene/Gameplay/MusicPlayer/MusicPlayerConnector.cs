@@ -10,11 +10,13 @@ namespace ProjectAdvergame.Module.MusicPlayer
         protected override void Connect()
         {
             Subscribe<StartPlayMessage>(_musicPlayer.StartPlay);
+            Subscribe<GamePauseMessage>(_musicPlayer.OnPause);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<StartPlayMessage>(_musicPlayer.StartPlay);
+            Unsubscribe<GamePauseMessage>(_musicPlayer.OnPause);
         }
     }
 }

@@ -5,6 +5,7 @@ using ProjectAdvergame.Utility;
 using ProjectAdvergame.Module.LevelData;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 {
@@ -12,6 +13,8 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
     {
         private float _minPerfectTapPhase;
         private List<BeatCollection> _beatCollections;
+
+        #region Public Function
 
         public void SetMinPerfectTapPhase(float minPerfectTapPhase)
         {
@@ -23,51 +26,17 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             _beatCollections = beatCollections;
         }
 
-        public override void SetView(BeatAccuracyEvaluatorView view)
-        {
-            base.SetView(view);
-            view.SetCallback(OnTapLate, OnBeatCollectionEnd);
-            view.beatCollections = _beatCollections;
-            view.minPerfectTapPhase = _minPerfectTapPhase;
-        }
+        #endregion
 
         private void MovePlayerCharacter()
         {
             _view.tapIndex++;
             Publish(new MovePlayerCharacterMessage());
-        }
 
-        private void OnTapLate()
-        {
-            MovePlayerCharacter();
-            SetText("LATE");
-            Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Late));
-        }
-
-        internal void OnTap(TapInputMessageMessage message)
-        {
-            MovePlayerCharacter();
-
-            if (_view.IsPhaseEarly())
-            {
-                SetText("EARLY");
-                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Early));
-            }
-            else if (_view.IsPhasePerfect())
-            {
-                SetText("PERFECT");
-                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Perfect));
-            }
-        }
-
-        private void OnBeatCollectionEnd()
-        {
-            Publish(new SwitchCameraMessage(EnumManager.Direction.FromNorth));
-        }
-
-        internal void OnStartPlay(StartPlayMessage message)
-        {
-            _view.isPlaying = true;
+            if (_view.isPlaying)
+                if (_view.HasNextBeat())
+                    if (_view.IsCurrentBeatAddHealth())
+                        OnBeatAddHealth();
         }
 
         private void SetText(string text)
@@ -77,5 +46,58 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             _view.accuracyText.transform.DOScale(Vector3.one, .25f);
         }
 
+        public override void SetView(BeatAccuracyEvaluatorView view)
+        {
+            base.SetView(view);
+            view.SetCallback(OnTapLate, OnBeatCollectionEnd);
+            view.beatCollections = _beatCollections;
+            view.minPerfectTapPhase = _minPerfectTapPhase;
+        }
+
+        #region Callback Listener
+
+        private void OnTapLate()
+        {
+            MovePlayerCharacter();
+            SetText("LATE");
+            Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Late));
+        }
+        
+
+        private void OnBeatCollectionEnd()
+        {
+            Publish(new SwitchCameraMessage(EnumManager.Direction.FromNorth));
+        }
+
+        private void OnBeatAddHealth()
+        {
+            Publish(new AddHealthMessage());
+        }
+
+        #endregion
+
+        #region Connector Listener
+
+        internal void OnStartPlay(StartPlayMessage message)
+        {
+            _view.isPlaying = true;
+        }
+
+        internal void OnTap(TapInputMessageMessage message)
+        {
+            if (_view.IsPhaseEarly())
+            {
+                SetText("EARLY");
+                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Early));
+            }
+            else if (_view.IsPhasePerfect())
+            {
+                MovePlayerCharacter();
+                SetText("PERFECT");
+                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Perfect));
+            }
+        }
+
+        #endregion
     }
 }

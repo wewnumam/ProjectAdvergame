@@ -18,6 +18,7 @@ namespace ProjectAdvergame.Module.LevelData
     public class Beat
     {
         public float interval;
+        public EnumManager.StoneType type;
         [ShowAssetPreview(32, 32)]
         public GameObject prefab;
     }
