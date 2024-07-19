@@ -35,6 +35,8 @@ namespace ProjectAdvergame.Module.StoneManager
             {
                 currentDirection = beatCollection.direction;
 
+                int localBeatIndex = 1;
+
                 foreach (var beat in beatCollection.beats)
                 {
                     currentTotalInterval += beat.interval;
@@ -54,8 +56,11 @@ namespace ProjectAdvergame.Module.StoneManager
 
                     currentBeatIndex++;
 
-                    if (IsEndOfBeatCollection(currentBeatCollectionIndex, currentBeatIndex, beatCollection))
+                    localBeatIndex++;
+
+                    if (IsEndOfBeatCollection(currentBeatCollectionIndex, localBeatIndex, beatCollection))
                     {
+                        stone.isSwitchCamera = true;
                         stone.direction = _beatCollections[currentBeatCollectionIndex + 1].direction;
                         stone.SwitchCamera(SwitchCamera);
                     }
@@ -66,6 +71,14 @@ namespace ProjectAdvergame.Module.StoneManager
                 }
 
                 currentBeatCollectionIndex++;
+            }
+        }
+
+        internal void OnPause(GameOverMessage message)
+        {
+            foreach (var stone in _view.stones)
+            {
+                stone.Pause();
             }
         }
 

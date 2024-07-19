@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
+using ProjectAdvergame.Module.GameState;
 using System;
 using System.Collections;
 using UnityEngine.EventSystems;
@@ -9,8 +10,8 @@ namespace ProjectAdvergame.Module.Input
 {
     public class TapInputController : BaseController<TapInputController>
     {
+        private GameStateController _gameState;
         private InputActionManager _inputActionsManager = new InputActionManager();
-        private bool _isPlaying;
 
         public override IEnumerator Initialize()
         {
@@ -33,19 +34,18 @@ namespace ProjectAdvergame.Module.Input
 
         private void OnTapStart(InputAction.CallbackContext context)
         {
-            bool isOverUI = EventSystem.current.IsPointerOverGameObject();
-            if (context.performed && !isOverUI && !_isPlaying)
+            if (context.performed && _gameState.IsStatePreGame())
             {
+                _inputActionsManager.UI.TapStart.performed -= OnTapStart;
                 _inputActionsManager.Character.Enable();
                 Publish(new StartPlayMessage());
-                _isPlaying = true;
+                Publish(new GameStateMessage(Utility.EnumManager.GameState.Playing));
             }
         }
 
         private void OnTap(InputAction.CallbackContext context)
         {
-            bool isOverUI = EventSystem.current.IsPointerOverGameObject();
-            if (context.performed && !isOverUI)
+            if (context.performed && _gameState.IsStatePlaying())
             {
                 Publish(new TapInputMessageMessage());
             }

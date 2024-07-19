@@ -14,9 +14,12 @@ namespace ProjectAdvergame.Module.Stone
         [ReadOnly] public EnumManager.Direction direction;
         [ReadOnly] public EnumManager.StoneType stoneType;
         [ReadOnly] public StoneView previousStone;
+        [ReadOnly] public bool isSwitchCamera;
 
         public UnityAction<StoneView> stoneFallEvent;
         private UnityAction<EnumManager.Direction> switchCameraEvent;
+
+        private Sequence sequence;
 
         public void Play()
         {   
@@ -29,6 +32,11 @@ namespace ProjectAdvergame.Module.Stone
         public void Fall()
         {
             transform.DOMoveY(-10, 3);
+        }
+
+        public void Pause()
+        {
+            transform.DOTogglePause();
         }
 
         public void SwitchCamera(UnityAction<EnumManager.Direction> switchCameraEvent)

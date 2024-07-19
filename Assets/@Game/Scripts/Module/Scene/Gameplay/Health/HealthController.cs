@@ -13,7 +13,7 @@ namespace ProjectAdvergame.Module.Health
             if (message.BeatAccuracy != EnumManager.BeatAccuracy.Perfect)
                 _model.DecreaseHealth();
 
-            if (_model.CurrentHealth < 1)
+            if (_model.CurrentHealth < 1 && !_view.isImmortal)
                 Publish(new GameOverMessage());
         }
 

@@ -16,6 +16,15 @@ namespace ProjectAdvergame.Utility
             FromNorth
         }
 
+        public enum GameState
+        {
+            PreGame,
+            Playing,
+            Pause,
+            GameOver,
+            GameWin
+        }
+
         public enum StoneType
         {
             Normal,

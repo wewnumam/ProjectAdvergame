@@ -15,6 +15,7 @@ using UnityEngine;
 using ProjectAdvergame.Module.Score;
 using ProjectAdvergame.Module.GameConstants;
 using ProjectAdvergame.Module.Health;
+using ProjectAdvergame.Module.GameOver;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -32,6 +33,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         private MusicPlayerController _musicPlayer;
         private ScoreController _score;
         private HealthController _health;
+        private GameOverController _gameOver;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -45,6 +47,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new MusicPlayerController(),
                 new ScoreController(),
                 new HealthController(),
+                new GameOverController(),
             };
         }
 
@@ -59,6 +62,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new MusicPlayerConnector(),
                 new ScoreConnector(),
                 new HealthConnector(),
+                new GameOverConnector(),
             };
         }
 
@@ -95,6 +99,8 @@ namespace ProjectAdvergame.Scene.Gameplay
 
             _health.SetCurrentHealth(_gameConstants.Model.GameConstants.initialHealth);
             _health.SetView(_view.HealthView);
+
+            _gameOver.SetView(_view.GameOverView);
 
             yield return null;
         }

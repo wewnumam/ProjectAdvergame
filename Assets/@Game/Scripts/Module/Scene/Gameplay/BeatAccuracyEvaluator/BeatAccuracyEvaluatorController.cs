@@ -98,6 +98,11 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             }
         }
 
+        internal void OnGameOver(GameOverMessage message)
+        {
+            _view.isPlaying = false;
+        }
+
         #endregion
     }
 }

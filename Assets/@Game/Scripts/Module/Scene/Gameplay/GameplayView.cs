@@ -9,6 +9,7 @@ using ProjectAdvergame.Module.BeatAccuracyEvaluator;
 using ProjectAdvergame.Module.MusicPlayer;
 using ProjectAdvergame.Module.Score;
 using ProjectAdvergame.Module.Health;
+using ProjectAdvergame.Module.GameOver;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -21,6 +22,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         public MusicPlayerView MusicPlayerView;
         public ScoreView ScoreView;
         public HealthView HealthView;
+        public GameOverView GameOverView;
 
         [SerializeField]
         private Button _button;
