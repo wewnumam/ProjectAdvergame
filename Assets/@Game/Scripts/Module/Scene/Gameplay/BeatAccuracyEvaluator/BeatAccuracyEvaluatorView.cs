@@ -19,6 +19,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         [Header("Indicator")]
         public Slider indicator;
         public TMP_Text accuracyText;
+        public TMP_Text currentIntervalText;
         
         [Header("Current State"), ReadOnly] public bool isPlaying;
         [ReadOnly] public int tapIndex;
@@ -44,6 +45,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             }
 
             currentInterval -= Time.deltaTime;
+            currentIntervalText.SetText(currentInterval.ToString());
 
             if (IsCurrentIntervalHasElapsed())
             {

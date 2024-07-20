@@ -1,8 +1,5 @@
 using Agate.MVC.Base;
-using DG.Tweening;
 using ProjectAdvergame.Message;
-using ProjectAdvergame.Utility;
-using System;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.MusicPlayer
@@ -19,6 +16,7 @@ namespace ProjectAdvergame.Module.MusicPlayer
         {
             _view.audioSource.clip = musicClip;
             _view.audioSource.Play();
+            _view.isPlaying = true;
         }
 
         internal void OnPause(GamePauseMessage message)

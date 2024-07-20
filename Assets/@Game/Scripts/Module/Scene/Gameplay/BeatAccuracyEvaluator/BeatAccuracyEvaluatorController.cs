@@ -42,8 +42,6 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         private void SetText(string text)
         {
             _view.accuracyText.SetText(text);
-            _view.accuracyText.transform.localScale = Vector3.zero;
-            _view.accuracyText.transform.DOScale(Vector3.one, .25f);
         }
 
         public override void SetView(BeatAccuracyEvaluatorView view)
