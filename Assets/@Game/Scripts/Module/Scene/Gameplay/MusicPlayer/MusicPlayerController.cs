@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
+using System;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.MusicPlayer
@@ -24,5 +25,10 @@ namespace ProjectAdvergame.Module.MusicPlayer
             _view.audioSource.Stop();
         }
 
+        internal void OnGameOver(GameOverMessage message)
+        {
+            _view.audioSource.Stop();
+            _view.isPlaying = false;
+        }
     }
 }

@@ -65,6 +65,8 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         private void OnBeatCollectionEnd()
         {
             Publish(new SwitchCameraMessage(EnumManager.Direction.FromNorth));
+            Publish(new GameStateMessage(EnumManager.GameState.GameWin));
+            Publish(new GameWinMessage());
         }
 
         private void OnBeatAddHealth()

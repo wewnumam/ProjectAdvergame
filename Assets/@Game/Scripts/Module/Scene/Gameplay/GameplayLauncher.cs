@@ -16,6 +16,7 @@ using ProjectAdvergame.Module.Score;
 using ProjectAdvergame.Module.GameConstants;
 using ProjectAdvergame.Module.Health;
 using ProjectAdvergame.Module.GameOver;
+using ProjectAdvergame.Module.GameWin;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -34,6 +35,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         private ScoreController _score;
         private HealthController _health;
         private GameOverController _gameOver;
+        private GameWinController _gameWin;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -48,6 +50,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new ScoreController(),
                 new HealthController(),
                 new GameOverController(),
+                new GameWinController(),
             };
         }
 
@@ -63,6 +66,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new ScoreConnector(),
                 new HealthConnector(),
                 new GameOverConnector(),
+                new GameWinConnector(),
             };
         }
 
@@ -101,6 +105,8 @@ namespace ProjectAdvergame.Scene.Gameplay
             _health.SetView(_view.HealthView);
 
             _gameOver.SetView(_view.GameOverView);
+
+            _gameWin.SetView(_view.GameWinView);
 
             yield return null;
         }

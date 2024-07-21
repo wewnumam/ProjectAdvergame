@@ -1,6 +1,7 @@
 using Agate.MVC.Base;
 using NaughtyAttributes;
 using ProjectAdvergame.Module.LevelData;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -94,6 +95,12 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         public bool IsPhaseLate() => tapIndex < currentBeatIndex;
 
-        public bool IsCurrentBeatAddHealth() => beatCollections[currentBeatCollectionIndex].beats[currentBeatIndex - 1].type == Utility.EnumManager.StoneType.AddHealth;
+        public bool IsCurrentBeatAddHealth()
+        {
+            if (currentBeatIndex == 0) 
+                return false;
+            
+            return beatCollections[currentBeatCollectionIndex].beats[currentBeatIndex - 1].type == Utility.EnumManager.StoneType.AddHealth;
+        } 
     }
 }

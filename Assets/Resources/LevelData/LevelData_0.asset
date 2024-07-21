@@ -55,7 +55,7 @@ MonoBehaviour:
       prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
         type: 3}
     - interval: 0.44
-      type: 1
+      type: 0
       prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
         type: 3}
     direction: 1
@@ -97,7 +97,7 @@ MonoBehaviour:
       prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
         type: 3}
     - interval: 1.77
-      type: 1
+      type: 0
       prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
         type: 3}
     direction: 0
