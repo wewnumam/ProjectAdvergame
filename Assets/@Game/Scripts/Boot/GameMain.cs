@@ -29,7 +29,7 @@ namespace ProjectAdvergame.Boot
 
         protected override IEnumerator StartInit()
         {
-            Application.targetFrameRate = 60;
+            Application.targetFrameRate = -1;
             yield return null;
         }
     }
