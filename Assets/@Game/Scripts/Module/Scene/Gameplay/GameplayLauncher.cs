@@ -17,6 +17,7 @@ using ProjectAdvergame.Module.GameConstants;
 using ProjectAdvergame.Module.Health;
 using ProjectAdvergame.Module.GameOver;
 using ProjectAdvergame.Module.GameWin;
+using ProjectAdvergame.Message;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -77,6 +78,8 @@ namespace ProjectAdvergame.Scene.Gameplay
 
         protected override IEnumerator InitSceneObject()
         {
+            Publish(new GameStateMessage(Utility.EnumManager.GameState.PreGame));
+
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
 
             _view.SetButtonCallback(GoToGameplay);

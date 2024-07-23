@@ -144,6 +144,45 @@ namespace ProjectAdvergame.Module.Input
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MainMenu"",
+            ""id"": ""04354088-6330-43cc-85ac-c8df1fa46cfe"",
+            ""actions"": [
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""42cfde8a-8b64-4c78-bc23-aec49a231476"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a53a4d3c-ab1b-4489-af92-55d99feca815"",
+                    ""path"": ""<Touchscreen>/{Back}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""429b91bd-3a07-40a3-911f-60d03cede6cd"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -155,6 +194,9 @@ namespace ProjectAdvergame.Module.Input
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_TapStart = m_UI.FindAction("TapStart", throwIfNotFound: true);
             m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+            // MainMenu
+            m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
+            m_MainMenu_Quit = m_MainMenu.FindAction("Quit", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -312,6 +354,52 @@ namespace ProjectAdvergame.Module.Input
             }
         }
         public UIActions @UI => new UIActions(this);
+
+        // MainMenu
+        private readonly InputActionMap m_MainMenu;
+        private List<IMainMenuActions> m_MainMenuActionsCallbackInterfaces = new List<IMainMenuActions>();
+        private readonly InputAction m_MainMenu_Quit;
+        public struct MainMenuActions
+        {
+            private @InputActionManager m_Wrapper;
+            public MainMenuActions(@InputActionManager wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Quit => m_Wrapper.m_MainMenu_Quit;
+            public InputActionMap Get() { return m_Wrapper.m_MainMenu; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(MainMenuActions set) { return set.Get(); }
+            public void AddCallbacks(IMainMenuActions instance)
+            {
+                if (instance == null || m_Wrapper.m_MainMenuActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_MainMenuActionsCallbackInterfaces.Add(instance);
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
+            }
+
+            private void UnregisterCallbacks(IMainMenuActions instance)
+            {
+                @Quit.started -= instance.OnQuit;
+                @Quit.performed -= instance.OnQuit;
+                @Quit.canceled -= instance.OnQuit;
+            }
+
+            public void RemoveCallbacks(IMainMenuActions instance)
+            {
+                if (m_Wrapper.m_MainMenuActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IMainMenuActions instance)
+            {
+                foreach (var item in m_Wrapper.m_MainMenuActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_MainMenuActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public MainMenuActions @MainMenu => new MainMenuActions(this);
         public interface ICharacterActions
         {
             void OnTap(InputAction.CallbackContext context);
@@ -320,6 +408,10 @@ namespace ProjectAdvergame.Module.Input
         {
             void OnTapStart(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
+        }
+        public interface IMainMenuActions
+        {
+            void OnQuit(InputAction.CallbackContext context);
         }
     }
 }

@@ -4,6 +4,7 @@ using Agate.MVC.Core;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using ProjectAdvergame.Message;
+using ProjectAdvergame.Module.Quit;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -11,9 +12,13 @@ namespace ProjectAdvergame.Scene.MainMenu
     {
         public override string SceneName {get {return "MainMenu";}}
 
+        private QuitController _quit;
+
         protected override IController[] GetSceneDependencies()
         {
-            return null;
+            return new IController[] {
+                new QuitController(),
+            };
         }
 
         protected override IConnector[] GetSceneConnectors()
@@ -23,7 +28,6 @@ namespace ProjectAdvergame.Scene.MainMenu
 
         protected override IEnumerator LaunchScene()
         {
-
             yield return null;
         }
 
@@ -35,6 +39,8 @@ namespace ProjectAdvergame.Scene.MainMenu
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
 
             _view.SetButtonCallback(GoToGameplay);
+
+            _quit.SetView(_view.QuitView);
             
             yield return null;
         }

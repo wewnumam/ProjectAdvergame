@@ -1,9 +1,8 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.GameState;
-using System;
 using System.Collections;
-using UnityEngine.EventSystems;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace ProjectAdvergame.Module.Input
@@ -22,14 +21,21 @@ namespace ProjectAdvergame.Module.Input
             _inputActionsManager.Character.Tap.performed += OnTap;
         }
 
+        public override IEnumerator Terminate()
+        {
+            _inputActionsManager.UI.TapStart.performed -= OnTapStart;
+            _inputActionsManager.UI.Pause.performed -= OnPause;
+            _inputActionsManager.Character.Tap.performed -= OnTap;
+
+            _inputActionsManager.UI.Disable();
+            _inputActionsManager.Character.Disable();
+
+            yield return base.Terminate();
+        }
+
         private void OnPause(InputAction.CallbackContext context)
         {
             Publish(new GamePauseMessage());
-        }
-
-        public void OnGameOver(GameOverMessage message)
-        {
-            _inputActionsManager.Character.Disable();
         }
 
         private void OnTapStart(InputAction.CallbackContext context)
