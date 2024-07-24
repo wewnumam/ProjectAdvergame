@@ -13,7 +13,8 @@ namespace ProjectAdvergame.Utility
         {
             FromEast,
             FromWest,
-            FromNorth
+            FromNorth,
+            CloseUp
         }
 
         public enum GameState

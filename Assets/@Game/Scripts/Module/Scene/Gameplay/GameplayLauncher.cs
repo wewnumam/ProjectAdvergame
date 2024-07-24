@@ -18,6 +18,7 @@ using ProjectAdvergame.Module.Health;
 using ProjectAdvergame.Module.GameOver;
 using ProjectAdvergame.Module.GameWin;
 using ProjectAdvergame.Message;
+using ProjectAdvergame.Module.OnReady;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -37,6 +38,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         private HealthController _health;
         private GameOverController _gameOver;
         private GameWinController _gameWin;
+        private OnReadyController _onReady;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -52,6 +54,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new HealthController(),
                 new GameOverController(),
                 new GameWinController(),
+                new OnReadyController(),
             };
         }
 
@@ -68,6 +71,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new HealthConnector(),
                 new GameOverConnector(),
                 new GameWinConnector(),
+                new OnReadyConnector(),
             };
         }
 
@@ -110,6 +114,9 @@ namespace ProjectAdvergame.Scene.Gameplay
             _gameOver.SetView(_view.GameOverView);
 
             _gameWin.SetView(_view.GameWinView);
+
+            _onReady.SetView(_view.OnReadyView);
+            _onReady.SetOnReadyCountdown(_gameConstants.Model.GameConstants.onReadyCountdown);
 
             yield return null;
         }

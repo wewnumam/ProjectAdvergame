@@ -42,10 +42,13 @@ namespace ProjectAdvergame.Module.Input
         {
             if (context.performed && _gameState.IsStatePreGame())
             {
-                _inputActionsManager.UI.TapStart.performed -= OnTapStart;
-                _inputActionsManager.Character.Enable();
-                Publish(new StartPlayMessage());
-                Publish(new GameStateMessage(Utility.EnumManager.GameState.Playing));
+                Publish(new OnReadyMessage(() =>
+                {
+                    _inputActionsManager.UI.TapStart.performed -= OnTapStart;
+                    _inputActionsManager.Character.Enable();
+                    Publish(new StartPlayMessage());
+                    Publish(new GameStateMessage(Utility.EnumManager.GameState.Playing));
+                }));
             }
         }
 

@@ -13,6 +13,11 @@ namespace ProjectAdvergame.Module.PlayerCharacter
             _view.transform.DOMoveZ(_view.transform.position.z + 1, .1f).OnComplete(() => _view.transform.DOMoveZ(Mathf.Ceil(_view.transform.position.z), 0));
         }
 
+        internal void OnReady(OnReadyMessage message)
+        {
+            _view.playerCharacterObject.DORotate(Vector3.zero, 1);
+        }
+
         internal void SetReaction(BeatAccuracyMessage message)
         {
             _view.reactionImage.transform.localScale = Vector3.zero;

@@ -14,5 +14,6 @@ namespace ProjectAdvergame.Module.PlayerCharacter
         public Sprite perfectReaction;
         public Sprite lateReaction;
         public Image reactionImage;
+        public Transform playerCharacterObject;
     }
 }

@@ -5,6 +5,9 @@ namespace ProjectAdvergame.Module.GameConstants
     [CreateAssetMenu(fileName = "GameConstants", menuName = "ProjectAdvergame/GameConstants", order = 0)]
     public class SO_GameConstants : ScriptableObject
     {
+        [Header("Pre Game")]
+        public float onReadyCountdown;
+
         [Header("Beat Accuracy")]
         public float minPerfectTapPhase;
 

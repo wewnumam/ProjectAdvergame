@@ -21,8 +21,6 @@ namespace ProjectAdvergame.Module.StoneManager
         public override void SetView(StoneManagerView view)
         {
             base.SetView(view);
-            
-            SwitchCamera(_beatCollections[0].direction);
 
             EnumManager.Direction currentDirection;
             List<StoneView> stones = new List<StoneView>();
@@ -82,8 +80,14 @@ namespace ProjectAdvergame.Module.StoneManager
             }
         }
 
+        internal void OnReady(OnReadyMessage message)
+        {
+            SwitchCamera(_beatCollections[0].direction);
+        }
+
         internal void StartPlay(StartPlayMessage message)
         {
+
             foreach (var stone in _view.stones)
             {
                 stone.Play();

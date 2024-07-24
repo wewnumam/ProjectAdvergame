@@ -11,6 +11,7 @@ using ProjectAdvergame.Module.Score;
 using ProjectAdvergame.Module.Health;
 using ProjectAdvergame.Module.GameOver;
 using ProjectAdvergame.Module.GameWin;
+using ProjectAdvergame.Module.OnReady;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -25,9 +26,11 @@ namespace ProjectAdvergame.Scene.Gameplay
         public HealthView HealthView;
         public GameOverView GameOverView;
         public GameWinView GameWinView;
+        public OnReadyView OnReadyView;
 
         [SerializeField]
         private Button _button;
+
 
         public void SetButtonCallback(UnityAction callback)
         {

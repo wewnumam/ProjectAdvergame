@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb06df640ec6e694d9055050858318b0, type: 3}
   m_Name: GameConstants
   m_EditorClassIdentifier: 
+  onReadyCountdown: 3
   minPerfectTapPhase: 0.5
   scoreEarlyAmount: -1
   scorePerfectAmount: 3
