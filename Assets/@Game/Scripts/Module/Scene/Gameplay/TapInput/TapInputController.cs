@@ -11,6 +11,7 @@ namespace ProjectAdvergame.Module.Input
     {
         private GameStateController _gameState;
         private InputActionManager _inputActionsManager = new InputActionManager();
+        private int tapStartCounter;
 
         public override IEnumerator Initialize()
         {
@@ -40,8 +41,9 @@ namespace ProjectAdvergame.Module.Input
 
         private void OnTapStart(InputAction.CallbackContext context)
         {
-            if (context.performed && _gameState.IsStatePreGame())
+            if (context.performed && _gameState.IsStatePreGame() && tapStartCounter == 0)
             {
+                tapStartCounter++;
                 Publish(new OnReadyMessage(() =>
                 {
                     _inputActionsManager.UI.TapStart.performed -= OnTapStart;

@@ -28,8 +28,8 @@ namespace ProjectAdvergame.Module.PlayerCharacter
                 _view.reactionImage.sprite = _view.perfectReaction;
             else if (message.BeatAccuracy == Utility.EnumManager.BeatAccuracy.Late)
                 _view.reactionImage.sprite = _view.lateReaction;
-            
-            _view.reactionImage.transform.DOScale(Vector3.one, .25f);
+
+            _view.reactionImage.transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutExpo);
         }
     }
 }
