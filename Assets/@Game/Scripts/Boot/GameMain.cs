@@ -3,6 +3,7 @@ using Agate.MVC.Core;
 using ProjectAdvergame.Module.GameConstants;
 using ProjectAdvergame.Module.GameState;
 using ProjectAdvergame.Module.LevelData;
+using ProjectAdvergame.Module.SaveSystem;
 using System.Collections;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace ProjectAdvergame.Boot
         protected override IConnector[] GetConnectors()
         {
             return new IConnector[] {
+                new SaveSystemConnector(),
                 new LevelDataConnector(),
                 new GameStateConnector(),
             };
@@ -21,6 +23,7 @@ namespace ProjectAdvergame.Boot
         protected override IController[] GetDependencies()
         {
             return new IController[] {
+                new SaveSystemController(),
                 new LevelDataController(),
                 new GameConstantsController(),
                 new GameStateController(),

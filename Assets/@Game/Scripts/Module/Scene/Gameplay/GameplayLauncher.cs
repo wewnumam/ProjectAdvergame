@@ -19,6 +19,7 @@ using ProjectAdvergame.Module.GameOver;
 using ProjectAdvergame.Module.GameWin;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.OnReady;
+using ProjectAdvergame.Module.SaveSystem;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -26,6 +27,7 @@ namespace ProjectAdvergame.Scene.Gameplay
     {
         public override string SceneName {get {return "Gameplay";}}
 
+        private SaveSystemController _saveSystem;
         private GameConstantsController _gameConstants;
         private LevelDataController _levelData;
 
@@ -82,6 +84,8 @@ namespace ProjectAdvergame.Scene.Gameplay
 
         protected override IEnumerator InitSceneObject()
         {
+            _levelData.SetCurrentLevel(_saveSystem.Model.SaveData.CurrentLevelName);
+
             Publish(new GameStateMessage(Utility.EnumManager.GameState.PreGame));
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
