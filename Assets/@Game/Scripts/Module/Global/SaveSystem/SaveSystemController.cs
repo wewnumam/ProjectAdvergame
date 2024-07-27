@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
+using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
@@ -44,6 +45,10 @@ namespace ProjectAdvergame.Module.SaveSystem
             return data;
         }
 
-        public void SetCurrentLevelName(string levelName) => _model.SetCurrentLevelName(levelName);
+        public void SetCurrentLevelName(string levelName)
+        {
+            _model.SetCurrentLevelName(levelName);
+            SaveGame(_model.SaveData);
+        }
     }
 }

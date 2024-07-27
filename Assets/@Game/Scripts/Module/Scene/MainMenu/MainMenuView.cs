@@ -4,20 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using ProjectAdvergame.Module.Quit;
+using ProjectAdvergame.Module.LevelSelection;
+using TMPro;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
     public class MainMenuView : BaseSceneView
     {
+        public TMP_Text currentLevelText;
+
         public QuitView QuitView;
+        public LevelSelectionView LevelSelectionView;
 
-        [SerializeField]
-        private Button _button;
+        public Button playButton;
 
-        public void SetButtonCallback(UnityAction callback)
+        public void SetButtonCallback(UnityAction onPlay)
         {
-            _button.onClick.RemoveAllListeners();
-            _button.onClick.AddListener(callback);
+            playButton.onClick.RemoveAllListeners();
+            playButton.onClick.AddListener(onPlay);
         }
     }
 }
