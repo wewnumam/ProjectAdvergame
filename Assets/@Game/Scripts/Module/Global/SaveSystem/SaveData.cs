@@ -4,4 +4,6 @@ using System.Collections.Generic;
 public class SaveData
 {
     public string CurrentLevelName = "LevelData_0";
+    public int CurrentHeartCount;
+    public int CurrentStarCount;
 }

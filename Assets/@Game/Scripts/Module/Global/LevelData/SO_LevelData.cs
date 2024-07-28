@@ -12,6 +12,7 @@ namespace ProjectAdvergame.Module.LevelData
         public List<BeatCollection> beatCollections;
         public GameObject environmentPrefab;
         public AudioClip musicClip;
+        public Material skybox;
     }
 
     [System.Serializable]

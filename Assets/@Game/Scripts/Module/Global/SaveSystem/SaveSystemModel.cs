@@ -18,5 +18,29 @@ namespace ProjectAdvergame.Module.SaveSystem
             SaveData.CurrentLevelName = levelName;
             SetDataAsDirty();
         }
+
+        public void AddHeart(int amount)
+        {
+            SaveData.CurrentHeartCount += amount;
+            SetDataAsDirty();
+        }
+
+        public void SubtractHeart(int amount)
+        {
+            SaveData.CurrentHeartCount -= amount;
+            SetDataAsDirty();
+        }
+
+        public void AddStar(int amount)
+        {
+            SaveData.CurrentStarCount += amount;
+            SetDataAsDirty();
+        }
+
+        public void SubtractStar(int amount)
+        {
+            SaveData.CurrentStarCount -= amount;
+            SetDataAsDirty();
+        }
     }
 }

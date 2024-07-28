@@ -50,5 +50,17 @@ namespace ProjectAdvergame.Module.SaveSystem
             _model.SetCurrentLevelName(levelName);
             SaveGame(_model.SaveData);
         }
+
+        internal void SaveHeartResult(GameResultHeartMessage message)
+        {
+            _model.AddHeart(message.HeartAmount);
+            SaveGame(_model.SaveData);
+        }
+
+        internal void SaveStarResult(GameResultStarMessage message)
+        {
+            _model.AddStar(message.StarAmount);
+            SaveGame(_model.SaveData);
+        }
     }
 }

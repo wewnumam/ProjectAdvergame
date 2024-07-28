@@ -1,6 +1,7 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Utility;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ProjectAdvergame.Module.Score
 {
@@ -37,6 +38,23 @@ namespace ProjectAdvergame.Module.Score
 
             Accuracies.Add(beatAccuracy);
             SetDataAsDirty();
+        }
+
+        public int StarCalculator(int totalBeat)
+        {
+            int perfectScore = 0;
+            foreach (var accuracy in Accuracies)
+            {
+                if (accuracy == EnumManager.BeatAccuracy.Perfect)
+                {
+                    perfectScore += ScorePerfectAmount;
+                }
+            }
+
+            float percentage = (float)perfectScore / (totalBeat * ScorePerfectAmount);
+            int stars = (int)Mathf.Round(percentage * 5);
+
+            return Mathf.Min(Mathf.Max(stars, 0), 5);
         }
     }
 }

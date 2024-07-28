@@ -1,7 +1,5 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
-using System;
-using UnityEngine;
 
 namespace ProjectAdvergame.Module.GameWin
 {
@@ -9,6 +7,17 @@ namespace ProjectAdvergame.Module.GameWin
     {
         internal void OnGameWin(GameWinMessage message)
         {
+            _view.gameWinPanel.SetActive(true);
+        }
+
+        internal void ShowHeartResult(GameResultHeartMessage message)
+        {
+            _view.heartResultText.SetText(message.HeartAmount.ToString());
+        }
+
+        internal void ShowStarResult(GameResultStarMessage message)
+        {
+            _view.starResultText.SetText(message.StarAmount.ToString());
         }
     }
 }

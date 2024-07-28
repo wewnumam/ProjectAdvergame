@@ -90,6 +90,8 @@ namespace ProjectAdvergame.Scene.Gameplay
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
 
+            RenderSettings.skybox = _levelData.Model.CurrentLevelData.skybox;
+
             _view.SetButtonCallback(GoToGameplay);
 
             Instantiate(_levelData.Model.CurrentLevelData.environmentPrefab);
@@ -107,6 +109,7 @@ namespace ProjectAdvergame.Scene.Gameplay
             _musicPlayer.SetMusicClip(_levelData.Model.CurrentLevelData.musicClip);
             _musicPlayer.SetView(_view.MusicPlayerView);
 
+            _score.SetBeatCollections(_levelData.Model.CurrentLevelData.beatCollections);
             _score.SetScoreEarlyAmount(_gameConstants.Model.GameConstants.scoreEarlyAmount);
             _score.SetScorePerfectAmount(_gameConstants.Model.GameConstants.scorePerfectAmount);
             _score.SetScoreLateAmount(_gameConstants.Model.GameConstants.scoreLateAmount);

@@ -10,11 +10,13 @@ namespace ProjectAdvergame.Module.Score
         protected override void Connect()
         {
             Subscribe<BeatAccuracyMessage>(_score.AddScore);
+            Subscribe<GameWinMessage>(_score.OnGameWin);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<BeatAccuracyMessage>(_score.AddScore);
+            Unsubscribe<GameWinMessage>(_score.OnGameWin);
         }
     }
 }

@@ -10,11 +10,15 @@ namespace ProjectAdvergame.Module.GameWin
         protected override void Connect()
         {
             Subscribe<GameWinMessage>(_gameWin.OnGameWin);
+            Subscribe<GameResultHeartMessage>(_gameWin.ShowHeartResult);
+            Subscribe<GameResultStarMessage>(_gameWin.ShowStarResult);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<GameWinMessage>(_gameWin.OnGameWin);
+            Unsubscribe<GameResultHeartMessage>(_gameWin.ShowHeartResult);
+            Unsubscribe<GameResultStarMessage>(_gameWin.ShowStarResult);
         }
     }
 }

@@ -1,6 +1,7 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Utility;
+using System;
 
 namespace ProjectAdvergame.Module.Health
 {
@@ -20,6 +21,11 @@ namespace ProjectAdvergame.Module.Health
         internal void IncreaseHealth(AddHealthMessage message)
         {
             _model.IncreaseHealth();
+        }
+
+        internal void OnGameWin(GameWinMessage message)
+        {
+            Publish(new GameResultHeartMessage(_model.CurrentHealth));
         }
     }
 }
