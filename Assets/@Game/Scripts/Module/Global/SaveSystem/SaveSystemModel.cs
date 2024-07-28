@@ -1,5 +1,7 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Utility;
+using System;
+using Tayx.Graphy.Utils.NumString;
 
 namespace ProjectAdvergame.Module.SaveSystem
 {
@@ -31,16 +33,21 @@ namespace ProjectAdvergame.Module.SaveSystem
             SetDataAsDirty();
         }
 
-        public void AddStar(int amount)
+        public void SetStarRecord(int starAmount)
         {
-            SaveData.CurrentStarCount += amount;
+            StarRecords previousStarRecord = SaveData.GetStarRecordsByLevelName(SaveData.CurrentLevelName);
+            int starCount = starAmount < previousStarRecord.StarCount ? previousStarRecord.StarCount : starAmount;
+
+            SaveData.GetStarRecordsByLevelName(SaveData.CurrentLevelName).StarCount = starCount;
             SetDataAsDirty();
         }
 
-        public void SubtractStar(int amount)
+        public void AddStarRecord(string LevelName)
         {
-            SaveData.CurrentStarCount -= amount;
+            StarRecords starRecords = new StarRecords(LevelName, 0);
+            SaveData.UnlockedLevels.Add(starRecords);
             SetDataAsDirty();
         }
+
     }
 }

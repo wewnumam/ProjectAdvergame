@@ -11,12 +11,14 @@ namespace ProjectAdvergame.Module.SaveSystem
         {
             Subscribe<GameResultHeartMessage>(_saveSystem.SaveHeartResult);
             Subscribe<GameResultStarMessage>(_saveSystem.SaveStarResult);
+            Subscribe<UnlockLevelMessage>(_saveSystem.UnlockLevel);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<GameResultHeartMessage>(_saveSystem.SaveHeartResult);
             Unsubscribe<GameResultStarMessage>(_saveSystem.SaveStarResult);
+            Unsubscribe<UnlockLevelMessage>(_saveSystem.UnlockLevel);
         }
     }
 }

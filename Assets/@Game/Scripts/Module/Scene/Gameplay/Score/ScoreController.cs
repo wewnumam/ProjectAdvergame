@@ -11,10 +11,7 @@ namespace ProjectAdvergame.Module.Score
     {
         private List<BeatCollection> _beatCollections;
 
-        public void SetBeatCollections(List<BeatCollection> beatCollections)
-        {
-            _beatCollections = beatCollections;
-        }
+        public void SetBeatCollections(List<BeatCollection> beatCollections) => _beatCollections = beatCollections;
 
         public void SetScoreEarlyAmount(int amount) => _model.SetScoreEarlyAmount(amount);
         public void SetScorePerfectAmount(int amount) => _model.SetScorePerfectAmount(amount);
@@ -31,7 +28,6 @@ namespace ProjectAdvergame.Module.Score
             int totalBeat = 0;
             foreach (var beatCollection in _beatCollections)
                 totalBeat += beatCollection.beats.Count;
-            
 
             Publish(new GameResultStarMessage(_model.StarCalculator(totalBeat)));
         }

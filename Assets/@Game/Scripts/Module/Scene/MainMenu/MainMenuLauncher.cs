@@ -9,6 +9,7 @@ using ProjectAdvergame.Module.LevelSelection;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.SaveSystem;
 using UnityEngine;
+using ProjectAdvergame.Module.Stats;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -21,12 +22,14 @@ namespace ProjectAdvergame.Scene.MainMenu
 
         private QuitController _quit;
         private LevelSelectionController _levelSelection;
+        private StatsController _stats;
 
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
                 new QuitController(),
                 new LevelSelectionController(),
+                new StatsController(),
             };
         }
 
@@ -34,6 +37,7 @@ namespace ProjectAdvergame.Scene.MainMenu
         {
             return new IConnector[] {
                 new LevelSelectionConnector(),
+                new StatsConnector(),
             };
         }
 
@@ -56,8 +60,14 @@ namespace ProjectAdvergame.Scene.MainMenu
             _quit.SetView(_view.QuitView);
 
             _levelSelection.SetLevelCollection(_levelData.Model.LevelCollection);
+            _levelSelection.SetUnlockedLevel(_saveSystem.Model.SaveData.UnlockedLevels);
+            _levelSelection.SetCurrentHeartCount(_saveSystem.Model.SaveData.CurrentHeartCount);
             _levelSelection.SetView(_view.LevelSelectionView);
-            
+
+            _stats.SetCurrentHeart(_saveSystem.Model.SaveData.CurrentHeartCount);
+            _stats.SetCurrentStar(_saveSystem.Model.SaveData.GetTotalStarCount());
+            _stats.SetView(_view.StatsView);
+
             yield return null;
         }
 

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using ProjectAdvergame.Module.Quit;
 using ProjectAdvergame.Module.LevelSelection;
 using TMPro;
+using ProjectAdvergame.Module.Stats;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -15,6 +16,7 @@ namespace ProjectAdvergame.Scene.MainMenu
 
         public QuitView QuitView;
         public LevelSelectionView LevelSelectionView;
+        public StatsView StatsView;
 
         public Button playButton;
 

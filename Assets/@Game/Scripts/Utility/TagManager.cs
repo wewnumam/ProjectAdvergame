@@ -6,5 +6,10 @@
         public const string TAG_COLLIDER_EARLY = "Collider_Early";
         public const string TAG_COLLIDER_PERFECT = "Collider_Perfect";
         public const string TAG_COLLIDER_LATE = "Collider_Late";
+
+        public const string DEFAULT_LEVELNAME = "LevelData_0";
+        public const string DEFAULT_SAVEFILENAME = "SaveData.json";
+
+        public const string KEY_VERSION = "version";
     }
 }

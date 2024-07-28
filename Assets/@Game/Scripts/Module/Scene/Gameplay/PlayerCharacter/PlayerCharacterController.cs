@@ -25,7 +25,7 @@ namespace ProjectAdvergame.Module.PlayerCharacter
             if (message.BeatAccuracy == Utility.EnumManager.BeatAccuracy.Early)
                 _view.reactionImage.sprite = _view.earlyReaction;
             else if (message.BeatAccuracy == Utility.EnumManager.BeatAccuracy.Perfect)
-                _view.reactionImage.sprite = _view.perfectReaction;
+                _view.reactionImage.sprite = _view.perfectReactions[UnityEngine.Random.Range(0, _view.perfectReactions.Count)];
             else if (message.BeatAccuracy == Utility.EnumManager.BeatAccuracy.Late)
                 _view.reactionImage.sprite = _view.lateReaction;
 

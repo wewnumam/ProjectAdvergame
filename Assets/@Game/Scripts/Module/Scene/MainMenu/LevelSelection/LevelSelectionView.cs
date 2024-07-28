@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.LevelItem;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -45,10 +46,20 @@ namespace ProjectAdvergame.Module.LevelSelection
 
             for (global::System.Int32 i = 0; i < listedLevel.Count; i++)
             {
-                listedLevel[i].GetComponent<LevelItemView>().levelData = model.LevelCollection.levelItems[i].levelData;
-                listedLevel[i].GetComponent<LevelItemView>().title.SetText(model.LevelCollection.levelItems[i].name);
-                listedLevel[i].GetComponent<LevelItemView>().cost.SetText(model.LevelCollection.levelItems[i].cost.ToString());
-                onInitLevelItem?.Invoke(listedLevel[i].GetComponent<LevelItemView>());
+                LevelItemView levelItemView = listedLevel[i].GetComponent<LevelItemView>();
+                LevelData.LevelItem levelItem = model.LevelCollection.levelItems[i];
+
+                levelItemView.levelItem = levelItem;
+                levelItemView.levelData = levelItem.levelData;
+                levelItemView.title.SetText(levelItem.name);
+                levelItemView.cost.SetText($"{levelItem.cost}");
+
+                StarRecords starRecords = model.UnlockedLevels.FirstOrDefault(r => r.LevelName == levelItem.levelData.name);
+                levelItemView.chooseButton.gameObject.SetActive(starRecords != null);
+                levelItemView.unlockButton.gameObject.SetActive(starRecords == null);
+                levelItemView.unlockButton.interactable = model.CurrentHeartCount > levelItem.cost;
+
+                onInitLevelItem?.Invoke(levelItemView);
             }
         }
     }

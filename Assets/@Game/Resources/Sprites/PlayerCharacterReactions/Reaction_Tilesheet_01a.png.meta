@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f6faf0f2901fb9743b28be0011c0ea6d
+guid: 0702edd5f6ac8214e9aa40ad5b8d0060
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_0
+      name: Emoji Sheet Rev_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 76
-        width: 32
-        height: 38
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c476a96ff030764aad6bb4af6ab7f65
-      internalID: -826029261
+      spriteID: f80509e47a9c98f44b511082fdd99d45
+      internalID: -1135626241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_1
+      name: Emoji Sheet Rev_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 76
-        width: 32
-        height: 38
+        x: 200
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7e8b336b9fda80438d2666ae49d07a5
-      internalID: 361878224
+      spriteID: 3bcb5a65d673a1a4492eb49049f05915
+      internalID: 318353018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_2
+      name: Emoji Sheet Rev_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 76
-        width: 32
-        height: 38
+        x: 400
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 297334d57f9819745a78d2e715b21293
-      internalID: -1108853123
+      spriteID: 5d1f068f509ce79489e545499b0deffe
+      internalID: 92017557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_3
+      name: Emoji Sheet Rev_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 76
-        width: 32
-        height: 38
+        x: 600
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,146 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b143553bf042994397dee0deaa9ea6c
-      internalID: 1887873549
+      spriteID: 2a253605b0196fe4caf4963c77df2298
+      internalID: 1399447786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 76
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0f14686a7041c04fb7289243b6c8ead
-      internalID: -262807116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 76
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 10819748e96eee54094254ac5dc21b85
-      internalID: 656606958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 76
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cac63b8ba325f3a429d15065f3ecd166
-      internalID: -73069933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 76
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c9e8b9f85f7a5b49ade7870eb8b2e9b
-      internalID: -480967578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 76
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0894e05af0e461c458df1740b40b8433
-      internalID: 2066052037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 76
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43f1ed38a062043428c4cdeb8ecca55e
-      internalID: 649990316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_10
+      name: Emoji Sheet Rev_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 38
-        width: 32
-        height: 38
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4689d22532d306242861abc3f8e44c63
-      internalID: 412278330
+      spriteID: a4421413e90597c439dca3ab02c7ea2e
+      internalID: -596331885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_11
+      name: Emoji Sheet Rev_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 38
-        width: 32
-        height: 38
+        x: 200
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9df8e72d1789102498b291dcfc67b152
-      internalID: 1415667526
+      spriteID: 87a8928d1ba36044e963323806daacc9
+      internalID: 534510831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_12
+      name: Emoji Sheet Rev_6
       rect:
         serializedVersion: 2
-        x: 64
-        y: 38
-        width: 32
-        height: 38
+        x: 400
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0139061574eadeb409f6fee4f9a2480b
-      internalID: 1977979744
+      spriteID: 72c46bfae0acecd4480f7a28c1e6fa1b
+      internalID: -1488146195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_13
+      name: Emoji Sheet Rev_7
       rect:
         serializedVersion: 2
-        x: 96
-        y: 38
-        width: 32
-        height: 38
+        x: 600
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,146 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7f496b4ad486d44f92dca227e040fb2
-      internalID: -1770276084
+      spriteID: debf628b67d45c84ca14e64abf9069d4
+      internalID: 1018075432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_14
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 38
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11be4128c3d3edc49948ba8228c32271
-      internalID: -674390810
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_15
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 38
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d513f1483ea35404aae1ae9d33b38ad0
-      internalID: 804192107
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_16
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 38
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9bf662cecae08d24c88bb50593fe8913
-      internalID: -17820196
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_17
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 38
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 433146a203879b844a7930d6e634e50c
-      internalID: 1687795662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_18
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 38
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3437238b59814243a5b13ad172e4e0e
-      internalID: 1541575636
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_19
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 38
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f84f4cef8f971384e9c12a488c21d451
-      internalID: -2144326363
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_20
+      name: Emoji Sheet Rev_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 38
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -570,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9600c870e35a08f4d8389e462fa73eb7
-      internalID: 611133576
+      spriteID: 96a6aaa3daa714742b2258084472787a
+      internalID: 380110566
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_21
+      name: Emoji Sheet Rev_9
       rect:
         serializedVersion: 2
-        x: 32
+        x: 200
         y: 0
-        width: 32
-        height: 38
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -591,20 +339,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: feba309cb3421ed41942739b025db155
-      internalID: -657493323
+      spriteID: 17e63f3259d7239499b8182f99396759
+      internalID: -2099013948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_22
+      name: Emoji Sheet Rev_10
       rect:
         serializedVersion: 2
-        x: 64
+        x: 400
         y: 0
-        width: 32
-        height: 38
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -612,20 +360,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83f0c0579fcbe1642ab5f8e8592acbd4
-      internalID: -237616554
+      spriteID: 9e3a19ed48cd05f4bbf9b41561172be0
+      internalID: 1505338744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_23
+      name: Emoji Sheet Rev_11
       rect:
         serializedVersion: 2
-        x: 96
+        x: 600
         y: 0
-        width: 32
-        height: 38
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -633,134 +381,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 083febe9f71deb64495f54b5b7479ba8
-      internalID: -689331136
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_24
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b015f291fef29f6428ab19a4bfc57e4f
-      internalID: -683846527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_25
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3f4d30bc33d03740a19d257a8066e30
-      internalID: -1885602745
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_26
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b44a98bfd627084680d9919284d9aa7
-      internalID: -1259984794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_27
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f6e47d23ce8824448191055ff7d46f1
-      internalID: 1101222783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_28
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55bd21fe70e6a3d488cd55a987358a2d
-      internalID: 1858311974
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Reaction_Tilesheet_01a_29
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15aafe248bc2b124399308870c49f9b2
-      internalID: -817309558
+      spriteID: 652000ba96108d14cb994e64dd89d5f0
+      internalID: 1703133654
       vertices: []
       indices: 
       edges: []
@@ -768,7 +390,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 622197e150e3da64c82fed8beddcc157
+    spriteID: 6f8d08ca7ff75bd4e8f7373a2422c898
     internalID: 0
     vertices: []
     indices: 
@@ -776,36 +398,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Reaction_Tilesheet_01a_0: -826029261
-      Reaction_Tilesheet_01a_1: 361878224
-      Reaction_Tilesheet_01a_10: 412278330
-      Reaction_Tilesheet_01a_11: 1415667526
-      Reaction_Tilesheet_01a_12: 1977979744
-      Reaction_Tilesheet_01a_13: -1770276084
-      Reaction_Tilesheet_01a_14: -674390810
-      Reaction_Tilesheet_01a_15: 804192107
-      Reaction_Tilesheet_01a_16: -17820196
-      Reaction_Tilesheet_01a_17: 1687795662
-      Reaction_Tilesheet_01a_18: 1541575636
-      Reaction_Tilesheet_01a_19: -2144326363
-      Reaction_Tilesheet_01a_2: -1108853123
-      Reaction_Tilesheet_01a_20: 611133576
-      Reaction_Tilesheet_01a_21: -657493323
-      Reaction_Tilesheet_01a_22: -237616554
-      Reaction_Tilesheet_01a_23: -689331136
-      Reaction_Tilesheet_01a_24: -683846527
-      Reaction_Tilesheet_01a_25: -1885602745
-      Reaction_Tilesheet_01a_26: -1259984794
-      Reaction_Tilesheet_01a_27: 1101222783
-      Reaction_Tilesheet_01a_28: 1858311974
-      Reaction_Tilesheet_01a_29: -817309558
-      Reaction_Tilesheet_01a_3: 1887873549
-      Reaction_Tilesheet_01a_4: -262807116
-      Reaction_Tilesheet_01a_5: 656606958
-      Reaction_Tilesheet_01a_6: -73069933
-      Reaction_Tilesheet_01a_7: -480967578
-      Reaction_Tilesheet_01a_8: 2066052037
-      Reaction_Tilesheet_01a_9: 649990316
+      Emoji Sheet Rev_0: -1135626241
+      Emoji Sheet Rev_1: 318353018
+      Emoji Sheet Rev_10: 1505338744
+      Emoji Sheet Rev_11: 1703133654
+      Emoji Sheet Rev_2: 92017557
+      Emoji Sheet Rev_3: 1399447786
+      Emoji Sheet Rev_4: -596331885
+      Emoji Sheet Rev_5: 534510831
+      Emoji Sheet Rev_6: -1488146195
+      Emoji Sheet Rev_7: 1018075432
+      Emoji Sheet Rev_8: 380110566
+      Emoji Sheet Rev_9: -2099013948
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
