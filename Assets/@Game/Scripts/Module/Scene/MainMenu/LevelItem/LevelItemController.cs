@@ -1,20 +1,25 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
-using UnityEngine;
+
 
 namespace ProjectAdvergame.Module.LevelItem
 {
-    public class LevelItemController : ObjectController<LevelItemController, LevelItemView>
+    public class LevelItemController : ObjectController<LevelItemController, LevelItemModel, ILevelItemModel, LevelItemView>
     {
-        public void Init(LevelItemView levelItemView)
+        public void SetCurrentHeartCount(int count) => _model.SetCurrentHeartCount(count);
+
+        public void SubstractHeart(int cost) => _model.SubtractHeart(cost);
+
+        public void Init(LevelItemModel model, LevelItemView view)
         {
-            SetView(levelItemView);
+            _model = model;
+            SetView(view);
         }
 
         public override void SetView(LevelItemView view)
         {
             base.SetView(view);
-            view.SetCallback(OnChooseLevel, OnUnlockLevel);
+            view.SetCallback(OnChooseLevel, OnUnlockLevel, OnSubstractHeart);
         }
 
         private void OnChooseLevel()
@@ -27,6 +32,11 @@ namespace ProjectAdvergame.Module.LevelItem
             _view.chooseButton.gameObject.SetActive(true);
             _view.unlockButton.gameObject.SetActive(false);
             Publish(new UnlockLevelMessage(_view.levelItem));
+        }
+
+        private void OnSubstractHeart(int cost)
+        {
+            _model.SubtractHeart(cost);
         }
     }
 }

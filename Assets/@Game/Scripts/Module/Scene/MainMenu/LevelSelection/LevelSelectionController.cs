@@ -1,7 +1,11 @@
 using Agate.MVC.Base;
+using Agate.MVC.Core;
+using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.LevelItem;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.LevelSelection
@@ -15,15 +19,40 @@ namespace ProjectAdvergame.Module.LevelSelection
         public override void SetView(LevelSelectionView view)
         {
             base.SetView(view);
-            view.SetCallback(OnInitLevelItem);
-            _model.UpdateRender();
+
+            for (global::System.Int32 i = view.listedLevel.Count; i < _model.LevelCollection.levelItems.Count; i++)
+            {
+                GameObject obj = GameObject.Instantiate(view.template, view.container);
+                obj.SetActive(true);
+
+                LevelItemView levelItemView = obj.GetComponent<LevelItemView>();
+                LevelData.LevelItem levelItem = _model.LevelCollection.levelItems[i];
+
+                view.listedLevel.Add(levelItemView);
+
+                levelItemView.levelItem = levelItem;
+                levelItemView.levelData = levelItem.levelData;
+                levelItemView.title.SetText(levelItem.name);
+                levelItemView.cost.SetText($"{levelItem.cost}");
+
+                StarRecords starRecords = _model.UnlockedLevels.FirstOrDefault(r => r.LevelName == levelItem.levelData.name);
+                levelItemView.chooseButton.gameObject.SetActive(starRecords != null);
+                levelItemView.unlockButton.gameObject.SetActive(starRecords == null);
+                levelItemView.unlockButton.interactable = _model.CurrentHeartCount >= levelItem.cost;
+
+                LevelItemModel levelItemModel = new LevelItemModel();
+                LevelItemController levelItemController = new LevelItemController();
+                InjectDependencies(levelItemController);
+                levelItemController.Init(levelItemModel, levelItemView);
+                levelItemController.SetCurrentHeartCount(_model.CurrentHeartCount);
+            }
         }
 
-        private void OnInitLevelItem(LevelItemView levelItemView)
+        internal void OnUnlockLevel(UnlockLevelMessage message)
         {
-            LevelItemController instance = new LevelItemController();
-            InjectDependencies(instance);
-            instance.Init(levelItemView);
+            _model.SubtractHeart(message.LevelItem.cost);
+
+            _view.listedLevel.ForEach(item => item.SubstractHeart(message.LevelItem.cost));
         }
     }
 }

@@ -1,4 +1,6 @@
 using Agate.MVC.Base;
+using ProjectAdvergame.Message;
+using System;
 
 namespace ProjectAdvergame.Module.Stats
 {
@@ -12,6 +14,11 @@ namespace ProjectAdvergame.Module.Stats
         {
             base.SetView(view);
             _model.UpdateRender();
+        }
+
+        internal void OnUnlockLevel(UnlockLevelMessage message)
+        {
+            _model.SubtractHeart(message.LevelItem.cost);
         }
     }
 }

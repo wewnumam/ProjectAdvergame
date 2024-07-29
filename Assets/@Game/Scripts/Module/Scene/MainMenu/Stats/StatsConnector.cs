@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using ProjectAdvergame.Message;
 
 namespace ProjectAdvergame.Module.Stats
 {
@@ -8,10 +9,12 @@ namespace ProjectAdvergame.Module.Stats
 
         protected override void Connect()
         {
+            Subscribe<UnlockLevelMessage>(_stats.OnUnlockLevel);
         }
 
         protected override void Disconnect()
         {
+            Unsubscribe<UnlockLevelMessage>(_stats.OnUnlockLevel);
         }
     }
 }

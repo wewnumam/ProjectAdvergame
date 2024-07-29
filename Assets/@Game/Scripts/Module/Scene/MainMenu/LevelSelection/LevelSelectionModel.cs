@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Module.LevelData;
+using System;
 using System.Collections.Generic;
 
 namespace ProjectAdvergame.Module.LevelSelection
@@ -30,6 +31,12 @@ namespace ProjectAdvergame.Module.LevelSelection
 
         public void UpdateRender()
         {
+            SetDataAsDirty();
+        }
+
+        internal void SubtractHeart(int cost)
+        {
+            CurrentHeartCount -= cost;
             SetDataAsDirty();
         }
     }

@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using System;
 
 namespace ProjectAdvergame.Module.Stats
 {
@@ -21,5 +22,11 @@ namespace ProjectAdvergame.Module.Stats
         }
 
         public void UpdateRender() => SetDataAsDirty();
+
+        public void SubtractHeart(int amount)
+        {
+            CurrentHeart -= amount;
+            SetDataAsDirty();
+        }
     }
 }
