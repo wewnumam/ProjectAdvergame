@@ -15,6 +15,14 @@ namespace ProjectAdvergame.Module.LevelSelection
         public void SetLevelCollection(SO_LevelCollection levelCollection) => _model.SetLevelCollection(levelCollection);
         public void SetUnlockedLevel(List<StarRecords> unlockedLevels) => _model.SetUnlockedLevel(unlockedLevels);
         public void SetCurrentHeartCount(int count) => _model.SetCurrentHeartCount(count);
+        public void SetCurrentContent(string levelName)
+        {
+            SO_LevelData levelData = _model.LevelCollection.levelItems.FirstOrDefault(r => r.name == levelName);
+            StarRecords starRecords = _model.UnlockedLevels.FirstOrDefault(r => r.LevelName == levelName);
+            _model.SetCurrentLevelTitle(levelData.title);
+            _model.SetCurrentLevelStar(starRecords.StarCount);
+        }
+
 
         public override void SetView(LevelSelectionView view)
         {
@@ -26,16 +34,15 @@ namespace ProjectAdvergame.Module.LevelSelection
                 obj.SetActive(true);
 
                 LevelItemView levelItemView = obj.GetComponent<LevelItemView>();
-                LevelData.LevelItem levelItem = _model.LevelCollection.levelItems[i];
+                SO_LevelData levelItem = _model.LevelCollection.levelItems[i];
 
                 view.listedLevel.Add(levelItemView);
 
-                levelItemView.levelItem = levelItem;
-                levelItemView.levelData = levelItem.levelData;
-                levelItemView.title.SetText(levelItem.name);
+                levelItemView.levelData = levelItem;
+                levelItemView.title.SetText(levelItem.title);
                 levelItemView.cost.SetText($"{levelItem.cost}");
 
-                StarRecords starRecords = _model.UnlockedLevels.FirstOrDefault(r => r.LevelName == levelItem.levelData.name);
+                StarRecords starRecords = _model.UnlockedLevels.FirstOrDefault(r => r.LevelName == levelItem.name);
                 levelItemView.chooseButton.gameObject.SetActive(starRecords != null);
                 levelItemView.unlockButton.gameObject.SetActive(starRecords == null);
                 levelItemView.unlockButton.interactable = _model.CurrentHeartCount >= levelItem.cost;
@@ -46,6 +53,11 @@ namespace ProjectAdvergame.Module.LevelSelection
                 levelItemController.Init(levelItemModel, levelItemView);
                 levelItemController.SetCurrentHeartCount(_model.CurrentHeartCount);
             }
+        }
+
+        internal void OnChooseLevel(ChooseLevelMessage message)
+        {
+            SetCurrentContent(message.LevelName);
         }
 
         internal void OnUnlockLevel(UnlockLevelMessage message)

@@ -12,8 +12,6 @@ namespace ProjectAdvergame.Scene.MainMenu
 {
     public class MainMenuView : BaseSceneView
     {
-        public TMP_Text currentLevelText;
-
         public QuitView QuitView;
         public LevelSelectionView LevelSelectionView;
         public StatsView StatsView;

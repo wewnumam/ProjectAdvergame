@@ -11,7 +11,6 @@ namespace ProjectAdvergame.Module.LevelItem
 {
     public class LevelItemView : ObjectView<ILevelItemModel>
     {
-        [ReadOnly] public LevelData.LevelItem levelItem;
         [ReadOnly] public SO_LevelData levelData;
 
         public TMP_Text title;
@@ -37,7 +36,7 @@ namespace ProjectAdvergame.Module.LevelItem
 
         protected override void UpdateRenderModel(ILevelItemModel model)
         {
-            unlockButton.interactable = model.CurrentHeartCount >= levelItem.cost;
+            unlockButton.interactable = model.CurrentHeartCount >= levelData.cost;
         }
 
         internal void SubstractHeart(int cost)

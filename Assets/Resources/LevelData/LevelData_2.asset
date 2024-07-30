@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2653e6341e0974ea73636a4e7be13f, type: 3}
   m_Name: LevelData_2
   m_EditorClassIdentifier: 
+  title: Salahkah Berharap
+  cost: 10
   beatCollections:
   - beats:
     - interval: 1

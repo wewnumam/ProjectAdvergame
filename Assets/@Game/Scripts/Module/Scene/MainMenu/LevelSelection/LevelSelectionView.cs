@@ -1,13 +1,10 @@
 using Agate.MVC.Base;
-using Agate.MVC.Core;
 using NaughtyAttributes;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.LevelItem;
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace ProjectAdvergame.Module.LevelSelection
 {
@@ -17,6 +14,7 @@ namespace ProjectAdvergame.Module.LevelSelection
         [ReadOnly] public List<LevelItemView> listedLevel;
         public Transform container;
         public GameObject template;
+        public TMP_Text currentLevelText;
 
         protected override void InitRenderModel(ILevelSelectionModel model)
         {
@@ -24,6 +22,7 @@ namespace ProjectAdvergame.Module.LevelSelection
 
         protected override void UpdateRenderModel(ILevelSelectionModel model)
         {
+            currentLevelText.SetText($"{model.CurrentLevelTitle} ({model.CurrentLevelStar})");
         }
 
         internal void SubstractLevelItemHeart(int cost)

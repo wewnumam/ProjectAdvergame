@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: LevelCollection
   m_EditorClassIdentifier: 
   levelItems:
-  - name: Rumit
-    levelData: {fileID: 11400000, guid: 5daa64cb427a95542be9aa9725657d9c, type: 2}
-    cost: 0
-  - name: Masalah Logika
-    levelData: {fileID: 11400000, guid: fe5676aba043dc941bfde021255cfff5, type: 2}
-    cost: 10
-  - name: Salahkah Berharap
-    levelData: {fileID: 11400000, guid: 3dec0c61568cb514cadabce9fd5d610c, type: 2}
-    cost: 10
+  - {fileID: 11400000, guid: 5daa64cb427a95542be9aa9725657d9c, type: 2}
+  - {fileID: 11400000, guid: fe5676aba043dc941bfde021255cfff5, type: 2}
+  - {fileID: 11400000, guid: 3dec0c61568cb514cadabce9fd5d610c, type: 2}

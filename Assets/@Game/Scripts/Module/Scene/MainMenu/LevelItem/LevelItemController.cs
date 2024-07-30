@@ -31,7 +31,7 @@ namespace ProjectAdvergame.Module.LevelItem
         {
             _view.chooseButton.gameObject.SetActive(true);
             _view.unlockButton.gameObject.SetActive(false);
-            Publish(new UnlockLevelMessage(_view.levelItem));
+            Publish(new UnlockLevelMessage(_view.levelData));
         }
 
         private void OnSubstractHeart(int cost)

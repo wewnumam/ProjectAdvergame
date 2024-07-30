@@ -9,5 +9,7 @@ namespace ProjectAdvergame.Module.LevelSelection
         SO_LevelCollection LevelCollection { get; }
         List<StarRecords> UnlockedLevels {  get; }
         int CurrentHeartCount { get; }
+        string CurrentLevelTitle { get; }
+        int CurrentLevelStar { get; }
     }
 }

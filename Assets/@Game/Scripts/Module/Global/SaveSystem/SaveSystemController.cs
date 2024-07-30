@@ -96,7 +96,7 @@ namespace ProjectAdvergame.Module.SaveSystem
         internal void UnlockLevel(UnlockLevelMessage message)
         {
             _model.SubtractHeart(message.LevelItem.cost);
-            _model.AddStarRecord(message.LevelItem.levelData.name);
+            _model.AddStarRecord(message.LevelItem.name);
             SaveGame(_model.SaveData);
         }
     }
