@@ -10,12 +10,13 @@ using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.SaveSystem;
 using UnityEngine;
 using ProjectAdvergame.Module.Stats;
+using ProjectAdvergame.Utility;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
     public class MainMenuLauncher : SceneLauncher<MainMenuLauncher, MainMenuView>
     {
-        public override string SceneName {get {return "MainMenu";}}
+        public override string SceneName {get {return TagManager.SCENE_MAINMENU;}}
 
         private SaveSystemController _saveSystem;
         private LevelDataController _levelData;

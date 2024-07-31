@@ -10,11 +10,15 @@ namespace ProjectAdvergame.Module.GamePause
         protected override void Connect()
         {
             Subscribe<GamePauseMessage>(_gamePause.OnPause);
+            Subscribe<GameOverMessage>(_gamePause.OnGameOver);
+            Subscribe<GameWinMessage>(_gamePause.OnGameWin);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<GamePauseMessage>(_gamePause.OnPause);
+            Unsubscribe<GameOverMessage>(_gamePause.OnGameOver);
+            Unsubscribe<GameWinMessage>(_gamePause.OnGameWin);
         }
     }
 }

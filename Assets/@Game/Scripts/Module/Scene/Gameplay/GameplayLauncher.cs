@@ -20,12 +20,13 @@ using ProjectAdvergame.Module.GameWin;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.OnReady;
 using ProjectAdvergame.Module.SaveSystem;
+using ProjectAdvergame.Utility;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
     public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
     {
-        public override string SceneName {get {return "Gameplay";}}
+        public override string SceneName {get {return TagManager.SCENE_GAMEPLAY;}}
 
         private SaveSystemController _saveSystem;
         private GameConstantsController _gameConstants;
@@ -38,6 +39,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         private MusicPlayerController _musicPlayer;
         private ScoreController _score;
         private HealthController _health;
+        private GamePauseController _gamePause;
         private GameOverController _gameOver;
         private GameWinController _gameWin;
         private OnReadyController _onReady;
@@ -92,8 +94,6 @@ namespace ProjectAdvergame.Scene.Gameplay
 
             RenderSettings.skybox = _levelData.Model.CurrentLevelData.skybox;
 
-            _view.SetButtonCallback(GoToGameplay);
-
             Instantiate(_levelData.Model.CurrentLevelData.environmentPrefab);
 
             _playerCharacter.SetView(_view.PlayerCharacterView);
@@ -118,6 +118,8 @@ namespace ProjectAdvergame.Scene.Gameplay
             _health.SetCurrentHealth(_gameConstants.Model.GameConstants.initialHealth);
             _health.SetView(_view.HealthView);
 
+            _gamePause.SetView(_view.GamePauseView);
+
             _gameOver.SetView(_view.GameOverView);
 
             _gameWin.SetView(_view.GameWinView);
@@ -126,11 +128,6 @@ namespace ProjectAdvergame.Scene.Gameplay
             _onReady.SetOnReadyCountdown(_gameConstants.Model.GameConstants.onReadyCountdown);
 
             yield return null;
-        }
-
-        private void GoToGameplay()
-        {
-            SceneLoader.Instance.LoadScene("MainMenu");
         }
     }
 }

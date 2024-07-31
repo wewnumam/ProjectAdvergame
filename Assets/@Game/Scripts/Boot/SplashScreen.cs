@@ -1,8 +1,10 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace ProjectAdvergame.Boot
 {
@@ -13,6 +15,8 @@ namespace ProjectAdvergame.Boot
         [SerializeField] bool showGameInfo;
         [SerializeField] TMP_Text versionText;
         [SerializeField] TMP_Text activeSceneText;
+        [SerializeField] Image photoImage;
+        [SerializeField] List<Sprite> photoSprites;
 
         protected override IMain GetMain()
         {
@@ -58,7 +62,22 @@ namespace ProjectAdvergame.Boot
                 versionText.enabled = false;
                 activeSceneText.enabled = false;
             }
+            photoSprites = RollList(photoSprites, 1);
+            photoImage.sprite = photoSprites[0];
         }
 
+        private List<T> RollList<T>(List<T> list, int steps)
+        {
+            int count = list.Count;
+            if (count == 0 || steps <= 0)
+                return list;
+
+            steps = steps % count;
+            List<T> rolledList = new List<T>(count);
+            rolledList.AddRange(list.GetRange(count - steps, steps));
+            rolledList.AddRange(list.GetRange(0, count - steps));
+
+            return rolledList;
+        }
     }
 }

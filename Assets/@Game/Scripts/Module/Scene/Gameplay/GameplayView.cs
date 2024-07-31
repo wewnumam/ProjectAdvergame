@@ -1,7 +1,4 @@
 using Agate.MVC.Base;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Events;
 using ProjectAdvergame.Module.PlayerCharacter;
 using ProjectAdvergame.Module.StoneManager;
 using ProjectAdvergame.Module.CameraManager;
@@ -12,6 +9,7 @@ using ProjectAdvergame.Module.Health;
 using ProjectAdvergame.Module.GameOver;
 using ProjectAdvergame.Module.GameWin;
 using ProjectAdvergame.Module.OnReady;
+using ProjectAdvergame.Module.GamePause;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -24,18 +22,9 @@ namespace ProjectAdvergame.Scene.Gameplay
         public MusicPlayerView MusicPlayerView;
         public ScoreView ScoreView;
         public HealthView HealthView;
+        public GamePauseView GamePauseView;
         public GameOverView GameOverView;
         public GameWinView GameWinView;
         public OnReadyView OnReadyView;
-
-        [SerializeField]
-        private Button _button;
-
-
-        public void SetButtonCallback(UnityAction callback)
-        {
-            _button.onClick.RemoveAllListeners();
-            _button.onClick.AddListener(callback);
-        }
     }
 }
