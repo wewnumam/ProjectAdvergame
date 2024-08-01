@@ -2,6 +2,7 @@ using Agate.MVC.Base;
 using ProjectAdvergame.Module.LevelData;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ProjectAdvergame.Module.LevelSelection
 {
@@ -12,6 +13,8 @@ namespace ProjectAdvergame.Module.LevelSelection
         public int CurrentHeartCount { get; private set; }
         public string CurrentLevelTitle { get; private set; }
         public int CurrentLevelStar { get; private set; }
+        public Sprite CurrentArtwork { get; private set; }
+        public Color CurrentBackgroundColor { get; private set; }
 
         public void SetLevelCollection(SO_LevelCollection levelCollection)
         {
@@ -37,15 +40,12 @@ namespace ProjectAdvergame.Module.LevelSelection
             SetDataAsDirty();
         }
 
-        public void SetCurrentLevelTitle(string name)
+        public void SetCurrentContent(string title, int star, Sprite artwork, Color backgroundColor)
         {
-            CurrentLevelTitle = name;
-            SetDataAsDirty();
-        }
-
-        internal void SetCurrentLevelStar(int star)
-        {
+            CurrentLevelTitle = title;
             CurrentLevelStar = star;
+            CurrentArtwork = artwork;
+            CurrentBackgroundColor = backgroundColor;
             SetDataAsDirty();
         }
     }

@@ -5,6 +5,7 @@ using ProjectAdvergame.Module.LevelItem;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ProjectAdvergame.Module.LevelSelection
 {
@@ -15,6 +16,9 @@ namespace ProjectAdvergame.Module.LevelSelection
         public Transform container;
         public GameObject template;
         public TMP_Text currentLevelText;
+        public List<Image> starImages;
+        public Image artworkImage;
+        public Image backgroundImage;
 
         protected override void InitRenderModel(ILevelSelectionModel model)
         {
@@ -22,7 +26,12 @@ namespace ProjectAdvergame.Module.LevelSelection
 
         protected override void UpdateRenderModel(ILevelSelectionModel model)
         {
-            currentLevelText.SetText($"{model.CurrentLevelTitle} ({model.CurrentLevelStar})");
+            currentLevelText.SetText(model.CurrentLevelTitle);
+            artworkImage.sprite = model.CurrentArtwork;
+            backgroundImage.color = model.CurrentBackgroundColor;
+
+            for (int i = 0; i < starImages.Count; i++)
+                    starImages[i].enabled = i < model.CurrentLevelStar;
         }
 
         internal void SubstractLevelItemHeart(int cost)

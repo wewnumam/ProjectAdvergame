@@ -19,10 +19,8 @@ namespace ProjectAdvergame.Module.LevelSelection
         {
             SO_LevelData levelData = _model.LevelCollection.levelItems.FirstOrDefault(r => r.name == levelName);
             StarRecords starRecords = _model.UnlockedLevels.FirstOrDefault(r => r.LevelName == levelName);
-            _model.SetCurrentLevelTitle(levelData.title);
-            _model.SetCurrentLevelStar(starRecords.StarCount);
+            _model.SetCurrentContent(levelData.title, starRecords.StarCount, levelData.artwork, levelData.backgroundColor);
         }
-
 
         public override void SetView(LevelSelectionView view)
         {
