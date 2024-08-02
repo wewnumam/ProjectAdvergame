@@ -12,6 +12,8 @@ namespace ProjectAdvergame.Module.SaveSystem
             Subscribe<GameResultHeartMessage>(_saveSystem.SaveHeartResult);
             Subscribe<GameResultStarMessage>(_saveSystem.SaveStarResult);
             Subscribe<UnlockLevelMessage>(_saveSystem.UnlockLevel);
+            Subscribe<DeleteSaveDataMessage>(_saveSystem.DeleteSaveData);
+            Subscribe<FullStarMessage>(_saveSystem.FullStar);
         }
 
         protected override void Disconnect()
@@ -19,6 +21,8 @@ namespace ProjectAdvergame.Module.SaveSystem
             Unsubscribe<GameResultHeartMessage>(_saveSystem.SaveHeartResult);
             Unsubscribe<GameResultStarMessage>(_saveSystem.SaveStarResult);
             Unsubscribe<UnlockLevelMessage>(_saveSystem.UnlockLevel);
+            Unsubscribe<DeleteSaveDataMessage>(_saveSystem.DeleteSaveData);
+            Unsubscribe<FullStarMessage>(_saveSystem.FullStar);
         }
     }
 }

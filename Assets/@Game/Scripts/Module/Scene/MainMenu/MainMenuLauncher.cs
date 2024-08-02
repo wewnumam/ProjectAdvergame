@@ -11,6 +11,7 @@ using ProjectAdvergame.Module.SaveSystem;
 using UnityEngine;
 using ProjectAdvergame.Module.Stats;
 using ProjectAdvergame.Utility;
+using ProjectAdvergame.Module.CheatFeature;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -24,6 +25,7 @@ namespace ProjectAdvergame.Scene.MainMenu
         private QuitController _quit;
         private LevelSelectionController _levelSelection;
         private StatsController _stats;
+        private CheatFeatureController _cheatFeature;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -31,6 +33,7 @@ namespace ProjectAdvergame.Scene.MainMenu
                 new QuitController(),
                 new LevelSelectionController(),
                 new StatsController(),
+                new CheatFeatureController(),
             };
         }
 
@@ -69,6 +72,8 @@ namespace ProjectAdvergame.Scene.MainMenu
             _stats.SetCurrentHeart(_saveSystem.Model.SaveData.CurrentHeartCount);
             _stats.SetCurrentStar(_saveSystem.Model.SaveData.GetTotalStarCount());
             _stats.SetView(_view.StatsView);
+
+            _cheatFeature.SetView(_view.CheatFeatureView);
 
             yield return null;
         }

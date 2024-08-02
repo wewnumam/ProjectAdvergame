@@ -50,7 +50,7 @@ namespace ProjectAdvergame.Module.SaveSystem
             return data;
         }
 
-        public static bool DeleteSaveFile()
+        public bool DeleteSaveFile()
         {
             string path = Path.Combine(Application.persistentDataPath, TagManager.DEFAULT_SAVEFILENAME);
 
@@ -97,6 +97,18 @@ namespace ProjectAdvergame.Module.SaveSystem
         {
             _model.SubtractHeart(message.LevelItem.cost);
             _model.AddStarRecord(message.LevelItem.name);
+            SaveGame(_model.SaveData);
+        }
+
+        internal void DeleteSaveData(DeleteSaveDataMessage message)
+        {
+            DeleteSaveFile();
+            _model.SetSaveData(LoadGame());
+        }
+
+        internal void FullStar(FullStarMessage message)
+        {
+            _model.FullStar();
             SaveGame(_model.SaveData);
         }
     }

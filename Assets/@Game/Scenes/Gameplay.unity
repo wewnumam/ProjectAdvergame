@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 01adc1f83d6e1f441b0f52eed0853565, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 73d720f199aa4c441b0cfaf2e627620a, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1491920048}
-  m_IndirectSpecularColor: {r: 0.42193305, g: 0.3670825, b: 0.3380339, a: 1}
+  m_IndirectSpecularColor: {r: 0.20227516, g: 0.19271237, b: 0.31303343, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1654,6 +1654,7 @@ MonoBehaviour:
     type: 3}
   poolSize: 10
   distanceMultiplier: 0.5
+  isIncrease: 0
   healthObjects: []
   isImmortal: 0
 --- !u!1 &525373705

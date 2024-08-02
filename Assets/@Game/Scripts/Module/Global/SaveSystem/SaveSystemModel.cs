@@ -49,5 +49,11 @@ namespace ProjectAdvergame.Module.SaveSystem
             SetDataAsDirty();
         }
 
+        public void FullStar()
+        {
+            SaveData.UnlockedLevels.ForEach(level => level.StarCount = 5);
+            SetDataAsDirty();
+        }
+
     }
 }
