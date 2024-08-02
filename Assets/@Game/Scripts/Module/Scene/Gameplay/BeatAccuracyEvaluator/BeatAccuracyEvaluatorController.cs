@@ -31,6 +31,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         private void MovePlayerCharacter()
         {
             _view.tapIndex++;
+            _view.tapText?.SetText(_view.tapIndex.ToString());
             Publish(new MovePlayerCharacterMessage());
 
             if (_view.isPlaying)
@@ -59,6 +60,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             MovePlayerCharacter();
             SetText("LATE");
             Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Late));
+            Handheld.Vibrate();
         }
         
 
@@ -89,6 +91,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             {
                 SetText("EARLY");
                 Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Early));
+                Handheld.Vibrate();
             }
             else if (_view.IsPhasePerfect())
             {

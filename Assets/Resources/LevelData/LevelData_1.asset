@@ -12,47 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2653e6341e0974ea73636a4e7be13f, type: 3}
   m_Name: LevelData_1
   m_EditorClassIdentifier: 
-  title: Masalah Logika
-  cost: 10
+  title: Salahkah Berharap
   artwork: {fileID: 21300000, guid: df47ab136a2143d4a82ac98b165256ee, type: 3}
   backgroundColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  cost: 10
+  isUnlockByStar: 0
+  starAmount: 0
   beatCollections:
   - beats:
     - interval: 1
       type: 0
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
-        type: 3}
-    - interval: 1
-      type: 1
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+      prefab: {fileID: 9201010848253127158, guid: f44c1da7b3441be4691d2a75bf469244,
         type: 3}
     - interval: 1
       type: 0
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+      prefab: {fileID: 9201010848253127158, guid: f44c1da7b3441be4691d2a75bf469244,
         type: 3}
     - interval: 1
       type: 1
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+      prefab: {fileID: 9201010848253127158, guid: f44c1da7b3441be4691d2a75bf469244,
         type: 3}
     - interval: 1
       type: 0
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+      prefab: {fileID: 9201010848253127158, guid: f44c1da7b3441be4691d2a75bf469244,
         type: 3}
     - interval: 1
       type: 1
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+      prefab: {fileID: 9201010848253127158, guid: f44c1da7b3441be4691d2a75bf469244,
         type: 3}
     - interval: 1
       type: 0
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+      prefab: {fileID: 9201010848253127158, guid: f44c1da7b3441be4691d2a75bf469244,
         type: 3}
     - interval: 1
       type: 1
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+      prefab: {fileID: 9201010848253127158, guid: f44c1da7b3441be4691d2a75bf469244,
         type: 3}
     - interval: 1
       type: 0
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
+      prefab: {fileID: 9201010848253127158, guid: f44c1da7b3441be4691d2a75bf469244,
+        type: 3}
+    - interval: 1
+      type: 1
+      prefab: {fileID: 9201010848253127158, guid: f44c1da7b3441be4691d2a75bf469244,
+        type: 3}
+    - interval: 1
+      type: 0
+      prefab: {fileID: 9201010848253127158, guid: f44c1da7b3441be4691d2a75bf469244,
         type: 3}
     direction: 0
   environmentPrefab: {fileID: 6312222697657816425, guid: c911f2c658955dc4b9d590f6ce839d06,

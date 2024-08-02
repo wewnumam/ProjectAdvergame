@@ -16,6 +16,7 @@ namespace ProjectAdvergame.Module.Stone
         [ReadOnly] public StoneView previousStone;
         [ReadOnly] public bool isSwitchCamera;
 
+        public UnityAction onComplete;
         public UnityAction<StoneView> stoneFallEvent;
         private UnityAction<EnumManager.Direction> switchCameraEvent;
 
@@ -26,6 +27,7 @@ namespace ProjectAdvergame.Module.Stone
             transform.DOMove(new Vector3(0, 0, index), duration).SetEase(Ease.Linear).OnComplete(() => {
                 switchCameraEvent?.Invoke(direction);
                 previousStone?.Fall();
+                onComplete?.Invoke();
             });
         }
 

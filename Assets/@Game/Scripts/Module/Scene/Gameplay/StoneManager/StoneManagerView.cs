@@ -27,7 +27,10 @@ namespace ProjectAdvergame.Module.StoneManager
             currentStone.stoneType = type;
 
             if (type == EnumManager.StoneType.AddHealth)
-                Instantiate(addHealthPrefab, obj.transform);
+            {
+                GameObject healthObj = Instantiate(addHealthPrefab, obj.transform);
+                currentStone.onComplete += () => Destroy(healthObj);
+            }
 
             stones.Add(currentStone);
 

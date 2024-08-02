@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using Agate.MVC.Core;
 using NaughtyAttributes;
 using ProjectAdvergame.Module.LevelData;
 using System;
@@ -21,6 +22,9 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         public Slider indicator;
         public TMP_Text accuracyText;
         public TMP_Text currentIntervalText;
+        public TMP_Text currentBeatCollectionText;
+        public TMP_Text currentBeatText;
+        public TMP_Text tapText;
         
         [Header("Current State"), ReadOnly] public bool isPlaying;
         [ReadOnly] public int tapIndex;
@@ -57,12 +61,15 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
                 {
                     currentInterval = beatCollections[currentBeatCollectionIndex].beats[currentBeatIndex].interval;
                     currentBeatIndex++;
+                    currentBeatText?.SetText(currentBeatIndex.ToString());
                 }
                 else
                 {
                     currentBeatIndex = 0;
                     tapIndex = 0;
                     currentBeatCollectionIndex++;
+                    tapText?.SetText(tapIndex.ToString());
+                    currentBeatCollectionText?.SetText(currentBeatCollectionIndex.ToString());
                 }
             }
 

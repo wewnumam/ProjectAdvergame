@@ -15,6 +15,7 @@ namespace ProjectAdvergame.Module.LevelSelection
         public void SetLevelCollection(SO_LevelCollection levelCollection) => _model.SetLevelCollection(levelCollection);
         public void SetUnlockedLevel(List<StarRecords> unlockedLevels) => _model.SetUnlockedLevel(unlockedLevels);
         public void SetCurrentHeartCount(int count) => _model.SetCurrentHeartCount(count);
+        public void SetCurrentStarCount(int count) => _model.SetCurrentStarCount(count);
         public void SetCurrentContent(string levelName)
         {
             SO_LevelData levelData = _model.LevelCollection.levelItems.FirstOrDefault(r => r.name == levelName);
@@ -40,10 +41,37 @@ namespace ProjectAdvergame.Module.LevelSelection
                 levelItemView.title.SetText(levelItem.title);
                 levelItemView.cost.SetText($"{levelItem.cost}");
 
+                
+                
                 StarRecords starRecords = _model.UnlockedLevels.FirstOrDefault(r => r.LevelName == levelItem.name);
-                levelItemView.chooseButton.gameObject.SetActive(starRecords != null);
-                levelItemView.unlockButton.gameObject.SetActive(starRecords == null);
-                levelItemView.unlockButton.interactable = _model.CurrentHeartCount >= levelItem.cost;
+
+                if (levelItem.isUnlockByStar)
+                {
+                    if (_model.CurrentStarCount >= levelItem.starAmount)
+                    {
+                        levelItemView.chooseButton.gameObject.SetActive(true);
+                        levelItemView.unlockSlider.gameObject.SetActive(false);
+                        if (starRecords == null)
+                            Publish(new UnlockLevelMessage(levelItem));
+                    }
+                    else
+                    {
+                        levelItemView.chooseButton.gameObject.SetActive(false);
+                        levelItemView.unlockSlider.gameObject.SetActive(true);
+                    }
+
+                    levelItemView.unlockButton.gameObject.SetActive(false);
+                    levelItemView.unlockSlider.maxValue = levelItem.starAmount;
+                    levelItemView.unlockSlider.value = _model.CurrentStarCount;
+                    levelItemView.starProgress.SetText($"{(int)((float)_model.CurrentStarCount / (float)levelItem.starAmount * 100f)}%");
+                }
+                else
+                {
+                    levelItemView.chooseButton.gameObject.SetActive(starRecords != null);
+                    levelItemView.unlockButton.gameObject.SetActive(starRecords == null);
+                    levelItemView.unlockButton.interactable = _model.CurrentHeartCount >= levelItem.cost;
+                    levelItemView.unlockSlider.gameObject.SetActive(false);
+                }
 
                 LevelItemModel levelItemModel = new LevelItemModel();
                 LevelItemController levelItemController = new LevelItemController();

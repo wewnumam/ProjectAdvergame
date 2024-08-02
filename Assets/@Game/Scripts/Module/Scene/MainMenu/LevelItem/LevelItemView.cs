@@ -15,8 +15,10 @@ namespace ProjectAdvergame.Module.LevelItem
 
         public TMP_Text title;
         public TMP_Text cost;
+        public TMP_Text starProgress;
         public Button chooseButton;
         public Button unlockButton;
+        public Slider unlockSlider;
 
         private UnityAction<int> onSubstractHeart;
 

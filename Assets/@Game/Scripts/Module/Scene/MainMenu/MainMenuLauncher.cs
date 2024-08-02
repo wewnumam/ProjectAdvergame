@@ -62,6 +62,7 @@ namespace ProjectAdvergame.Scene.MainMenu
             _levelSelection.SetLevelCollection(_levelData.Model.LevelCollection);
             _levelSelection.SetUnlockedLevel(_saveSystem.Model.SaveData.UnlockedLevels);
             _levelSelection.SetCurrentHeartCount(_saveSystem.Model.SaveData.CurrentHeartCount);
+            _levelSelection.SetCurrentStarCount(_saveSystem.Model.SaveData.GetTotalStarCount());
             _levelSelection.SetView(_view.LevelSelectionView);
             _levelSelection.SetCurrentContent(_saveSystem.Model.SaveData.CurrentLevelName);
 

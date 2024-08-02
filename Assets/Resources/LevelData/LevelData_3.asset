@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af2653e6341e0974ea73636a4e7be13f, type: 3}
-  m_Name: LevelData_2
+  m_Name: LevelData_3
   m_EditorClassIdentifier: 
-  title: Masalah Logika
-  cost: 10
+  title: Jogja dan Kenangan
   artwork: {fileID: 21300000, guid: 34146abff360b164fb3e5ce3c5254973, type: 3}
   backgroundColor: {r: 0.07058824, g: 0.09019608, b: 0.3529412, a: 1}
+  cost: 0
+  isUnlockByStar: 1
+  starAmount: 11
   beatCollections:
   - beats:
     - interval: 1
@@ -55,7 +57,7 @@ MonoBehaviour:
       prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
         type: 3}
     direction: 0
-  environmentPrefab: {fileID: 6312222697657816425, guid: be059a9399344e74e9945409ecdd012a,
+  environmentPrefab: {fileID: 6312222697657816425, guid: 424ae422b068be64f9c96f65f0f137cb,
     type: 3}
   musicClip: {fileID: 8300000, guid: 1fd9c79f0a17dd440b86887c111cdf44, type: 3}
   skybox: {fileID: 2100000, guid: 73d720f199aa4c441b0cfaf2e627620a, type: 2}

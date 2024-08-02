@@ -10,9 +10,13 @@ namespace ProjectAdvergame.Module.LevelData
     {
         [Header("Display")]
         public string title;
-        public int cost;
         public Sprite artwork;
         public Color backgroundColor;
+
+        [Header("Price")]
+        public int cost;
+        public bool isUnlockByStar;
+        [ShowIf(nameof(isUnlockByStar))] public int starAmount;
 
         [Header("Beat")]
         public List<BeatCollection> beatCollections;

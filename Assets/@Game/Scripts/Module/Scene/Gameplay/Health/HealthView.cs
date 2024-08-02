@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using DG.Tweening;
 using NaughtyAttributes;
 using ProjectAdvergame.Utility;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace ProjectAdvergame.Module.Health
         public GameObject healthPrefab;
         public int poolSize;
         public float distanceMultiplier;
+        [ReadOnly] public bool isIncrease;
         [ReadOnly] public List<GameObject> healthObjects;
 
         [Header("Debug")] public bool isImmortal;
@@ -45,7 +47,16 @@ namespace ProjectAdvergame.Module.Health
             }
 
             for (int i = 0; i < healthObjects.Count; i++)
+            {
                 healthObjects[i].SetActive(i < model.CurrentHealth);
+
+                if (isIncrease)
+                {
+                    Vector3 punchPosition = healthObjects[i].transform.localPosition;
+                    punchPosition.y += 1;
+                    healthObjects[i].transform.DOPunchPosition(punchPosition, .25f, 0, 1).SetDelay(i * .25f);
+                }
+            }
         }
     }
 }

@@ -153,11 +153,11 @@ MonoBehaviour:
       prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
         type: 3}
     - interval: 0.44
-      type: 1
+      type: 0
       prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
         type: 3}
     - interval: 0.89
-      type: 0
+      type: 1
       prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
         type: 3}
     - interval: 0.89

@@ -11,6 +11,7 @@ namespace ProjectAdvergame.Module.LevelSelection
         public SO_LevelCollection LevelCollection { get; private set; }
         public List<StarRecords> UnlockedLevels { get; private set; }
         public int CurrentHeartCount { get; private set; }
+        public int CurrentStarCount { get; private set; }
         public string CurrentLevelTitle { get; private set; }
         public int CurrentLevelStar { get; private set; }
         public Sprite CurrentArtwork { get; private set; }
@@ -31,6 +32,12 @@ namespace ProjectAdvergame.Module.LevelSelection
         public void SetCurrentHeartCount(int count)
         {
             CurrentHeartCount = count;
+            SetDataAsDirty();
+        }
+
+        public void SetCurrentStarCount(int count)
+        {
+            CurrentStarCount = count;
             SetDataAsDirty();
         }
 

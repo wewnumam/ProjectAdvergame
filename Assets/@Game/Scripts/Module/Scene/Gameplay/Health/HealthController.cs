@@ -12,7 +12,10 @@ namespace ProjectAdvergame.Module.Health
         internal void DecreaseHealth(BeatAccuracyMessage message)
         {
             if (message.BeatAccuracy != EnumManager.BeatAccuracy.Perfect)
+            {
+                _view.isIncrease = false;
                 _model.DecreaseHealth();
+            }
 
             if (_model.CurrentHealth < 1 && !_view.isImmortal)
                 Publish(new GameOverMessage());
@@ -20,6 +23,7 @@ namespace ProjectAdvergame.Module.Health
 
         internal void IncreaseHealth(AddHealthMessage message)
         {
+            _view.isIncrease = true;
             _model.IncreaseHealth();
         }
 

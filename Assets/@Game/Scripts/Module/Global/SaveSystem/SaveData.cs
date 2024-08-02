@@ -7,7 +7,6 @@ public class SaveData
 {
     public string CurrentLevelName = TagManager.DEFAULT_LEVELNAME;
     public int CurrentHeartCount;
-    public int CurrentStarCount;
     public List<StarRecords> UnlockedLevels = new List<StarRecords>() { new StarRecords(TagManager.DEFAULT_LEVELNAME, 0) };
 
     public StarRecords GetStarRecordsByLevelName(string levelName)
