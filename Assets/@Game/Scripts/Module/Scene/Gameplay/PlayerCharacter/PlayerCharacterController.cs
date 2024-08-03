@@ -1,13 +1,19 @@
 using Agate.MVC.Base;
 using DG.Tweening;
 using ProjectAdvergame.Message;
-using System;
+using ProjectAdvergame.Utility;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.PlayerCharacter
 {
     public class PlayerCharacterController : ObjectController<PlayerCharacterController, PlayerCharacterView>
     {
+        public override void SetView(PlayerCharacterView view)
+        {
+            base.SetView(view);
+            _view.animator.Play(TagManager.ANIM_POSE[Random.Range(0, 2)]);
+        }
+
         internal void OnMove(MovePlayerCharacterMessage message)
         {
             _view.transform.DOMoveZ(_view.transform.position.z + 1, .1f).OnComplete(() => _view.transform.DOMoveZ(Mathf.Ceil(_view.transform.position.z), 0));
@@ -15,6 +21,7 @@ namespace ProjectAdvergame.Module.PlayerCharacter
 
         internal void OnReady(OnReadyMessage message)
         {
+            _view.animator.Play(TagManager.ANIM_IDLE);
             _view.playerCharacterObject.DORotate(Vector3.zero, 1);
         }
 
@@ -23,13 +30,33 @@ namespace ProjectAdvergame.Module.PlayerCharacter
             _view.reactionImage.transform.localScale = Vector3.zero;
             
             if (message.BeatAccuracy == Utility.EnumManager.BeatAccuracy.Early)
+            {
+                _view.animator.Play(TagManager.ANIM_STOP[Random.Range(0, 2)]);
                 _view.reactionImage.sprite = _view.earlyReaction;
+            }
             else if (message.BeatAccuracy == Utility.EnumManager.BeatAccuracy.Perfect)
-                _view.reactionImage.sprite = _view.perfectReactions[UnityEngine.Random.Range(0, _view.perfectReactions.Count)];
+            {
+                _view.animator.Play(TagManager.ANIM_STEP[Random.Range(0, 2)]);
+                _view.reactionImage.sprite = _view.perfectReactions[Random.Range(0, _view.perfectReactions.Count)];
+            }
             else if (message.BeatAccuracy == Utility.EnumManager.BeatAccuracy.Late)
+            {
+                _view.animator.Play(TagManager.ANIM_FALL);
                 _view.reactionImage.sprite = _view.lateReaction;
+            }
 
             _view.reactionImage.transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutExpo);
+        }
+
+        internal void OnGameOver(GameOverMessage message)
+        {
+            _view.animator.Play(TagManager.ANIM_LOSE);
+            _view.transform.DOMoveY(-50, 10);
+        }
+
+        internal void OnGameWin(GameWinMessage message)
+        {
+            _view.animator.Play(TagManager.ANIM_WIN);
         }
     }
 }

@@ -12,5 +12,6 @@ namespace ProjectAdvergame.Module.PlayerCharacter
         public Sprite lateReaction;
         public Image reactionImage;
         public Transform playerCharacterObject;
+        public Animator animator;
     }
 }

@@ -12,6 +12,8 @@ namespace ProjectAdvergame.Module.PlayerCharacter
             Subscribe<OnReadyMessage>(_playerCharacter.OnReady);
             Subscribe<MovePlayerCharacterMessage>(_playerCharacter.OnMove);
             Subscribe<BeatAccuracyMessage>(_playerCharacter.SetReaction);
+            Subscribe<GameOverMessage>(_playerCharacter.OnGameOver);
+            Subscribe<GameWinMessage>(_playerCharacter.OnGameWin);
         }
 
         protected override void Disconnect()
@@ -19,6 +21,8 @@ namespace ProjectAdvergame.Module.PlayerCharacter
             Unsubscribe<OnReadyMessage>(_playerCharacter.OnReady);
             Unsubscribe<MovePlayerCharacterMessage>(_playerCharacter.OnMove);
             Unsubscribe<BeatAccuracyMessage>(_playerCharacter.SetReaction);
+            Unsubscribe<GameOverMessage>(_playerCharacter.OnGameOver);
+            Unsubscribe<GameWinMessage>(_playerCharacter.OnGameWin);
         }
     }
 }
