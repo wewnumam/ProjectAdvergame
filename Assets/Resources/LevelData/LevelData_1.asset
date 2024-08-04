@@ -63,5 +63,5 @@ MonoBehaviour:
     direction: 0
   environmentPrefab: {fileID: 6312222697657816425, guid: c911f2c658955dc4b9d590f6ce839d06,
     type: 3}
-  musicClip: {fileID: 8300000, guid: 1fd9c79f0a17dd440b86887c111cdf44, type: 3}
+  musicClip: {fileID: 8300000, guid: f03d032e92f5e1f42afedf33c566cb7e, type: 3}
   skybox: {fileID: 2100000, guid: 73d720f199aa4c441b0cfaf2e627620a, type: 2}

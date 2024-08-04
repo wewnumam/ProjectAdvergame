@@ -99,17 +99,17 @@ namespace ProjectAdvergame.Scene.Gameplay
             _playerCharacter.SetView(_view.PlayerCharacterView);
             _cameraManager.SetView(_view.CameraManagerView);
 
-            _stoneManager.SetBeatCollections(_levelData.Model.CurrentLevelData.beatCollections);
+            _stoneManager.SetBeatCollections(_levelData.Model.CurrentLevelData.beats);
             _stoneManager.SetView(_view.StoneManagerView);
 
             _beatAccuracyEvaluator.SetMinPerfectTapPhase(_gameConstants.Model.GameConstants.minPerfectTapPhase);
-            _beatAccuracyEvaluator.SetBeatCollections(_levelData.Model.CurrentLevelData.beatCollections);
+            _beatAccuracyEvaluator.SetBeatCollections(_levelData.Model.CurrentLevelData.beats);
             _beatAccuracyEvaluator.SetView(_view.BeatAccuracyEvaluatorView);
             
             _musicPlayer.SetMusicClip(_levelData.Model.CurrentLevelData.musicClip);
             _musicPlayer.SetView(_view.MusicPlayerView);
 
-            _score.SetBeatCollections(_levelData.Model.CurrentLevelData.beatCollections);
+            _score.SetBeatCollections(_levelData.Model.CurrentLevelData.beats);
             _score.SetScoreEarlyAmount(_gameConstants.Model.GameConstants.scoreEarlyAmount);
             _score.SetScorePerfectAmount(_gameConstants.Model.GameConstants.scorePerfectAmount);
             _score.SetScoreLateAmount(_gameConstants.Model.GameConstants.scoreLateAmount);

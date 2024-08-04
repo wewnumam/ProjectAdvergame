@@ -11,65 +11,52 @@ namespace ProjectAdvergame.Module.StoneManager
 {
     public class StoneManagerController : ObjectController<StoneManagerController, StoneManagerView>
     {
-        private List<BeatCollection> _beatCollections;
+        private List<Beat> _beats;
         
-        public void SetBeatCollections(List<BeatCollection> beatCollections)
+        public void SetBeatCollections(List<Beat> beats)
         {
-            _beatCollections = beatCollections;
+            _beats = beats;
         }
 
         public override void SetView(StoneManagerView view)
         {
             base.SetView(view);
 
-            EnumManager.Direction currentDirection;
             List<StoneView> stones = new List<StoneView>();
 
-            int currentBeatCollectionIndex = 0;
             int currentBeatIndex = 1;
-            float currentTotalInterval = 0;
 
-            foreach (var beatCollection in _beatCollections)
+            foreach (var beat in _beats)
             {
-                currentDirection = beatCollection.direction;
+                Vector3 position = beat.direction == EnumManager.Direction.FromEast
+                    ? new Vector3(beat.interval, 0, currentBeatIndex)
+                    : new Vector3(-beat.interval, 0, currentBeatIndex);
 
-                int localBeatIndex = 1;
+                StoneView previousStone = currentBeatIndex > 1 ? stones[currentBeatIndex - 2] : null;
 
-                foreach (var beat in beatCollection.beats)
+                StoneView stone = view.SpawnStone(beat.prefab, position, beat.interval, currentBeatIndex, beat.type, previousStone);
+                StoneController instance = new StoneController();
+                InjectDependencies(instance);
+                instance.Init(stone);
+
+                stones.Add(stone);
+
+                if (currentBeatIndex > 1 && currentBeatIndex < _beats.Count)
                 {
-                    currentTotalInterval += beat.interval;
+                    stone.direction = beat.direction;
 
-                    Vector3 position = currentDirection == EnumManager.Direction.FromEast
-                        ? new Vector3(currentTotalInterval, 0, currentBeatIndex)
-                        : new Vector3(-currentTotalInterval, 0, currentBeatIndex);
-
-                    StoneView previousStone = currentBeatIndex > 1 ? stones[currentBeatIndex - 2] : null;
-
-                    StoneView stone = view.SpawnStone(beat.prefab, position, currentTotalInterval, currentBeatIndex, beat.type, previousStone);
-                    StoneController instance = new StoneController();
-                    InjectDependencies(instance);
-                    instance.Init(stone);
-
-                    stones.Add(stone);
-
-                    currentBeatIndex++;
-
-                    localBeatIndex++;
-
-                    if (IsEndOfBeatCollection(currentBeatCollectionIndex, localBeatIndex, beatCollection))
+                    if (_beats[currentBeatIndex - 1].direction != _beats[currentBeatIndex].direction)
                     {
+                        stone.direction = _beats[currentBeatIndex].direction;
                         stone.isSwitchCamera = true;
-                        stone.direction = _beatCollections[currentBeatCollectionIndex + 1].direction;
                         stone.SwitchCamera(SwitchCamera);
-                    }
-                    else
-                    {
-                        stone.direction = currentDirection;
                     }
                 }
 
-                currentBeatCollectionIndex++;
+                currentBeatIndex++;
+
             }
+
         }
 
         internal void OnPause(GameOverMessage message)
@@ -82,7 +69,7 @@ namespace ProjectAdvergame.Module.StoneManager
 
         internal void OnReady(OnReadyMessage message)
         {
-            SwitchCamera(_beatCollections[0].direction);
+            SwitchCamera(_beats[0].direction);
         }
 
         internal void StartPlay(StartPlayMessage message)
@@ -92,11 +79,6 @@ namespace ProjectAdvergame.Module.StoneManager
             {
                 stone.Play();
             }
-        }
-
-        private bool IsEndOfBeatCollection(int currentBeatCollectionIndex, int currentBeatIndex, BeatCollection beatCollection)
-        {
-            return currentBeatCollectionIndex < _beatCollections.Count - 1 && currentBeatIndex == beatCollection.beats.Count;
         }
 
         private void SwitchCamera(EnumManager.Direction direction)

@@ -14,7 +14,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
     public class BeatAccuracyEvaluatorView : BaseView
     {
         [ReadOnly] public float minPerfectTapPhase;
-        [ReadOnly] public List<BeatCollection> beatCollections;
+        [ReadOnly] public List<Beat> beats;
         private UnityAction onTapLate;
         private UnityAction onBeatCollectionEnd;
 
@@ -22,13 +22,11 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         public Slider indicator;
         public TMP_Text accuracyText;
         public TMP_Text currentIntervalText;
-        public TMP_Text currentBeatCollectionText;
         public TMP_Text currentBeatText;
         public TMP_Text tapText;
         
         [Header("Current State"), ReadOnly] public bool isPlaying;
         [ReadOnly] public int tapIndex;
-        [ReadOnly] public int currentBeatCollectionIndex;
         [ReadOnly] public int currentBeatIndex;
         [ReadOnly] public float currentInterval;
 
@@ -42,7 +40,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             if (!isPlaying)
                 return;
 
-            if (!HasNextBeatCollection())
+            if (!HasNextBeat())
             {
                 isPlaying = false;
                 onBeatCollectionEnd?.Invoke();
@@ -57,20 +55,10 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
                 if (IsPhaseLate())
                     onTapLate?.Invoke();
 
-                if (HasNextBeat())
-                {
-                    currentInterval = beatCollections[currentBeatCollectionIndex].beats[currentBeatIndex].interval;
-                    currentBeatIndex++;
-                    currentBeatText?.SetText(currentBeatIndex.ToString());
-                }
-                else
-                {
-                    currentBeatIndex = 0;
-                    tapIndex = 0;
-                    currentBeatCollectionIndex++;
-                    tapText?.SetText(tapIndex.ToString());
-                    currentBeatCollectionText?.SetText(currentBeatCollectionIndex.ToString());
-                }
+                float previousInterval = currentBeatIndex != 0 ? beats[currentBeatIndex - 1].interval : 0;
+                currentInterval = beats[currentBeatIndex].interval - previousInterval;
+                currentBeatIndex++;
+                currentBeatText?.SetText(currentBeatIndex.ToString());
             }
 
             #region Indicator
@@ -92,9 +80,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         private bool IsCurrentIntervalHasElapsed() => currentInterval < 0;
 
-        private bool HasNextBeatCollection() => currentBeatCollectionIndex < beatCollections.Count;
-
-        public bool HasNextBeat() => currentBeatIndex < beatCollections[currentBeatCollectionIndex].beats.Count;
+        public bool HasNextBeat() => currentBeatIndex < beats.Count;
 
         public bool IsPhaseEarly() => currentInterval >= minPerfectTapPhase;
 
@@ -107,7 +93,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             if (currentBeatIndex == 0) 
                 return false;
             
-            return beatCollections[currentBeatCollectionIndex].beats[currentBeatIndex - 1].type == Utility.EnumManager.StoneType.AddHealth;
+            return beats[currentBeatIndex - 1].type == Utility.EnumManager.StoneType.AddHealth;
         } 
     }
 }

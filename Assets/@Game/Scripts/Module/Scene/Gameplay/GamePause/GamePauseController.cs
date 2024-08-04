@@ -44,7 +44,7 @@ namespace ProjectAdvergame.Module.GamePause
                 Publish(new GameStateMessage(EnumManager.GameState.Playing));
                 Time.timeScale = 1;
                 _view.pausePanel.SetActive(false);
-                _view.pauseIconImage.sprite = _view.resumeSprite;
+                _view.pauseIconImage.sprite = _view.pauseSprite;
             }
         }
 

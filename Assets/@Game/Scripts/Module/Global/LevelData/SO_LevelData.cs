@@ -19,7 +19,7 @@ namespace ProjectAdvergame.Module.LevelData
         [ShowIf(nameof(isUnlockByStar))] public int starAmount;
 
         [Header("Beat")]
-        public List<BeatCollection> beatCollections;
+        public List<Beat> beats;
 
         [Header("Environment")]
         public GameObject environmentPrefab;
@@ -31,15 +31,11 @@ namespace ProjectAdvergame.Module.LevelData
     public class Beat
     {
         public float interval;
+        [Foldout("Details")]
         public EnumManager.StoneType type;
-        [ShowAssetPreview(32, 32)]
-        public GameObject prefab;
-    }
-
-    [System.Serializable]
-    public class BeatCollection
-    {
-        public List<Beat> beats;
+        [Foldout("Details")]
         public EnumManager.Direction direction;
+        [Foldout("Details"), ShowAssetPreview(32, 32)]
+        public GameObject prefab;
     }
 }

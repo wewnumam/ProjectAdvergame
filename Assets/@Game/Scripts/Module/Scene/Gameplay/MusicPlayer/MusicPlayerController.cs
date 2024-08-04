@@ -8,6 +8,7 @@ namespace ProjectAdvergame.Module.MusicPlayer
     public class MusicPlayerController : ObjectController<MusicPlayerController, MusicPlayerView>
     {
         private AudioClip musicClip;
+        private bool isPaused;
 
         public void SetMusicClip(AudioClip clip)
         {
@@ -22,7 +23,16 @@ namespace ProjectAdvergame.Module.MusicPlayer
 
         internal void OnPause(GamePauseMessage message)
         {
-            _view.audioSource.Stop();
+            if (isPaused)
+            {
+                _view.audioSource.Play();
+                isPaused = false;
+            }
+            else
+            {
+                _view.audioSource.Pause();
+                isPaused = true;
+            }
         }
 
         internal void OnGameOver(GameOverMessage message)

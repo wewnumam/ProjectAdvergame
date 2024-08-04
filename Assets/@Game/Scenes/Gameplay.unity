@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 73d720f199aa4c441b0cfaf2e627620a, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 79d2f8efcf7f7b54badc38e931cdea6e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1491920048}
-  m_IndirectSpecularColor: {r: 0.07727798, g: 0.0833785, b: 0.102830164, a: 1}
+  m_IndirectSpecularColor: {r: 0.68464637, g: 0.5173742, b: 0.4863798, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7692,16 +7692,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minPerfectTapPhase: 0.25
-  beatCollections: []
+  beats: []
   indicator: {fileID: 1663452747}
   accuracyText: {fileID: 891990025}
   currentIntervalText: {fileID: 590984513}
-  currentBeatCollectionText: {fileID: 1284124054}
   currentBeatText: {fileID: 1457359085}
   tapText: {fileID: 2131079122}
   isPlaying: 0
   tapIndex: 0
-  currentBeatCollectionIndex: 0
   currentBeatIndex: 0
   currentInterval: 0
 --- !u!4 &1964196676

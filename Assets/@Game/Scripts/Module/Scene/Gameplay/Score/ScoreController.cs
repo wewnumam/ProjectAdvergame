@@ -9,9 +9,9 @@ namespace ProjectAdvergame.Module.Score
 {
     public class ScoreController : ObjectController<ScoreController, ScoreModel, IScoreModel, ScoreView>
     {
-        private List<BeatCollection> _beatCollections;
+        private List<Beat> _beats;
 
-        public void SetBeatCollections(List<BeatCollection> beatCollections) => _beatCollections = beatCollections;
+        public void SetBeatCollections(List<Beat> beats) => _beats = beats;
 
         public void SetScoreEarlyAmount(int amount) => _model.SetScoreEarlyAmount(amount);
         public void SetScorePerfectAmount(int amount) => _model.SetScorePerfectAmount(amount);
@@ -25,11 +25,7 @@ namespace ProjectAdvergame.Module.Score
 
         internal void OnGameWin(GameWinMessage message)
         {
-            int totalBeat = 0;
-            foreach (var beatCollection in _beatCollections)
-                totalBeat += beatCollection.beats.Count;
-
-            Publish(new GameResultStarMessage(_model.StarCalculator(totalBeat)));
+            Publish(new GameResultStarMessage(_model.StarCalculator(_beats.Count)));
         }
     }
 }
