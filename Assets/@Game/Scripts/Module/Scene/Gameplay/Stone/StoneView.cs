@@ -33,7 +33,7 @@ namespace ProjectAdvergame.Module.Stone
 
         public void Fall()
         {
-            transform.DOMoveY(-10, 3);
+            transform.DOMoveY(-10, 3).OnComplete(() => gameObject.SetActive(false));
         }
 
         public void Pause()

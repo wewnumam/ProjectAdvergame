@@ -14,12 +14,13 @@ namespace ProjectAdvergame.Module.OnReady
         [ReadOnly] public float readyOn;
         public TMP_Text countdownText;
         public TMP_Text tapText;
+        public Image countdownPanel;
         public Image onReadyPanel;
 
         public void Ready(UnityAction callback)
         {
             StartCoroutine(StartPlay(callback));
-            countdownText.gameObject.SetActive(true);
+            countdownPanel.gameObject.SetActive(true);
             tapText.gameObject.SetActive(false);
             onReadyPanel.DOFade(0, readyOn);
         }
@@ -38,6 +39,7 @@ namespace ProjectAdvergame.Module.OnReady
             }
 
             onReadyPanel.gameObject.SetActive(false);
+            countdownPanel.gameObject.SetActive(false);
 
             callback?.Invoke();
         }

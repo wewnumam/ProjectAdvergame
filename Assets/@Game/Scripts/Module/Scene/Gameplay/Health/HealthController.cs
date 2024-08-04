@@ -9,6 +9,13 @@ namespace ProjectAdvergame.Module.Health
     {
         public void SetCurrentHealth(int amount) => _model.SetCurrentHealth(amount);
 
+        public override void SetView(HealthView view)
+        {
+            base.SetView(view);
+            foreach (var item in _view.healthObjects)
+                item.SetActive(false);
+        }
+
         internal void DecreaseHealth(BeatAccuracyMessage message)
         {
             if (message.BeatAccuracy != EnumManager.BeatAccuracy.Perfect)
@@ -30,6 +37,14 @@ namespace ProjectAdvergame.Module.Health
         internal void OnGameWin(GameWinMessage message)
         {
             Publish(new GameResultHeartMessage(_model.CurrentHealth));
+
+            foreach (var item in _view.healthObjects)
+                item.SetActive(false);
+        }
+
+        internal void OnReady(OnReadyMessage message)
+        {
+            _model.UpdateRender();
         }
     }
 }

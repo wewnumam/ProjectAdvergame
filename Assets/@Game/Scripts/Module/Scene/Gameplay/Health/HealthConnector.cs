@@ -12,6 +12,7 @@ namespace ProjectAdvergame.Module.Health
             Subscribe<BeatAccuracyMessage>(_health.DecreaseHealth);
             Subscribe<AddHealthMessage>(_health.IncreaseHealth);
             Subscribe<GameWinMessage>(_health.OnGameWin);
+            Subscribe<OnReadyMessage>(_health.OnReady);
         }
 
         protected override void Disconnect()
@@ -19,6 +20,7 @@ namespace ProjectAdvergame.Module.Health
             Unsubscribe<BeatAccuracyMessage>(_health.DecreaseHealth);
             Unsubscribe<AddHealthMessage>(_health.IncreaseHealth);
             Unsubscribe<GameWinMessage>(_health.OnGameWin);
+            Unsubscribe<OnReadyMessage>(_health.OnReady);
         }
     }
 }

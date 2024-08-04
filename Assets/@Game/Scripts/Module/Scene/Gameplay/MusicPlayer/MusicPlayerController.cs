@@ -2,6 +2,7 @@ using Agate.MVC.Base;
 using ProjectAdvergame.Message;
 using System;
 using UnityEngine;
+using DG.Tweening;
 
 namespace ProjectAdvergame.Module.MusicPlayer
 {
@@ -37,7 +38,7 @@ namespace ProjectAdvergame.Module.MusicPlayer
 
         internal void OnGameOver(GameOverMessage message)
         {
-            _view.audioSource.Stop();
+            _view.audioSource.DOFade(.2f, 5);
             _view.isPlaying = false;
         }
     }

@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using System;
 
 namespace ProjectAdvergame.Module.Health
 {
@@ -21,6 +22,11 @@ namespace ProjectAdvergame.Module.Health
         public void DecreaseHealth()
         {
             CurrentHealth--;
+            SetDataAsDirty();
+        }
+
+        internal void UpdateRender()
+        {
             SetDataAsDirty();
         }
     }

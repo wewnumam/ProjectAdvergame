@@ -29,6 +29,7 @@ namespace ProjectAdvergame.Module.Health
         private void Spawn(int index)
         {
             GameObject obj = Instantiate(healthPrefab, new Vector3(0, .5f, (-index - 1) * distanceMultiplier), Quaternion.identity, playerTransform);
+            obj.SetActive(false);
             healthObjects.Add(obj);
         }
 

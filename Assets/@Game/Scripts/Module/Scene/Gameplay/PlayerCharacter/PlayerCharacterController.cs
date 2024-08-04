@@ -52,12 +52,14 @@ namespace ProjectAdvergame.Module.PlayerCharacter
         {
             _view.animator.Play(TagManager.ANIM_LOSE);
             _view.transform.DOMoveY(-50, 10);
+            _view.reactionImage.sprite = _view.lateReaction;
         }
 
         internal void OnGameWin(GameWinMessage message)
         {
             _view.animator.Play(TagManager.ANIM_WIN);
             _view.playerCharacterObject.DORotate(new Vector3(0, 180, 0), 1);
+            _view.reactionImage.gameObject.SetActive(false);
         }
     }
 }
