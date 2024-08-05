@@ -23,9 +23,6 @@ namespace ProjectAdvergame.Module.Health
                 _view.isIncrease = false;
                 _model.DecreaseHealth();
             }
-
-            if (_model.CurrentHealth < 1 && !_view.isImmortal)
-                Publish(new GameOverMessage());
         }
 
         internal void IncreaseHealth(AddHealthMessage message)

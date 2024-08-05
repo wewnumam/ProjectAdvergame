@@ -15,5 +15,6 @@ namespace ProjectAdvergame.Module.LevelSelection
         int CurrentLevelStar { get; }
         Sprite CurrentArtwork { get;  }
         Color CurrentBackgroundColor { get; }
+        AudioClip CurrentClip { get; }
     }
 }

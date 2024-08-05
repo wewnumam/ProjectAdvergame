@@ -20,7 +20,7 @@ namespace ProjectAdvergame.Module.LevelSelection
         {
             SO_LevelData levelData = _model.LevelCollection.levelItems.FirstOrDefault(r => r.name == levelName);
             StarRecords starRecords = _model.UnlockedLevels.FirstOrDefault(r => r.LevelName == levelName);
-            _model.SetCurrentContent(levelData.title, starRecords.StarCount, levelData.artwork, levelData.backgroundColor);
+            _model.SetCurrentContent(levelData.title, starRecords.StarCount, levelData.artwork, levelData.backgroundColor, levelData.musicClip);
         }
 
         public override void SetView(LevelSelectionView view)

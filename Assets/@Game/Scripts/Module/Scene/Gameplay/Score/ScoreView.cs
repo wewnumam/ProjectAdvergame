@@ -10,7 +10,7 @@ namespace ProjectAdvergame.Module.Score
     public class ScoreView : ObjectView<IScoreModel>
     {
         [ReadOnly] public List<EnumManager.BeatAccuracy> accuracies;
-        public TMP_Text scoreText;
+        public List<TMP_Text> scoreTexts;
 
         protected override void InitRenderModel(IScoreModel model)
         {
@@ -21,7 +21,8 @@ namespace ProjectAdvergame.Module.Score
             if (model != null)
                 accuracies = model.Accuracies;
 
-            scoreText.SetText(model.CurrentScore.ToString());
+            foreach (var scoreText in scoreTexts)
+                scoreText.SetText(model.CurrentScore.ToString());
         }
     }
 }

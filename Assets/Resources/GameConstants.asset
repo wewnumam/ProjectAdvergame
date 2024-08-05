@@ -16,5 +16,5 @@ MonoBehaviour:
   minPerfectTapPhase: 0.5
   scoreEarlyAmount: -1
   scorePerfectAmount: 3
-  scoreLateAmount: -1
+  scoreLateAmount: -2
   initialHealth: 3

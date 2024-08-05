@@ -22,6 +22,10 @@ namespace ProjectAdvergame.Module.Health
         public void DecreaseHealth()
         {
             CurrentHealth--;
+
+            if (CurrentHealth <= 0)
+                CurrentHealth = 0;
+            
             SetDataAsDirty();
         }
 

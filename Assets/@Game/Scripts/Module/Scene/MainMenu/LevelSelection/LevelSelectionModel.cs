@@ -16,6 +16,7 @@ namespace ProjectAdvergame.Module.LevelSelection
         public int CurrentLevelStar { get; private set; }
         public Sprite CurrentArtwork { get; private set; }
         public Color CurrentBackgroundColor { get; private set; }
+        public AudioClip CurrentClip { get; private set; }
 
         public void SetLevelCollection(SO_LevelCollection levelCollection)
         {
@@ -47,12 +48,13 @@ namespace ProjectAdvergame.Module.LevelSelection
             SetDataAsDirty();
         }
 
-        public void SetCurrentContent(string title, int star, Sprite artwork, Color backgroundColor)
+        public void SetCurrentContent(string title, int star, Sprite artwork, Color backgroundColor, AudioClip clip)
         {
             CurrentLevelTitle = title;
             CurrentLevelStar = star;
             CurrentArtwork = artwork;
             CurrentBackgroundColor = backgroundColor;
+            CurrentClip = clip;
             SetDataAsDirty();
         }
     }

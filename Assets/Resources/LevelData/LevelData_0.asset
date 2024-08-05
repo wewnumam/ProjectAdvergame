@@ -105,7 +105,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 43.68
-    type: 0
+    type: 1
     direction: 0
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -115,7 +115,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 50.8
-    type: 0
+    type: 1
     direction: 0
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -135,7 +135,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 61.44
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -160,7 +160,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 70.36
-    type: 0
+    type: 1
     direction: 0
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -175,7 +175,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 75.67
-    type: 0
+    type: 1
     direction: 0
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -195,7 +195,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 83.23
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -250,7 +250,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 88.73
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -260,7 +260,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 89.73
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -270,7 +270,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 90.73
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -290,7 +290,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 92.73
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -300,7 +300,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 93.73
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -325,7 +325,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 96.23
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -340,7 +340,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 97.73
-    type: 0
+    type: 1
     direction: 0
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -360,7 +360,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 99.73
-    type: 0
+    type: 1
     direction: 0
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -380,7 +380,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 101.73
-    type: 0
+    type: 1
     direction: 0
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -425,7 +425,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 106.23
-    type: 0
+    type: 1
     direction: 0
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -435,7 +435,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 107.23
-    type: 0
+    type: 1
     direction: 0
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -455,7 +455,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 109.23
-    type: 0
+    type: 1
     direction: 0
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -475,7 +475,7 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 113
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
@@ -500,12 +500,12 @@ MonoBehaviour:
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 121.9
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}
   - interval: 123.68
-    type: 0
+    type: 1
     direction: 1
     prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
       type: 3}

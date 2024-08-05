@@ -19,6 +19,7 @@ namespace ProjectAdvergame.Module.LevelSelection
         public List<Image> starImages;
         public Image artworkImage;
         public Image backgroundImage;
+        public AudioSource audioSource;
 
         protected override void InitRenderModel(ILevelSelectionModel model)
         {
@@ -29,6 +30,11 @@ namespace ProjectAdvergame.Module.LevelSelection
             currentLevelText.SetText(model.CurrentLevelTitle);
             artworkImage.sprite = model.CurrentArtwork;
             backgroundImage.color = model.CurrentBackgroundColor;
+            if (audioSource.clip != model.CurrentClip)
+            { 
+                audioSource.clip = model.CurrentClip;
+                audioSource.Play();
+            }
 
             for (int i = 0; i < starImages.Count; i++)
                     starImages[i].enabled = i < model.CurrentLevelStar;

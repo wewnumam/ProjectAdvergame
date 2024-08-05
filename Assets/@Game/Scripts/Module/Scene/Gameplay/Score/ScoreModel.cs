@@ -28,6 +28,8 @@ namespace ProjectAdvergame.Module.Score
             else if (beatAccuracy == EnumManager.BeatAccuracy.Late)
                 CurrentScore += ScoreLateAmount;
 
+            CurrentScore = CurrentScore > 0 ? CurrentScore : 0;
+
             SetDataAsDirty();
         }
 
