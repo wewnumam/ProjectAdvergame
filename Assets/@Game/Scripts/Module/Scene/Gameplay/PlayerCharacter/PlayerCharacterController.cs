@@ -57,6 +57,7 @@ namespace ProjectAdvergame.Module.PlayerCharacter
 
         internal void OnGameWin(GameWinMessage message)
         {
+            OnMove(new MovePlayerCharacterMessage());
             _view.animator.Play(TagManager.ANIM_WIN);
             _view.playerCharacterObject.DORotate(new Vector3(0, 180, 0), 1);
             _view.reactionImage.gameObject.SetActive(false);

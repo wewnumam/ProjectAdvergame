@@ -26,6 +26,7 @@ namespace ProjectAdvergame.Module.Score
         internal void OnGameWin(GameWinMessage message)
         {
             Publish(new GameResultStarMessage(_model.StarCalculator(_beats.Count)));
+            Publish(new GameResultScoreMessage(_model.CurrentScore));
         }
     }
 }

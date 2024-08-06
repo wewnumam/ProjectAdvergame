@@ -33,18 +33,31 @@ namespace ProjectAdvergame.Module.SaveSystem
             SetDataAsDirty();
         }
 
+        internal bool IsNewStar(int star)
+        {
+            return star > SaveData.GetStarRecordsByLevelName(SaveData.CurrentLevelName).StarCount;
+        }
+
         public void SetStarRecord(int starAmount)
         {
-            StarRecords previousStarRecord = SaveData.GetStarRecordsByLevelName(SaveData.CurrentLevelName);
-            int starCount = starAmount < previousStarRecord.StarCount ? previousStarRecord.StarCount : starAmount;
+            SaveData.GetStarRecordsByLevelName(SaveData.CurrentLevelName).StarCount = starAmount;
+            SetDataAsDirty();
+        }
 
-            SaveData.GetStarRecordsByLevelName(SaveData.CurrentLevelName).StarCount = starCount;
+        internal bool IsNewHighScore(int score)
+        {
+            return score > SaveData.GetStarRecordsByLevelName(SaveData.CurrentLevelName).HighScore;
+        }
+
+        internal void SetHighscore(int score)
+        {
+            SaveData.GetStarRecordsByLevelName(SaveData.CurrentLevelName).HighScore = score;
             SetDataAsDirty();
         }
 
         public void AddStarRecord(string LevelName)
         {
-            StarRecords starRecords = new StarRecords(LevelName, 0);
+            StarRecords starRecords = new StarRecords(LevelName, 0, 0);
             SaveData.UnlockedLevels.Add(starRecords);
             SetDataAsDirty();
         }
@@ -54,6 +67,5 @@ namespace ProjectAdvergame.Module.SaveSystem
             SaveData.UnlockedLevels.ForEach(level => level.StarCount = 5);
             SetDataAsDirty();
         }
-
     }
 }

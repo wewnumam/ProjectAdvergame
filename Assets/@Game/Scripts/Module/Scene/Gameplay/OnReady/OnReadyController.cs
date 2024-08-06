@@ -10,7 +10,6 @@ namespace ProjectAdvergame.Module.OnReady
         public override void SetView(OnReadyView view)
         {
             base.SetView(view);
-            view.countdownPanel.gameObject.SetActive(false);
             view.onReadyPanel.gameObject.SetActive(true);
             view.tapText.gameObject.SetActive(true);
         }

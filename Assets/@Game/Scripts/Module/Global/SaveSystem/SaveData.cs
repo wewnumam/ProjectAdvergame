@@ -7,7 +7,7 @@ public class SaveData
 {
     public string CurrentLevelName = TagManager.DEFAULT_LEVELNAME;
     public int CurrentHeartCount;
-    public List<StarRecords> UnlockedLevels = new List<StarRecords>() { new StarRecords(TagManager.DEFAULT_LEVELNAME, 0) };
+    public List<StarRecords> UnlockedLevels = new List<StarRecords>() { new StarRecords(TagManager.DEFAULT_LEVELNAME, 0, 0) };
 
     public StarRecords GetStarRecordsByLevelName(string levelName)
     {
@@ -25,10 +25,12 @@ public class StarRecords
 {
     public string LevelName;
     public int StarCount;
+    public int HighScore;
 
-    public StarRecords(string levelName, int starCount)
+    public StarRecords(string levelName, int starCount, int highScore)
     {
         LevelName = levelName;
         StarCount = starCount;
+        HighScore = highScore;
     }
 }

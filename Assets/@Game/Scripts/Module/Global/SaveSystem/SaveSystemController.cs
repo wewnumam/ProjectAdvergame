@@ -89,8 +89,20 @@ namespace ProjectAdvergame.Module.SaveSystem
 
         internal void SaveStarResult(GameResultStarMessage message)
         {
-            _model.SetStarRecord(message.StarAmount);
-            SaveGame(_model.SaveData);
+            if (_model.IsNewStar(message.StarAmount))
+            {
+                _model.SetStarRecord(message.StarAmount);
+                SaveGame(_model.SaveData);
+            }
+        }
+
+        internal void SaveScoreResult(GameResultScoreMessage message)
+        {
+            if (_model.IsNewHighScore(message.Score))
+            {
+                _model.SetHighscore(message.Score);
+                SaveGame(_model.SaveData);
+            }
         }
 
         internal void UnlockLevel(UnlockLevelMessage message)
