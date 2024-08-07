@@ -13,6 +13,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
     {
         private float _minPerfectTapPhase;
         private List<Beat> _beats;
+        private bool _isVibrate;
 
         #region Public Function
 
@@ -24,6 +25,11 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         public void SetBeatCollections(List<Beat> beats)
         {
             _beats = beats;
+        }
+
+        public void SetVibrate(bool vibrate)
+        {
+            _isVibrate = vibrate;
         }
 
         #endregion
@@ -60,7 +66,9 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             MovePlayerCharacter();
             SetText("LATE");
             Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Late));
-            Handheld.Vibrate();
+            
+            if (_isVibrate)
+                Handheld.Vibrate();
         }
         
 
@@ -91,7 +99,9 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             {
                 SetText("EARLY");
                 Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Early));
-                Handheld.Vibrate();
+
+                if (_isVibrate)
+                    Handheld.Vibrate();
             }
             else if (_view.IsPhasePerfect())
             {

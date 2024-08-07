@@ -12,6 +12,8 @@ using UnityEngine;
 using ProjectAdvergame.Module.Stats;
 using ProjectAdvergame.Utility;
 using ProjectAdvergame.Module.CheatFeature;
+using ProjectAdvergame.Module.Settings;
+using ProjectAdvergame.Module.GameSettings;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -21,11 +23,13 @@ namespace ProjectAdvergame.Scene.MainMenu
 
         private SaveSystemController _saveSystem;
         private LevelDataController _levelData;
+        private GameSettingsController _gameSettings;
 
         private QuitController _quit;
         private LevelSelectionController _levelSelection;
         private StatsController _stats;
         private CheatFeatureController _cheatFeature;
+        private SettingsController _settings;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -34,6 +38,7 @@ namespace ProjectAdvergame.Scene.MainMenu
                 new LevelSelectionController(),
                 new StatsController(),
                 new CheatFeatureController(),
+                new SettingsController(),
             };
         }
 
@@ -74,6 +79,10 @@ namespace ProjectAdvergame.Scene.MainMenu
             _stats.SetView(_view.StatsView);
 
             _cheatFeature.SetView(_view.CheatFeatureView);
+
+            _settings.SetView(_view.SettingsView);
+            _settings.SetVolume(_gameSettings.Model.AudioVolume);
+            _settings.SetVibrate(_gameSettings.Model.IsVibrateOn);
 
             yield return null;
         }

@@ -8,6 +8,7 @@ using ProjectAdvergame.Module.LevelSelection;
 using TMPro;
 using ProjectAdvergame.Module.Stats;
 using ProjectAdvergame.Module.CheatFeature;
+using ProjectAdvergame.Module.Settings;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -17,6 +18,7 @@ namespace ProjectAdvergame.Scene.MainMenu
         public LevelSelectionView LevelSelectionView;
         public StatsView StatsView;
         public CheatFeatureView CheatFeatureView;
+        public SettingsView SettingsView;
 
         public Button playButton;
 

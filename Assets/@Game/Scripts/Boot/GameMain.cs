@@ -1,6 +1,7 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
 using ProjectAdvergame.Module.GameConstants;
+using ProjectAdvergame.Module.GameSettings;
 using ProjectAdvergame.Module.GameState;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.SaveSystem;
@@ -17,6 +18,7 @@ namespace ProjectAdvergame.Boot
                 new SaveSystemConnector(),
                 new LevelDataConnector(),
                 new GameStateConnector(),
+                new GameSettingsConnector(),
             };
         }
 
@@ -27,6 +29,7 @@ namespace ProjectAdvergame.Boot
                 new LevelDataController(),
                 new GameConstantsController(),
                 new GameStateController(),
+                new GameSettingsController(),
             };
         }
 
