@@ -10,6 +10,7 @@ using ProjectAdvergame.Module.GameOver;
 using ProjectAdvergame.Module.GameWin;
 using ProjectAdvergame.Module.OnReady;
 using ProjectAdvergame.Module.GamePause;
+using ProjectAdvergame.Module.Settings;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -26,5 +27,6 @@ namespace ProjectAdvergame.Scene.Gameplay
         public GameOverView GameOverView;
         public GameWinView GameWinView;
         public OnReadyView OnReadyView;
+        public SettingsView SettingsView;
     }
 }

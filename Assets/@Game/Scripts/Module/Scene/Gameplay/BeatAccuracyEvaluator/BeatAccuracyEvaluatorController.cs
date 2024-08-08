@@ -116,6 +116,11 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             _view.isPlaying = false;
         }
 
+        internal void OnVibrate(GameSettingVibrateMessage message)
+        {
+            SetVibrate(message.Vibrate);
+        }
+
         #endregion
     }
 }

@@ -80,9 +80,9 @@ namespace ProjectAdvergame.Scene.MainMenu
 
             _cheatFeature.SetView(_view.CheatFeatureView);
 
+            _settings.SetInitialVolume(_gameSettings.Model.AudioVolume);
+            _settings.SetInitialVibrate(_gameSettings.Model.IsVibrateOn);
             _settings.SetView(_view.SettingsView);
-            _settings.SetVolume(_gameSettings.Model.AudioVolume);
-            _settings.SetVibrate(_gameSettings.Model.IsVibrateOn);
 
             yield return null;
         }

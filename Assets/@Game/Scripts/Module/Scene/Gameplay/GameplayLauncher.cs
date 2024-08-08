@@ -21,6 +21,8 @@ using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.OnReady;
 using ProjectAdvergame.Module.SaveSystem;
 using ProjectAdvergame.Utility;
+using ProjectAdvergame.Module.GameSettings;
+using ProjectAdvergame.Module.Settings;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -31,6 +33,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         private SaveSystemController _saveSystem;
         private GameConstantsController _gameConstants;
         private LevelDataController _levelData;
+        private GameSettingsController _gameSettings;
 
         private PlayerCharacterController _playerCharacter;
         private StoneManagerController _stoneManager;
@@ -43,6 +46,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         private GameOverController _gameOver;
         private GameWinController _gameWin;
         private OnReadyController _onReady;
+        private SettingsController _settings;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -59,6 +63,7 @@ namespace ProjectAdvergame.Scene.Gameplay
                 new GameOverController(),
                 new GameWinController(),
                 new OnReadyController(),
+                new SettingsController(),
             };
         }
 
@@ -104,6 +109,7 @@ namespace ProjectAdvergame.Scene.Gameplay
 
             _beatAccuracyEvaluator.SetMinPerfectTapPhase(_gameConstants.Model.GameConstants.minPerfectTapPhase);
             _beatAccuracyEvaluator.SetBeatCollections(_levelData.Model.CurrentLevelData.beats);
+            _beatAccuracyEvaluator.SetVibrate(_gameSettings.Model.IsVibrateOn);
             _beatAccuracyEvaluator.SetView(_view.BeatAccuracyEvaluatorView);
             
             _musicPlayer.SetMusicClip(_levelData.Model.CurrentLevelData.musicClip);
@@ -126,6 +132,10 @@ namespace ProjectAdvergame.Scene.Gameplay
 
             _onReady.SetView(_view.OnReadyView);
             _onReady.SetOnReadyCountdown(_gameConstants.Model.GameConstants.onReadyCountdown);
+
+            _settings.SetInitialVolume(_gameSettings.Model.AudioVolume);
+            _settings.SetInitialVibrate(_gameSettings.Model.IsVibrateOn);
+            _settings.SetView(_view.SettingsView);
 
             yield return null;
         }

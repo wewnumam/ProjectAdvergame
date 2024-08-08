@@ -21,5 +21,9 @@
         public const string DEFAULT_SAVEFILENAME = "SaveData.json";
 
         public const string KEY_VERSION = "version";
+        public const string KEY_VOLUME = "volume";
+        public const string KEY_VIBRATE = "vibrate";
+
+        public const string MIXER_MASTER_VOLUME = "MasterVolume";
     }
 }

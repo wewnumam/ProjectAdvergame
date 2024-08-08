@@ -450,6 +450,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Icon_Settings
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 208
+        width: 145
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85bf4bc057a99cf42a729a6de0a554d5
+      internalID: 913269633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -467,6 +488,7 @@ TextureImporter:
       Icon_Heart_Outline: 151546852
       Icon_MenuDots: -221033045
       Icon_Play: -460160231
+      Icon_Settings: 913269633
       Icon_Star_Fill: 47879515
       Icon_Star_Outline: -122946916
       UI_Frame: 295178725
