@@ -128,8 +128,12 @@ namespace ProjectAdvergame.Scene.Gameplay
 
             _gameOver.SetView(_view.GameOverView);
 
+            StarRecords currentRecord = _saveSystem.Model.SaveData.GetStarRecordsByLevelName(_levelData.Model.CurrentLevelData.name);
+            
+            _gameWin.SetLevelHighScore(currentRecord.HighScore);
             _gameWin.SetView(_view.GameWinView);
 
+            _onReady.SetLevelHighscore(currentRecord.HighScore);
             _onReady.SetView(_view.OnReadyView);
             _onReady.SetOnReadyCountdown(_gameConstants.Model.GameConstants.onReadyCountdown);
 

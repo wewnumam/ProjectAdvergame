@@ -14,14 +14,15 @@ namespace ProjectAdvergame.Module.OnReady
         [ReadOnly] public float readyOn;
         public TMP_Text countdownText;
         public TMP_Text tapText;
-        public Image onReadyPanel;
+        public TMP_Text levelHighscore;
+        public GameObject onReadyPanel;
 
         public void Ready(UnityAction callback)
         {
             StartCoroutine(StartPlay(callback));
             countdownText.gameObject.SetActive(true);
             tapText.gameObject.SetActive(false);
-            onReadyPanel.DOFade(0, readyOn);
+            onReadyPanel.gameObject.SetActive(false);
         }
 
         private IEnumerator StartPlay(UnityAction callback)
@@ -37,7 +38,6 @@ namespace ProjectAdvergame.Module.OnReady
                 remainingTime--;
             }
 
-            onReadyPanel.gameObject.SetActive(false);
             countdownText.gameObject.SetActive(false);
 
             callback?.Invoke();

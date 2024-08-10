@@ -12,6 +12,8 @@ namespace ProjectAdvergame.Module.GameWin
         public GameObject gameWinPanel;
         public List<Image> starImages;
         public TMP_Text heartResultText;
+        public TMP_Text scoreText;
+        public ParticleSystem newHighScoreParticle;
         public Button mainMenuButton;
         public Button replayButton;
 

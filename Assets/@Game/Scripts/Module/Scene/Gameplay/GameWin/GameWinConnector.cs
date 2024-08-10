@@ -12,6 +12,7 @@ namespace ProjectAdvergame.Module.GameWin
             Subscribe<GameWinMessage>(_gameWin.OnGameWin);
             Subscribe<GameResultHeartMessage>(_gameWin.ShowHeartResult);
             Subscribe<GameResultStarMessage>(_gameWin.ShowStarResult);
+            Subscribe<GameResultScoreMessage>(_gameWin.ShowScoreResult);
         }
 
         protected override void Disconnect()
@@ -19,6 +20,7 @@ namespace ProjectAdvergame.Module.GameWin
             Unsubscribe<GameWinMessage>(_gameWin.OnGameWin);
             Unsubscribe<GameResultHeartMessage>(_gameWin.ShowHeartResult);
             Unsubscribe<GameResultStarMessage>(_gameWin.ShowStarResult);
+            Unsubscribe<GameResultScoreMessage>(_gameWin.ShowScoreResult);
         }
     }
 }
