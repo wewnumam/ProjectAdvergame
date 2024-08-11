@@ -16,5 +16,6 @@ namespace ProjectAdvergame.Module.LevelSelection
         Sprite CurrentArtwork { get;  }
         Color CurrentBackgroundColor { get; }
         AudioClip CurrentClip { get; }
+        Material CurrentSkybox { get; }
     }
 }

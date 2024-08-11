@@ -30,6 +30,7 @@ namespace ProjectAdvergame.Module.LevelSelection
             currentLevelText.SetText(model.CurrentLevelTitle);
             artworkImage.sprite = model.CurrentArtwork;
             backgroundImage.color = model.CurrentBackgroundColor;
+            RenderSettings.skybox = model.CurrentSkybox;
             if (audioSource.clip != model.CurrentClip)
             { 
                 audioSource.clip = model.CurrentClip;
