@@ -15,8 +15,8 @@ namespace ProjectAdvergame.Module.OnReady
         {
             base.SetView(view);
             view.onReadyPanel.gameObject.SetActive(true);
-            view.tapText.gameObject.SetActive(true);
             view.levelHighscore.SetText(_levelHighscore.ToString());
+            view.tweener.ShowList();
         }
 
         public void SetOnReadyCountdown(float countdown)
@@ -28,6 +28,8 @@ namespace ProjectAdvergame.Module.OnReady
         internal void OnReady(OnReadyMessage message)
         {
             _view.Ready(message.OnComplete);
+            _view.tweener.onComplete += () => _view.onReadyPanel.SetActive(false);
+            _view.tweener.ShowList();
         }
     }
 }

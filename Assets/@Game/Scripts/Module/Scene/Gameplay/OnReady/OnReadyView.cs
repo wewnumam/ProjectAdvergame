@@ -1,6 +1,7 @@
 using Agate.MVC.Base;
 using DG.Tweening;
 using NaughtyAttributes;
+using ProjectAdvergame.Utility;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -13,16 +14,14 @@ namespace ProjectAdvergame.Module.OnReady
     {
         [ReadOnly] public float readyOn;
         public TMP_Text countdownText;
-        public TMP_Text tapText;
         public TMP_Text levelHighscore;
         public GameObject onReadyPanel;
+        public Tweener_ShowList tweener;
 
         public void Ready(UnityAction callback)
         {
             StartCoroutine(StartPlay(callback));
             countdownText.gameObject.SetActive(true);
-            tapText.gameObject.SetActive(false);
-            onReadyPanel.gameObject.SetActive(false);
         }
 
         private IEnumerator StartPlay(UnityAction callback)
