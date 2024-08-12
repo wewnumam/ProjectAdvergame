@@ -8,7 +8,7 @@ namespace ProjectAdvergame.Module.GamePause
     public class GamePauseView : BaseView
     {
         public Button mainMenuButton;
-        public GameObject pausePanel;
+        public Button playAgainButton;
 
         [Header("Pause Button")]
         public Button pauseButton;
@@ -17,13 +17,16 @@ namespace ProjectAdvergame.Module.GamePause
         public Sprite resumeSprite;
 
 
-        public void SetCallbacks(UnityAction togglePause, UnityAction onMainMenu)
+        public void SetCallbacks(UnityAction togglePause, UnityAction onMainMenu, UnityAction onPlayAgain)
         {
             pauseButton.onClick.RemoveAllListeners();
             pauseButton.onClick.AddListener(togglePause);
             
             mainMenuButton.onClick.RemoveAllListeners();
             mainMenuButton.onClick.AddListener(onMainMenu);
+
+            playAgainButton.onClick.RemoveAllListeners();
+            playAgainButton.onClick.AddListener(onPlayAgain);
         }
     }
 }

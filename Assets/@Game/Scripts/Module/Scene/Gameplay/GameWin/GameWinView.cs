@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using ProjectAdvergame.Utility;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,13 +10,14 @@ namespace ProjectAdvergame.Module.GameWin
 {
     public class GameWinView : BaseView
     {
-        public GameObject gameWinPanel;
         public List<Image> starImages;
         public TMP_Text heartResultText;
         public TMP_Text scoreText;
         public ParticleSystem newHighScoreParticle;
         public Button mainMenuButton;
         public Button replayButton;
+
+        public Tweener_ShowList tweener;
 
         public void SetCallbacks(UnityAction onMainMenu, UnityAction onReplay)
         {

@@ -32,7 +32,7 @@ namespace ProjectAdvergame.Module.GameWin
 
         internal void OnGameWin(GameWinMessage message)
         {
-            _view.gameWinPanel.SetActive(true);
+            _view.tweener.ShowList();
         }
 
         internal void ShowHeartResult(GameResultHeartMessage message)
