@@ -18,46 +18,63 @@ MonoBehaviour:
   cost: 10
   isUnlockByStar: 0
   starAmount: 11
-  beatCollections:
-  - beats:
-    - interval: 1
-      type: 0
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
-        type: 3}
-    - interval: 1
-      type: 1
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
-        type: 3}
-    - interval: 1
-      type: 0
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
-        type: 3}
-    - interval: 1
-      type: 1
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
-        type: 3}
-    - interval: 1
-      type: 0
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
-        type: 3}
-    - interval: 1
-      type: 1
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
-        type: 3}
-    - interval: 1
-      type: 0
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
-        type: 3}
-    - interval: 1
-      type: 1
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
-        type: 3}
-    - interval: 1
-      type: 0
-      prefab: {fileID: 9201010848253127158, guid: 143114151992e544a9a48774d8162e13,
-        type: 3}
+  beats:
+  - interval: 1
+    type: 0
     direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
+  - interval: 2
+    type: 0
+    direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
+  - interval: 3
+    type: 1
+    direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
+  - interval: 4
+    type: 0
+    direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
+  - interval: 5
+    type: 0
+    direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
+  - interval: 6
+    type: 1
+    direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
+  - interval: 7
+    type: 0
+    direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
+  - interval: 8
+    type: 0
+    direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
+  - interval: 9
+    type: 1
+    direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
+  - interval: 10
+    type: 0
+    direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
+  - interval: 11
+    type: 0
+    direction: 0
+    prefab: {fileID: 5135239873648524200, guid: 0f674179dab1b85499c024eafd0ee5f4,
+      type: 3}
   environmentPrefab: {fileID: 6312222697657816425, guid: 424ae422b068be64f9c96f65f0f137cb,
     type: 3}
   musicClip: {fileID: 8300000, guid: 83ad13c0a6b7e7745a01b529cade996d, type: 3}
-  skybox: {fileID: 2100000, guid: 73d720f199aa4c441b0cfaf2e627620a, type: 2}
+  skybox: {fileID: 2100000, guid: 3667053a1acc7ce46ab8de53dca8e7b8, type: 2}

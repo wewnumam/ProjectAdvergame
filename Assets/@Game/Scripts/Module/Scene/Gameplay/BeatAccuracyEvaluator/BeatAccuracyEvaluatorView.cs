@@ -20,10 +20,13 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         [Header("Indicator")]
         public Slider indicator;
+        public TMP_Text tapText;
         public TMP_Text accuracyText;
         public TMP_Text currentIntervalText;
         public TMP_Text currentBeatText;
-        public TMP_Text tapText;
+        public MeshRenderer objectIndicator;
+        public Material normalMaterial;
+        public Material perfectMaterial;
         
         [Header("Current State"), ReadOnly] public bool isPlaying;
         [ReadOnly] public int tapIndex;
@@ -59,15 +62,25 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
                 currentInterval = beats[currentBeatIndex].interval - previousInterval;
                 currentBeatIndex++;
                 currentBeatText?.SetText(currentBeatIndex.ToString());
+
+                #region Indicator
+                
+                indicator.fillRect.GetComponent<Image>().color = Color.red;
+                objectIndicator.material = normalMaterial;
+                
+                #endregion
             }
 
             #region Indicator
 
+            objectIndicator.transform.localScale = Vector3.one * (currentInterval + 1);
             indicator.value = currentInterval;
+
             if (IsPhasePerfect())
+            {
                 indicator.fillRect.GetComponent<Image>().color = Color.green;
-            else
-                indicator.fillRect.GetComponent<Image>().color = Color.red;
+                objectIndicator.material = perfectMaterial;
+            }
 
             #endregion
         }
