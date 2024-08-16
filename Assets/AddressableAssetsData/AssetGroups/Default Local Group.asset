@@ -17,8 +17,13 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 8a1a62987fd769d4c8831b6cde9e04bc
   m_SerializeEntries:
-  - m_GUID: c3136ccbff1df3747a65575eaaff83dd
-    m_Address: Assets/Cylinder.prefab
+  - m_GUID: 0f674179dab1b85499c024eafd0ee5f4
+    m_Address: Stone_Default_01a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f22a0f8642949034cb4950d70e200aa5
+    m_Address: Material_Skybox_00a
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

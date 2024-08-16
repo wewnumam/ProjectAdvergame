@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: LevelData_3
+  m_EditorClassIdentifier: 
+  m_GroupName: LevelData_3
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 69c7f5e4e4600804ca34ac352b5ab143
+  m_SerializeEntries:
+  - m_GUID: 424ae422b068be64f9c96f65f0f137cb
+    m_Address: LevelData_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83ad13c0a6b7e7745a01b529cade996d
+    m_Address: 03
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 393cb6168acbde24ea12db3aa8fe5179
+    m_Address: Artwork_04a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3667053a1acc7ce46ab8de53dca8e7b8
+    m_Address: Material_SkyBox_04a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0f405cd9b2c2df048b4b86d45beda13d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 960b176e45a1f3d49b82eab33373f361, type: 2}
+    - {fileID: 11400000, guid: 131bf60dd9bb2e04c9192dcbe0ff731f, type: 2}

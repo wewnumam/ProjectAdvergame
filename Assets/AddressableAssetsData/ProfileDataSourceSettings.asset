@@ -33,7 +33,7 @@ MonoBehaviour:
       m_Value: https://5ed35c65-72fe-4509-a6f0-09bb37d2d7eb.client-api.unity3dusercontent.com/client_api/v1/environments/{CcdManager.EnvironmentName}/buckets/{CcdManager.BucketId}/release_by_badge/{CcdManager.Badge}/entry_by_path/content/?path=
     - m_Suffix: EnvironmentName
       m_Value: production
-  - m_GroupTypePrefix: CCD.5ed35c65-72fe-4509-a6f0-09bb37d2d7eb.9fecbc4a-5252-4171-977f-e336406afd94.d4899c67-a421-4216-b712-c7e60b9640a9.latest
+  - m_GroupTypePrefix: Automatic
     m_Variables:
     - m_Suffix: CcdBucketName
       m_Value: Android

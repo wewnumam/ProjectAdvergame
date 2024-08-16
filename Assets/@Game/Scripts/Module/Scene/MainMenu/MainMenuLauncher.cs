@@ -57,11 +57,12 @@ namespace ProjectAdvergame.Scene.MainMenu
 
         protected override IEnumerator InitSceneObject()
         {
-            _levelData.SetCurrentLevel(_saveSystem.Model.SaveData.CurrentLevelName);
 
             Publish(new GameStateMessage(Utility.EnumManager.GameState.PreGame));
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
+
+            yield return StartCoroutine(_levelData.SetCurrentLevel(_saveSystem.Model.SaveData.CurrentLevelName));
 
             _view.SetButtonCallback(GoToGameplay);
 
@@ -72,7 +73,7 @@ namespace ProjectAdvergame.Scene.MainMenu
             _levelSelection.SetCurrentHeartCount(_saveSystem.Model.SaveData.CurrentHeartCount);
             _levelSelection.SetCurrentStarCount(_saveSystem.Model.SaveData.GetTotalStarCount());
             _levelSelection.SetView(_view.LevelSelectionView);
-            _levelSelection.SetCurrentContent(_saveSystem.Model.SaveData.CurrentLevelName);
+            Publish(new LoadLevelCompleteMessage(_saveSystem.Model.SaveData.CurrentLevelName, _levelData.Model.CurrentArtwork, _levelData.Model.CurrentMusicClip, _levelData.Model.CurrentSkybox));
 
             _stats.SetCurrentHeart(_saveSystem.Model.SaveData.CurrentHeartCount);
             _stats.SetCurrentStar(_saveSystem.Model.SaveData.GetTotalStarCount());

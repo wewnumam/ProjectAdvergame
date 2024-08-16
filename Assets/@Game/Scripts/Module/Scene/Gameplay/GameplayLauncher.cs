@@ -23,6 +23,7 @@ using ProjectAdvergame.Module.SaveSystem;
 using ProjectAdvergame.Utility;
 using ProjectAdvergame.Module.GameSettings;
 using ProjectAdvergame.Module.Settings;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -91,19 +92,21 @@ namespace ProjectAdvergame.Scene.Gameplay
 
         protected override IEnumerator InitSceneObject()
         {
-            _levelData.SetCurrentLevel(_saveSystem.Model.SaveData.CurrentLevelName);
 
             Publish(new GameStateMessage(Utility.EnumManager.GameState.PreGame));
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
 
-            RenderSettings.skybox = _levelData.Model.CurrentLevelData.skybox;
+            yield return StartCoroutine(_levelData.SetCurrentLevel(_saveSystem.Model.SaveData.CurrentLevelName));
 
-            Instantiate(_levelData.Model.CurrentLevelData.environmentPrefab);
+            RenderSettings.skybox = _levelData.Model.CurrentSkybox;
+
+            Instantiate(_levelData.Model.CurrentEnvironmentPrefab);
 
             _playerCharacter.SetView(_view.PlayerCharacterView);
             _cameraManager.SetView(_view.CameraManagerView);
 
+            _stoneManager.SetStonePrefab(_levelData.Model.CurrentStonePrefab);
             _stoneManager.SetBeatCollections(_levelData.Model.CurrentLevelData.beats);
             _stoneManager.SetView(_view.StoneManagerView);
 
@@ -112,7 +115,7 @@ namespace ProjectAdvergame.Scene.Gameplay
             _beatAccuracyEvaluator.SetVibrate(_gameSettings.Model.IsVibrateOn);
             _beatAccuracyEvaluator.SetView(_view.BeatAccuracyEvaluatorView);
             
-            _musicPlayer.SetMusicClip(_levelData.Model.CurrentLevelData.musicClip);
+            _musicPlayer.SetMusicClip(_levelData.Model.CurrentMusicClip);
             _musicPlayer.SetView(_view.MusicPlayerView);
 
             _score.SetBeatCollections(_levelData.Model.CurrentLevelData.beats);

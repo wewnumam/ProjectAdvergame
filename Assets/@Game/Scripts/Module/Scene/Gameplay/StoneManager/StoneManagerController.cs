@@ -12,10 +12,16 @@ namespace ProjectAdvergame.Module.StoneManager
     public class StoneManagerController : ObjectController<StoneManagerController, StoneManagerView>
     {
         private List<Beat> _beats;
-        
+        private GameObject _stonePrefab;
+
         public void SetBeatCollections(List<Beat> beats)
         {
             _beats = beats;
+        }
+
+        public void SetStonePrefab(GameObject stonePrefab)
+        {
+            _stonePrefab = stonePrefab;
         }
 
         public override void SetView(StoneManagerView view)
@@ -34,7 +40,7 @@ namespace ProjectAdvergame.Module.StoneManager
 
                 StoneView previousStone = currentBeatIndex > 1 ? stones[currentBeatIndex - 2] : null;
 
-                StoneView stone = view.SpawnStone(beat.prefab, position, beat.interval, currentBeatIndex, beat.type, previousStone);
+                StoneView stone = view.SpawnStone(_stonePrefab, position, beat.interval, currentBeatIndex, beat.type, previousStone);
                 StoneController instance = new StoneController();
                 InjectDependencies(instance);
                 instance.Init(stone);

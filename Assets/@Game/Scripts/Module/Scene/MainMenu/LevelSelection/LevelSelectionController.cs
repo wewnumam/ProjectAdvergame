@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
+using ProjectAdvergame.Boot;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.LevelItem;
@@ -16,12 +17,6 @@ namespace ProjectAdvergame.Module.LevelSelection
         public void SetUnlockedLevel(List<StarRecords> unlockedLevels) => _model.SetUnlockedLevel(unlockedLevels);
         public void SetCurrentHeartCount(int count) => _model.SetCurrentHeartCount(count);
         public void SetCurrentStarCount(int count) => _model.SetCurrentStarCount(count);
-        public void SetCurrentContent(string levelName)
-        {
-            SO_LevelData levelData = _model.LevelCollection.levelItems.FirstOrDefault(r => r.name == levelName);
-            StarRecords starRecords = _model.UnlockedLevels.FirstOrDefault(r => r.LevelName == levelName);
-            _model.SetCurrentContent(levelData, starRecords);
-        }
 
         public override void SetView(LevelSelectionView view)
         {
@@ -81,10 +76,35 @@ namespace ProjectAdvergame.Module.LevelSelection
             }
         }
 
-        internal void OnChooseLevel(ChooseLevelMessage message)
+        internal void OnLoadLevelComplete(LoadLevelCompleteMessage message)
         {
-            SetCurrentContent(message.LevelName);
+            if (_model.LevelCollection == null)
+                return;
+
+            // Find the level data
+            SO_LevelData levelData = _model.LevelCollection.levelItems.FirstOrDefault(r => r.name == message.LevelName);
+            // Find the star records
+            StarRecords starRecords = _model.UnlockedLevels.FirstOrDefault(r => r.LevelName == message.LevelName);
+
+            // Check for null references and handle appropriately
+            if (levelData == null)
+            {
+                // Handle the case where levelData is null
+                Debug.LogError($"Level data not found for level: {message.LevelName}");
+                return; // Exit the method or handle appropriately
+            }
+
+            if (starRecords == null)
+            {
+                // Handle the case where starRecords is null
+                Debug.LogError($"Star records not found for level: {message.LevelName}");
+                return; // Exit the method or handle appropriately
+            }
+
+            // If both levelData and starRecords are not null, proceed to set current content
+            _model.SetCurrentContent(levelData, starRecords, message.Artwork, message.MusicClip, message.Skybox);
         }
+
 
         internal void OnUnlockLevel(UnlockLevelMessage message)
         {

@@ -38,5 +38,10 @@ namespace ProjectAdvergame.Boot
             Application.targetFrameRate = -1;
             yield return null;
         }
+
+        public void RunCoroutine(IEnumerator coroutine)
+        {
+            StartCoroutine(coroutine);
+        }
     }
 }

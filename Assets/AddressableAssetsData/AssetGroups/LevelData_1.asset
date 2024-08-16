@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: LevelData_1
+  m_EditorClassIdentifier: 
+  m_GroupName: LevelData_1
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5cc912596c3d77d43a0aeeb73f2ae4ac
+  m_SerializeEntries:
+  - m_GUID: c911f2c658955dc4b9d590f6ce839d06
+    m_Address: LevelData_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f44c1da7b3441be4691d2a75bf469244
+    m_Address: Stone_Lampu_01a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f03d032e92f5e1f42afedf33c566cb7e
+    m_Address: 04
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df47ab136a2143d4a82ac98b165256ee
+    m_Address: Artwork_02a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73d720f199aa4c441b0cfaf2e627620a
+    m_Address: Material_SkyBox_02a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0f405cd9b2c2df048b4b86d45beda13d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 27abb1aaea3d594428b68099e423581f, type: 2}
+    - {fileID: 11400000, guid: df6fd53b97ef5ac4c99abe6345571154, type: 2}

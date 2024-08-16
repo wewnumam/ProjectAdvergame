@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: LevelData_2
+  m_EditorClassIdentifier: 
+  m_GroupName: LevelData_2
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d90cf97fec0361d419347a4959c7fc23
+  m_SerializeEntries:
+  - m_GUID: be059a9399344e74e9945409ecdd012a
+    m_Address: LevelData_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28b64417158487d4b87da04ebc613110
+    m_Address: Stone_Puzzle_01a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee7ee9c0b4ede5e41ad9d78ddfd870cd
+    m_Address: 05
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34146abff360b164fb3e5ce3c5254973
+    m_Address: Artwork_03a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01adc1f83d6e1f441b0f52eed0853565
+    m_Address: Material_SkyBox_03a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0f405cd9b2c2df048b4b86d45beda13d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e02228df6fc49664891a5d33f5cfd99a, type: 2}
+    - {fileID: 11400000, guid: 183ed7ea305a7be47a7708cfe6ccd82c, type: 2}

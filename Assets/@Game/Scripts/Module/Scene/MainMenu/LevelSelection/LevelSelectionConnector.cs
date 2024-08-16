@@ -9,13 +9,13 @@ namespace ProjectAdvergame.Module.LevelSelection
 
         protected override void Connect()
         {
-            Subscribe<ChooseLevelMessage>(_levelSelection.OnChooseLevel);
+            Subscribe<LoadLevelCompleteMessage>(_levelSelection.OnLoadLevelComplete);
             Subscribe<UnlockLevelMessage>(_levelSelection.OnUnlockLevel);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<ChooseLevelMessage>(_levelSelection.OnChooseLevel);
+            Unsubscribe<LoadLevelCompleteMessage>(_levelSelection.OnLoadLevelComplete);
             Unsubscribe<UnlockLevelMessage>(_levelSelection.OnUnlockLevel);
         }
     }

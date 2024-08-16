@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using ProjectAdvergame.Utility;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace ProjectAdvergame.Module.LevelData
 {
@@ -10,7 +11,7 @@ namespace ProjectAdvergame.Module.LevelData
     {
         [Header("Display")]
         public string title;
-        public Sprite artwork;
+        public AssetReferenceSprite artwork;
         public Color backgroundColor;
 
         [Header("Price")]
@@ -22,9 +23,10 @@ namespace ProjectAdvergame.Module.LevelData
         public List<Beat> beats;
 
         [Header("Environment")]
-        public GameObject environmentPrefab;
-        public AudioClip musicClip;
-        public Material skybox;
+        public AssetReferenceGameObject stonePrefab;
+        public AssetReferenceGameObject environmentPrefab;
+        public AssetReferenceAudioClip musicClip;
+        public AssetReferenceMaterial skybox;
     }
 
     [System.Serializable]
@@ -35,7 +37,17 @@ namespace ProjectAdvergame.Module.LevelData
         public EnumManager.StoneType type;
         [Foldout("Details")]
         public EnumManager.Direction direction;
-        [Foldout("Details"), ShowAssetPreview(32, 32)]
-        public GameObject prefab;
+    }
+
+    [System.Serializable]
+    public class AssetReferenceAudioClip : AssetReferenceT<AudioClip>
+    {
+        public AssetReferenceAudioClip(string guid) : base(guid) { }
+    }
+
+    [System.Serializable]
+    public class AssetReferenceMaterial : AssetReferenceT<Material>
+    {
+        public AssetReferenceMaterial(string guid) : base(guid) { }
     }
 }
