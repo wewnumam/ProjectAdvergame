@@ -20,6 +20,8 @@ namespace ProjectAdvergame.Module.LevelSelection
         public Image artworkImage;
         public Image backgroundImage;
         public AudioSource audioSource;
+        public TMP_Text progressText;
+        public GameObject progressPanel;
 
         protected override void InitRenderModel(ILevelSelectionModel model)
         {

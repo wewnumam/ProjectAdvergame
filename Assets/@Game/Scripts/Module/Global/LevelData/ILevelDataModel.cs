@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.LevelData
@@ -9,7 +10,7 @@ namespace ProjectAdvergame.Module.LevelData
         SO_LevelCollection LevelCollection { get; }
 
         Sprite CurrentArtwork { get; }
-        GameObject CurrentStonePrefab { get; }
+        List<GameObject> CurrentStonePrefabs { get; }
         GameObject CurrentEnvironmentPrefab { get; }
         AudioClip CurrentMusicClip { get; }
         Material CurrentSkybox { get; }

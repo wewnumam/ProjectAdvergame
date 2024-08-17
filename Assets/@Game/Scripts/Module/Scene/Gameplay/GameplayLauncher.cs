@@ -106,7 +106,7 @@ namespace ProjectAdvergame.Scene.Gameplay
             _playerCharacter.SetView(_view.PlayerCharacterView);
             _cameraManager.SetView(_view.CameraManagerView);
 
-            _stoneManager.SetStonePrefab(_levelData.Model.CurrentStonePrefab);
+            _stoneManager.SetStonePrefab(_levelData.Model.CurrentStonePrefabs);
             _stoneManager.SetBeatCollections(_levelData.Model.CurrentLevelData.beats);
             _stoneManager.SetView(_view.StoneManagerView);
 

@@ -303,8 +303,8 @@ MonoBehaviour:
   - interval: 102.68
     type: 0
     direction: 1
-  stonePrefab:
-    m_AssetGUID: f44c1da7b3441be4691d2a75bf469244
+  stonePrefabs:
+  - m_AssetGUID: f44c1da7b3441be4691d2a75bf469244
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

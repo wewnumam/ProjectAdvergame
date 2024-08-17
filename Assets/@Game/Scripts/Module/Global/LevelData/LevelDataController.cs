@@ -29,18 +29,15 @@ namespace ProjectAdvergame.Module.LevelData
         {
             SO_LevelData levelData = Resources.Load<SO_LevelData>(@"LevelData/" + levelName);
             _model.SetCurrentLevelData(levelData);
+            _model.ResetStonePrefabs();
 
-            Debug.Log("0");
             yield return LoadAsset<Sprite>(levelData.artwork, sprite => _model.SetCurrentArtwork(sprite), "artwork");
-            Debug.Log("1");
             yield return LoadAsset<Material>(levelData.skybox, material => _model.SetCurrentSkybox(material), "skybox");
-            Debug.Log("2");
             yield return LoadAsset<GameObject>(levelData.environmentPrefab, gameObject => _model.SetCurrentEnvironmentPrefab(gameObject), "environment");
-            Debug.Log("3");
-            yield return LoadAsset<GameObject>(levelData.stonePrefab, gameObject => _model.SetCurrentStonePrefab(gameObject), "stone");
-            Debug.Log("4");
+            for (int i = 0; i < levelData.stonePrefabs.Count; i++)
+                yield return LoadAsset<GameObject>(levelData.stonePrefabs[i], gameObject => _model.AddCurrentStonePrefab(gameObject), $"stone-{i}");
+
             yield return LoadAsset<AudioClip>(levelData.musicClip, audioClip => _model.SetCurrentMusicClip(audioClip), "music");
-            Debug.Log("5");
 
             Publish(new LoadLevelCompleteMessage(levelName, _model.CurrentArtwork, _model.CurrentMusicClip, _model.CurrentSkybox));
         }
@@ -56,11 +53,25 @@ namespace ProjectAdvergame.Module.LevelData
 
             var handle = assetReference.LoadAssetAsync<T>();
             _assetHandles[handleKey] = handle;
-            yield return handle;
+
+            while (!handle.IsDone)
+            {
+                Publish(new LoadProgressMessage($"{_model.CurrentLevelData.title} {handleKey}", handle.PercentComplete, false));
+                SplashScreen.Instance.LoadProgress($"{_model.CurrentLevelData.title} {handleKey}", handle.PercentComplete, false);
+                yield return null;
+            }
+            
+            Publish(new LoadProgressMessage(string.Empty, 0, true));
+            SplashScreen.Instance.LoadProgress(string.Empty, 0, true);
 
             if (handle.Status == AsyncOperationStatus.Succeeded)
             {
                 onSuccess?.Invoke(handle.Result);
+                Debug.Log($"{handleKey} installed successfully...");
+            }
+            else
+            {
+                Debug.LogError($"{handleKey} failed to install");
             }
 
             // Release the handle if it is no longer needed

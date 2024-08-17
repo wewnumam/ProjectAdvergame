@@ -24,8 +24,8 @@ MonoBehaviour:
   isUnlockByStar: 0
   starAmount: 0
   beats: []
-  stonePrefab:
-    m_AssetGUID: 0f674179dab1b85499c024eafd0ee5f4
+  stonePrefabs:
+  - m_AssetGUID: 0f674179dab1b85499c024eafd0ee5f4
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

@@ -23,7 +23,7 @@ namespace ProjectAdvergame.Module.LevelData
         public List<Beat> beats;
 
         [Header("Environment")]
-        public AssetReferenceGameObject stonePrefab;
+        public List<AssetReferenceGameObject> stonePrefabs;
         public AssetReferenceGameObject environmentPrefab;
         public AssetReferenceAudioClip musicClip;
         public AssetReferenceMaterial skybox;

@@ -16,9 +16,9 @@ namespace ProjectAdvergame.Module.StoneManager
 
         private StoneView currentStone;
 
-        public StoneView SpawnStone(GameObject prefab, Vector3 position, float duration, int index, EnumManager.StoneType type, StoneView previousStone)
+        public StoneView SpawnStone(List<GameObject> prefabs, Vector3 position, float duration, int index, EnumManager.StoneType type, StoneView previousStone)
         {
-            GameObject obj = Instantiate(prefab, position, Quaternion.identity, transform);
+            GameObject obj = Instantiate(prefabs[Random.Range(0, prefabs.Count)], position, Quaternion.identity, transform);
             
             currentStone = obj.GetComponent<StoneView>();
             currentStone.duration = duration;

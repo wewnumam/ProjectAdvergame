@@ -282,11 +282,23 @@ MonoBehaviour:
   - interval: 81.38
     type: 0
     direction: 0
-  stonePrefab:
-    m_AssetGUID: 28b64417158487d4b87da04ebc613110
+  stonePrefabs:
+  - m_AssetGUID: 28b64417158487d4b87da04ebc613110
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  - m_AssetGUID: 5422ed486f1f5094a87b1f825016cb0c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: e1b751658aa56f645921db4ca732cbd7
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 092753137f6f03345b9f160fca6c7cf0
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 1
   environmentPrefab:
     m_AssetGUID: be059a9399344e74e9945409ecdd012a
     m_SubObjectName: 

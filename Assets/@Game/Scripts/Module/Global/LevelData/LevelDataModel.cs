@@ -1,4 +1,6 @@
 using Agate.MVC.Base;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.LevelData
@@ -9,7 +11,7 @@ namespace ProjectAdvergame.Module.LevelData
         public SO_LevelCollection LevelCollection { get; private set; }
 
         public Sprite CurrentArtwork { get; private set; }
-        public GameObject CurrentStonePrefab { get; private set; }
+        public List<GameObject> CurrentStonePrefabs { get; private set; }
         public GameObject CurrentEnvironmentPrefab { get; private set; }
         public AudioClip CurrentMusicClip { get; private set; }
         public Material CurrentSkybox { get; private set; }
@@ -32,9 +34,11 @@ namespace ProjectAdvergame.Module.LevelData
             SetDataAsDirty();
         }
 
-        public void SetCurrentStonePrefab(GameObject currentStonePrefab)
+        public void AddCurrentStonePrefab(GameObject currentStonePrefab)
         {
-            CurrentStonePrefab = currentStonePrefab;
+            if (CurrentStonePrefabs == null)
+                CurrentStonePrefabs = new List<GameObject>();
+            CurrentStonePrefabs.Add(currentStonePrefab);
             SetDataAsDirty();
         }
 
@@ -53,6 +57,13 @@ namespace ProjectAdvergame.Module.LevelData
         public void SetCurrentSkybox(Material currentSkybox)
         {
             CurrentSkybox = currentSkybox;
+            SetDataAsDirty();
+        }
+
+        public void ResetStonePrefabs()
+        {
+            if (CurrentStonePrefabs != null)
+                CurrentStonePrefabs.Clear();
             SetDataAsDirty();
         }
     }

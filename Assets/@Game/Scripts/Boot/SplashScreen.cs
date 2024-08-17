@@ -2,6 +2,7 @@ using Agate.MVC.Base;
 using Agate.MVC.Core;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,9 +15,9 @@ namespace ProjectAdvergame.Boot
         [SerializeField] GameObject _transitionUI;
         [SerializeField] bool showGameInfo;
         [SerializeField] TMP_Text versionText;
-        [SerializeField] TMP_Text activeSceneText;
         [SerializeField] Image photoImage;
         [SerializeField] List<Sprite> photoSprites;
+        [SerializeField] TMP_Text progressText;
 
         protected override IMain GetMain()
         {
@@ -31,6 +32,7 @@ namespace ProjectAdvergame.Boot
         protected override void StartSplash()
         {
             base.StartSplash();
+            versionText.SetText($"v{Application.version}");
             _splashUI.SetActive(true);
             _transitionUI.SetActive(false);
         }
@@ -51,17 +53,6 @@ namespace ProjectAdvergame.Boot
         {
             base.FinishTransition();
             _transitionUI.SetActive(false);
-
-            if (showGameInfo)
-            {
-                versionText.SetText(Application.version);
-                activeSceneText.SetText(SceneManager.GetActiveScene().name);
-            }
-            else
-            {
-                versionText.enabled = false;
-                activeSceneText.enabled = false;
-            }
             photoSprites = RollList(photoSprites, 1);
             photoImage.sprite = photoSprites[0];
         }
@@ -78,6 +69,12 @@ namespace ProjectAdvergame.Boot
             rolledList.AddRange(list.GetRange(0, count - steps));
 
             return rolledList;
+        }
+
+        public void LoadProgress(string label, float percentage, bool isDone)
+        {
+            progressText?.SetText($"Installing {label} ({(int)(percentage * 100)}%)");
+            progressText.enabled = !isDone;
         }
     }
 }

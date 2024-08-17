@@ -112,5 +112,14 @@ namespace ProjectAdvergame.Module.LevelSelection
 
             _view.listedLevel.ForEach(item => item.SubstractHeart(message.LevelItem.cost));
         }
+
+        internal void OnLoadProgress(LoadProgressMessage message)
+        {
+            if (_view == null)
+                return;
+
+           _view.progressText.SetText($"Installing {message.Label} ({(int)(message.Percentage * 100)}%)");
+           _view.progressPanel.SetActive(!message.IsDone);
+        }
     }
 }
