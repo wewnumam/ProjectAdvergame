@@ -16,6 +16,7 @@ namespace ProjectAdvergame.Module.GameWin
         public ParticleSystem newHighScoreParticle;
         public Button mainMenuButton;
         public Button replayButton;
+        public Color winColor;
 
         public Tweener_ShowList tweener;
 

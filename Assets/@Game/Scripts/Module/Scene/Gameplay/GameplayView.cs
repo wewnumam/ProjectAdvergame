@@ -11,6 +11,7 @@ using ProjectAdvergame.Module.GameWin;
 using ProjectAdvergame.Module.OnReady;
 using ProjectAdvergame.Module.GamePause;
 using ProjectAdvergame.Module.Settings;
+using UnityEngine;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -28,5 +29,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         public GameWinView GameWinView;
         public OnReadyView OnReadyView;
         public SettingsView SettingsView;
+
+        public GameObject defaultStonePrefab;
     }
 }

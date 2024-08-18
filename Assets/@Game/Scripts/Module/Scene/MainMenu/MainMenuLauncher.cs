@@ -14,6 +14,8 @@ using ProjectAdvergame.Utility;
 using ProjectAdvergame.Module.CheatFeature;
 using ProjectAdvergame.Module.Settings;
 using ProjectAdvergame.Module.GameSettings;
+using System.Runtime.InteropServices;
+using UnityEngine.AddressableAssets;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -57,6 +59,7 @@ namespace ProjectAdvergame.Scene.MainMenu
 
         protected override IEnumerator InitSceneObject()
         {
+            Time.timeScale = 1;
 
             Publish(new GameStateMessage(Utility.EnumManager.GameState.PreGame));
 

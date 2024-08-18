@@ -23,9 +23,42 @@ MonoBehaviour:
   cost: 10
   isUnlockByStar: 0
   starAmount: 0
-  beats: []
+  beats:
+  - interval: 1
+    type: 0
+    direction: 0
+  - interval: 2
+    type: 0
+    direction: 0
+  - interval: 3
+    type: 1
+    direction: 0
+  - interval: 4
+    type: 0
+    direction: 0
+  - interval: 5
+    type: 0
+    direction: 0
+  - interval: 6
+    type: 1
+    direction: 0
+  - interval: 7
+    type: 0
+    direction: 0
+  - interval: 8
+    type: 0
+    direction: 0
+  - interval: 9
+    type: 1
+    direction: 0
+  - interval: 10
+    type: 0
+    direction: 0
+  - interval: 11
+    type: 0
+    direction: 0
   stonePrefabs:
-  - m_AssetGUID: 0f674179dab1b85499c024eafd0ee5f4
+  - m_AssetGUID: 2eb661f5aca5e7643a11cce62ba94524
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

@@ -24,6 +24,7 @@ using ProjectAdvergame.Utility;
 using ProjectAdvergame.Module.GameSettings;
 using ProjectAdvergame.Module.Settings;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Collections.Generic;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -92,6 +93,7 @@ namespace ProjectAdvergame.Scene.Gameplay
 
         protected override IEnumerator InitSceneObject()
         {
+            Time.timeScale = 1;
 
             Publish(new GameStateMessage(Utility.EnumManager.GameState.PreGame));
 
@@ -101,7 +103,8 @@ namespace ProjectAdvergame.Scene.Gameplay
 
             RenderSettings.skybox = _levelData.Model.CurrentSkybox;
 
-            Instantiate(_levelData.Model.CurrentEnvironmentPrefab);
+            if (_levelData.Model.CurrentEnvironmentPrefab != null)
+                Instantiate(_levelData.Model.CurrentEnvironmentPrefab);
 
             _playerCharacter.SetView(_view.PlayerCharacterView);
             _cameraManager.SetView(_view.CameraManagerView);

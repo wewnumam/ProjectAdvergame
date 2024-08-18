@@ -54,7 +54,7 @@ namespace ProjectAdvergame.Module.GameWin
 
             if (message.Score > _highscore)
             {
-                _view.scoreText.color = Color.yellow;
+                _view.scoreText.color = _view.winColor;
                 _view.newHighScoreParticle.Play();
             }
         }

@@ -26,7 +26,7 @@ namespace ProjectAdvergame.Utility
             targetPosition = targetObject.position + offset;
             Vector2 screenPoint = mainCamera.WorldToScreenPoint(targetPosition);
 
-            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform.parent as RectTransform, screenPoint, null, out Vector2 localPoint))
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform.parent as RectTransform, screenPoint, mainCamera, out Vector2 localPoint))
             {
                 rectTransform.localPosition = localPoint;
             }

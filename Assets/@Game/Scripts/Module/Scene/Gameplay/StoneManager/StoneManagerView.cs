@@ -12,13 +12,16 @@ namespace ProjectAdvergame.Module.StoneManager
     {
         [ReadOnly] public List<StoneView> stones;
 
+        public GameObject defaultStonePrefab;
         public GameObject addHealthPrefab;
 
         private StoneView currentStone;
 
         public StoneView SpawnStone(List<GameObject> prefabs, Vector3 position, float duration, int index, EnumManager.StoneType type, StoneView previousStone)
         {
-            GameObject obj = Instantiate(prefabs[Random.Range(0, prefabs.Count)], position, Quaternion.identity, transform);
+            int randomIndex = Random.Range(0, prefabs.Count);
+            GameObject prefab = prefabs[randomIndex] == null ? defaultStonePrefab : prefabs[randomIndex];
+            GameObject obj = Instantiate(prefab, position, Quaternion.identity, transform);
             
             currentStone = obj.GetComponent<StoneView>();
             currentStone.duration = duration;

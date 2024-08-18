@@ -47,7 +47,7 @@ namespace ProjectAdvergame.Module.LevelData
             // Handle asset loading and validation
             if (_assetHandles.ContainsKey(handleKey))
             {
-                Addressables.Release(_assetHandles[handleKey]);
+                assetReference.ReleaseAsset();
                 _assetHandles.Remove(handleKey);
             }
 
@@ -74,9 +74,6 @@ namespace ProjectAdvergame.Module.LevelData
                 Debug.LogError($"{handleKey} failed to install");
             }
 
-            // Release the handle if it is no longer needed
-            Addressables.Release(handle);
-            _assetHandles.Remove(handleKey);
         }
 
         internal void OnChooseLevel(ChooseLevelMessage message)
