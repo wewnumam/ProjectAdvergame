@@ -30,16 +30,25 @@ namespace ProjectAdvergame.Module.StoneManager
             List<StoneView> stones = new List<StoneView>();
 
             int currentBeatIndex = 1;
+            float zIndex = 0;
 
             foreach (var beat in _beats)
             {
-                Vector3 position = beat.direction == EnumManager.Direction.FromEast
-                    ? new Vector3(beat.interval, 0, currentBeatIndex)
-                    : new Vector3(-beat.interval, 0, currentBeatIndex);
-
                 StoneView previousStone = currentBeatIndex > 1 ? stones[currentBeatIndex - 2] : null;
 
-                StoneView stone = view.SpawnStone(_stonePrefabs, position, beat.interval, currentBeatIndex, beat.type, previousStone);
+                if (beat.type == EnumManager.StoneType.Long)
+                {
+                    float interval = _beats[currentBeatIndex].interval - beat.interval;
+                    zIndex += interval;
+                    Debug.Log($"OFFSET: {interval}");
+                    Debug.Log($"BEAT: {_beats[currentBeatIndex].interval} - {beat.interval}");
+                }
+
+                Vector3 position = beat.direction == EnumManager.Direction.FromEast
+                    ? new Vector3(beat.interval, 0, zIndex + currentBeatIndex)
+                    : new Vector3(-beat.interval, 0, zIndex + currentBeatIndex);
+
+                StoneView stone = view.SpawnStone(_stonePrefabs, position, beat.interval, currentBeatIndex, beat.type, previousStone, zIndex);
                 StoneController instance = new StoneController();
                 InjectDependencies(instance);
                 instance.Init(stone);
@@ -59,7 +68,6 @@ namespace ProjectAdvergame.Module.StoneManager
                 }
 
                 currentBeatIndex++;
-
             }
 
         }

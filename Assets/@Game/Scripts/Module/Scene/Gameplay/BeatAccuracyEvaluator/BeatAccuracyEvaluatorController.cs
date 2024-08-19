@@ -6,6 +6,7 @@ using ProjectAdvergame.Module.LevelData;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.Mathematics;
 
 namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 {
@@ -38,7 +39,11 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         {
             _view.tapIndex++;
             _view.tapText?.SetText(_view.tapIndex.ToString());
-            Publish(new MovePlayerCharacterMessage());
+
+            if (_view.beats[_view.currentBeatIndex].type == EnumManager.StoneType.Long)
+                Publish(new MovePlayerCharacterMessage(_view.beats[_view.currentBeatIndex + 1].interval - _view.beats[_view.currentBeatIndex].interval));
+            else
+                Publish(new MovePlayerCharacterMessage(1));
 
             if (_view.isPlaying)
                 if (_view.HasNextBeat())

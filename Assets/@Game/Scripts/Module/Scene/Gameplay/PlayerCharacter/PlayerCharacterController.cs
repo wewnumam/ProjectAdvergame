@@ -16,7 +16,8 @@ namespace ProjectAdvergame.Module.PlayerCharacter
 
         internal void OnMove(MovePlayerCharacterMessage message)
         {
-            _view.transform.DOMoveZ(_view.transform.position.z + 1, .1f).OnComplete(() => _view.transform.DOMoveZ(Mathf.Ceil(_view.transform.position.z), 0));
+            Debug.Log("MOVE: " + message.MoveAmount);
+            _view.transform.DOMoveZ(_view.transform.position.z + message.MoveAmount, .1f).OnComplete(() => _view.transform.DOMoveZ(Mathf.Ceil(_view.transform.position.z), 0));
         }
 
         internal void OnReady(OnReadyMessage message)
@@ -57,7 +58,7 @@ namespace ProjectAdvergame.Module.PlayerCharacter
 
         internal void OnGameWin(GameWinMessage message)
         {
-            OnMove(new MovePlayerCharacterMessage());
+            OnMove(new MovePlayerCharacterMessage(1));
             _view.animator.Play(TagManager.ANIM_WIN);
             _view.playerCharacterObject.DORotate(new Vector3(0, 180, 0), 1);
             _view.reactionImage.gameObject.SetActive(false);

@@ -17,7 +17,7 @@ namespace ProjectAdvergame.Module.StoneManager
 
         private StoneView currentStone;
 
-        public StoneView SpawnStone(List<GameObject> prefabs, Vector3 position, float duration, int index, EnumManager.StoneType type, StoneView previousStone)
+        public StoneView SpawnStone(List<GameObject> prefabs, Vector3 position, float duration, int index, EnumManager.StoneType type, StoneView previousStone, float zIndex)
         {
             int randomIndex = Random.Range(0, prefabs.Count);
             GameObject prefab = prefabs[randomIndex] == null ? defaultStonePrefab : prefabs[randomIndex];
@@ -26,6 +26,7 @@ namespace ProjectAdvergame.Module.StoneManager
             currentStone = obj.GetComponent<StoneView>();
             currentStone.duration = duration;
             currentStone.index = index;
+            currentStone.zIndex = zIndex;
             currentStone.previousStone = previousStone;
             currentStone.stoneType = type;
 

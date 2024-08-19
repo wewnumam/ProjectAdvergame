@@ -29,7 +29,8 @@ namespace ProjectAdvergame.Utility
         public enum StoneType
         {
             Normal,
-            AddHealth
+            AddHealth,
+            Long
         }
     }
 }

@@ -11,6 +11,7 @@ namespace ProjectAdvergame.Module.Stone
     {
         [ReadOnly] public float duration;
         [ReadOnly] public int index;
+        [ReadOnly] public float zIndex;
         [ReadOnly] public EnumManager.Direction direction;
         [ReadOnly] public EnumManager.StoneType stoneType;
         [ReadOnly] public StoneView previousStone;
@@ -24,7 +25,7 @@ namespace ProjectAdvergame.Module.Stone
 
         public void Play()
         {   
-            transform.DOMove(new Vector3(0, 0, index), duration).SetEase(Ease.Linear).OnComplete(() => {
+            transform.DOMove(new Vector3(0, 0, zIndex + index), duration).SetEase(Ease.Linear).OnComplete(() => {
                 switchCameraEvent?.Invoke(direction);
                 previousStone?.Fall();
                 onComplete?.Invoke();

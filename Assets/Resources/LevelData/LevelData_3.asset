@@ -31,30 +31,30 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 3
-    type: 1
-    direction: 0
-  - interval: 4
-    type: 0
-    direction: 0
-  - interval: 5
-    type: 0
+    type: 2
     direction: 0
   - interval: 6
-    type: 1
+    type: 0
     direction: 0
   - interval: 7
     type: 0
     direction: 0
   - interval: 8
-    type: 0
-    direction: 0
-  - interval: 9
     type: 1
     direction: 0
-  - interval: 10
+  - interval: 9
     type: 0
     direction: 0
-  - interval: 11
+  - interval: 10
+    type: 2
+    direction: 0
+  - interval: 15
+    type: 1
+    direction: 0
+  - interval: 16
+    type: 0
+    direction: 0
+  - interval: 17
     type: 0
     direction: 0
   stonePrefabs:
