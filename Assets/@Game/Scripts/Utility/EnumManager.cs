@@ -30,7 +30,7 @@ namespace ProjectAdvergame.Utility
         {
             Normal,
             AddHealth,
-            Long
+            LongBeat
         }
     }
 }

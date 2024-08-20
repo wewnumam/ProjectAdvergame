@@ -35,18 +35,12 @@ namespace ProjectAdvergame.Module.StoneManager
             foreach (var beat in _beats)
             {
                 StoneView previousStone = currentBeatIndex > 1 ? stones[currentBeatIndex - 2] : null;
-
-                if (beat.type == EnumManager.StoneType.Long)
-                {
-                    float interval = _beats[currentBeatIndex].interval - beat.interval;
-                    zIndex += interval;
-                    Debug.Log($"OFFSET: {interval}");
-                    Debug.Log($"BEAT: {_beats[currentBeatIndex].interval} - {beat.interval}");
-                }
-
+                
                 Vector3 position = beat.direction == EnumManager.Direction.FromEast
                     ? new Vector3(beat.interval, 0, zIndex + currentBeatIndex)
                     : new Vector3(-beat.interval, 0, zIndex + currentBeatIndex);
+
+                
 
                 StoneView stone = view.SpawnStone(_stonePrefabs, position, beat.interval, currentBeatIndex, beat.type, previousStone, zIndex);
                 StoneController instance = new StoneController();
@@ -65,6 +59,14 @@ namespace ProjectAdvergame.Module.StoneManager
                         stone.isSwitchCamera = true;
                         stone.SwitchCamera(SwitchCamera);
                     }
+                }
+
+                if (beat.type == EnumManager.StoneType.LongBeat)
+                {
+                    float interval = _beats[currentBeatIndex].interval - beat.interval;
+                    zIndex += interval;
+                    Debug.Log($"OFFSET: {interval}");
+                    Debug.Log($"BEAT: {_beats[currentBeatIndex].interval} - {beat.interval}");
                 }
 
                 currentBeatIndex++;

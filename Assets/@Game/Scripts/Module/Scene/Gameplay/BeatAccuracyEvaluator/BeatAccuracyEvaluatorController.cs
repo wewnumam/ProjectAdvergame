@@ -40,10 +40,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             _view.tapIndex++;
             _view.tapText?.SetText(_view.tapIndex.ToString());
 
-            if (_view.beats[_view.currentBeatIndex].type == EnumManager.StoneType.Long)
-                Publish(new MovePlayerCharacterMessage(_view.beats[_view.currentBeatIndex + 1].interval - _view.beats[_view.currentBeatIndex].interval));
-            else
-                Publish(new MovePlayerCharacterMessage(1));
+            Publish(new MovePlayerCharacterMessage(1));
 
             if (_view.isPlaying)
                 if (_view.HasNextBeat())
@@ -59,9 +56,10 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         public override void SetView(BeatAccuracyEvaluatorView view)
         {
             base.SetView(view);
-            view.SetCallback(OnTapLate, OnBeatCollectionEnd);
+            view.SetCallback(OnTapLate, OnBeatLong, OnBeatCollectionEnd);
             view.beats = _beats;
             view.minPerfectTapPhase = _minPerfectTapPhase;
+            view.accuracyText.SetText(string.Empty);
         }
 
         #region Callback Listener
@@ -74,6 +72,13 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             
             if (_isVibrate)
                 Handheld.Vibrate();
+        }
+
+        private void OnBeatLong()
+        {
+            float offset = _view.IsPhaseLate() ? 1 : 0;
+            float interval = _view.beats[_view.currentBeatIndex - 1].interval - _view.beats[_view.currentBeatIndex - 2].interval;
+            Publish(new MovePlayerCharacterEarlyMessage(interval + offset, interval));
         }
         
 

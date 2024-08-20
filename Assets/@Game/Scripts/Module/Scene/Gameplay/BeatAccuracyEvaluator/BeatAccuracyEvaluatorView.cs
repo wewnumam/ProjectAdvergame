@@ -16,6 +16,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         [ReadOnly] public float minPerfectTapPhase;
         [ReadOnly] public List<Beat> beats;
         private UnityAction onTapLate;
+        private UnityAction onBeatLong;
         private UnityAction onBeatCollectionEnd;
 
         [Header("Indicator")]
@@ -32,11 +33,6 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         [ReadOnly] public int tapIndex;
         [ReadOnly] public int currentBeatIndex;
         [ReadOnly] public float currentInterval;
-
-        private void Start()
-        {
-            accuracyText.SetText(string.Empty);
-        }
 
         private void Update()
         {
@@ -62,6 +58,9 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
                 currentInterval = beats[currentBeatIndex].interval - previousInterval;
                 currentBeatIndex++;
                 currentBeatText?.SetText(currentBeatIndex.ToString());
+                
+                if (IsCurrentBeatLong())
+                    onBeatLong?.Invoke();
 
                 #region Indicator
                 
@@ -85,9 +84,10 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             #endregion
         }
 
-        public void SetCallback(UnityAction onTapLate, UnityAction onBeatCollectionEnd)
+        public void SetCallback(UnityAction onTapLate, UnityAction onBeatLong, UnityAction onBeatCollectionEnd)
         {
             this.onTapLate = onTapLate;
+            this.onBeatLong = onBeatLong;
             this.onBeatCollectionEnd = onBeatCollectionEnd;
         }
 
@@ -107,6 +107,14 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
                 return false;
             
             return beats[currentBeatIndex - 1].type == Utility.EnumManager.StoneType.AddHealth;
-        } 
+        }
+
+        public bool IsCurrentBeatLong()
+        {
+            if (currentBeatIndex < 2)
+                return false;
+
+            return beats[currentBeatIndex - 2].type == Utility.EnumManager.StoneType.LongBeat;
+        }
     }
 }
