@@ -1,6 +1,7 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.GameState;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,7 @@ namespace ProjectAdvergame.Module.Input
         private GameStateController _gameState;
         private InputActionManager _inputActionsManager = new InputActionManager();
         private int tapStartCounter;
+        private float touchStartTime;
 
         public override IEnumerator Initialize()
         {
@@ -20,6 +22,8 @@ namespace ProjectAdvergame.Module.Input
             _inputActionsManager.UI.TapStart.performed += OnTapStart;
             _inputActionsManager.UI.Pause.performed += OnPause;
             _inputActionsManager.Character.Tap.performed += OnTap;
+            _inputActionsManager.Character.Tap.started += OnTapStarted;
+            _inputActionsManager.Character.Tap.canceled += OnTapEnded;
         }
 
         public override IEnumerator Terminate()
@@ -27,6 +31,8 @@ namespace ProjectAdvergame.Module.Input
             _inputActionsManager.UI.TapStart.performed -= OnTapStart;
             _inputActionsManager.UI.Pause.performed -= OnPause;
             _inputActionsManager.Character.Tap.performed -= OnTap;
+            _inputActionsManager.Character.Tap.started -= OnTapStarted;
+            _inputActionsManager.Character.Tap.canceled -= OnTapEnded;
 
             _inputActionsManager.UI.Disable();
             _inputActionsManager.Character.Disable();
@@ -57,9 +63,22 @@ namespace ProjectAdvergame.Module.Input
         private void OnTap(InputAction.CallbackContext context)
         {
             if (context.performed && _gameState.IsStatePlaying())
+                Publish(new TapInputMessage());
+        }
+
+        private void OnTapStarted(InputAction.CallbackContext context)
+        {
+            if (context.started && _gameState.IsStatePlaying())
             {
-                Publish(new TapInputMessageMessage());
+                Publish(new TapStartedInputMessage());
+                touchStartTime = Time.time;
             }
+        }
+
+        private void OnTapEnded(InputAction.CallbackContext context)
+        {
+            if (context.canceled && _gameState.IsStatePlaying())
+                Publish(new TapEndedInputMessage(Time.time - touchStartTime));
         }
     }
 }

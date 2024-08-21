@@ -21,7 +21,10 @@ namespace ProjectAdvergame.Module.Stone
         public UnityAction<StoneView> stoneFallEvent;
         private UnityAction<EnumManager.Direction> switchCameraEvent;
 
-        private Sequence sequence;
+        public void SetCallback(UnityAction onComplete)
+        {
+            this.onComplete = onComplete;
+        }
 
         public void Play()
         {   

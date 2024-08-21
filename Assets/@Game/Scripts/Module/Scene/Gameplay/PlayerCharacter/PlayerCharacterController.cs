@@ -9,6 +9,7 @@ namespace ProjectAdvergame.Module.PlayerCharacter
     public class PlayerCharacterController : ObjectController<PlayerCharacterController, PlayerCharacterView>
     {
         private bool isFly;
+        private EnumManager.BeatAccuracy currentBeatAccuracy;
 
         public override void SetView(PlayerCharacterView view)
         {
@@ -25,11 +26,17 @@ namespace ProjectAdvergame.Module.PlayerCharacter
         {
             isFly = true;
             _view.animator.Play(TagManager.ANIM_FLY);
-            _view.transform.DOJump(new Vector3(0, 0, _view.transform.position.z + message.MoveAmount), 5, 1, message.Duration - .1f).OnComplete(() =>
+            _view.transform.DOJump(new Vector3(0, 0, _view.transform.position.z + message.MoveAmount), message.MoveAmount * 2, 1, message.Duration - .1f).OnComplete(() =>
             {
                 isFly = false;
                 _view.animator.Play(TagManager.ANIM_IDLE);
             });
+        }
+
+        internal void SetZPosition(CurrentZPositionMessage message)
+        {
+            if (currentBeatAccuracy == EnumManager.BeatAccuracy.Late)
+                _view.transform.position = new Vector3(0, 0, message.ZPosition - 1);
         }
 
         internal void OnReady(OnReadyMessage message)
@@ -40,6 +47,7 @@ namespace ProjectAdvergame.Module.PlayerCharacter
 
         internal void SetReaction(BeatAccuracyMessage message)
         {
+            currentBeatAccuracy = message.BeatAccuracy;
             _view.reactionImage.transform.localScale = Vector3.zero;
             
             if (message.BeatAccuracy == Utility.EnumManager.BeatAccuracy.Early)

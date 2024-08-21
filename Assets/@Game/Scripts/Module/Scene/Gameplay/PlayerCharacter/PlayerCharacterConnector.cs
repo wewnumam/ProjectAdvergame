@@ -12,6 +12,7 @@ namespace ProjectAdvergame.Module.PlayerCharacter
             Subscribe<OnReadyMessage>(_playerCharacter.OnReady);
             Subscribe<MovePlayerCharacterMessage>(_playerCharacter.OnMove);
             Subscribe<MovePlayerCharacterEarlyMessage>(_playerCharacter.OnMoveEarly);
+            Subscribe<CurrentZPositionMessage>(_playerCharacter.SetZPosition);
             Subscribe<BeatAccuracyMessage>(_playerCharacter.SetReaction);
             Subscribe<GameOverMessage>(_playerCharacter.OnGameOver);
             Subscribe<GameWinMessage>(_playerCharacter.OnGameWin);
@@ -22,6 +23,7 @@ namespace ProjectAdvergame.Module.PlayerCharacter
             Unsubscribe<OnReadyMessage>(_playerCharacter.OnReady);
             Unsubscribe<MovePlayerCharacterMessage>(_playerCharacter.OnMove);
             Unsubscribe<MovePlayerCharacterEarlyMessage>(_playerCharacter.OnMoveEarly);
+            Unsubscribe<CurrentZPositionMessage>(_playerCharacter.SetZPosition);
             Unsubscribe<BeatAccuracyMessage>(_playerCharacter.SetReaction);
             Unsubscribe<GameOverMessage>(_playerCharacter.OnGameOver);
             Unsubscribe<GameWinMessage>(_playerCharacter.OnGameWin);

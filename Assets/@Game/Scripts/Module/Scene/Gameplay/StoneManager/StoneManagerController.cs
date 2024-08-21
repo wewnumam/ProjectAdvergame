@@ -64,7 +64,7 @@ namespace ProjectAdvergame.Module.StoneManager
                 if (beat.type == EnumManager.StoneType.LongBeat)
                 {
                     float interval = _beats[currentBeatIndex].interval - beat.interval;
-                    zIndex += interval;
+                    zIndex += interval + 1;
                     Debug.Log($"OFFSET: {interval}");
                     Debug.Log($"BEAT: {_beats[currentBeatIndex].interval} - {beat.interval}");
                 }

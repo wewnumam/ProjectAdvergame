@@ -40,7 +40,8 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             _view.tapIndex++;
             _view.tapText?.SetText(_view.tapIndex.ToString());
 
-            Publish(new MovePlayerCharacterMessage(1));
+            if (!_view.IsPhaseLate())
+                Publish(new MovePlayerCharacterMessage(1));
 
             if (_view.isPlaying)
                 if (_view.HasNextBeat())
@@ -76,9 +77,8 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         private void OnBeatLong()
         {
-            float offset = _view.IsPhaseLate() ? 1 : 0;
             float interval = _view.beats[_view.currentBeatIndex - 1].interval - _view.beats[_view.currentBeatIndex - 2].interval;
-            Publish(new MovePlayerCharacterEarlyMessage(interval + offset, interval));
+            Publish(new MovePlayerCharacterEarlyMessage(interval + 1, interval));
         }
         
 
@@ -103,9 +103,9 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             _view.isPlaying = true;
         }
 
-        internal void OnTap(TapInputMessageMessage message)
+        internal void OnTap(TapInputMessage message)
         {
-            if (_view.IsPhaseEarly())
+            if (_view.IsPhaseEarly() && !_view.IsCurrentBeatLong())
             {
                 SetText("EARLY");
                 Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Early));
@@ -113,11 +113,29 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
                 if (_isVibrate)
                     Handheld.Vibrate();
             }
-            else if (_view.IsPhasePerfect())
+            else if (_view.IsPhasePerfect() && !_view.IsCurrentBeatLong())
             {
                 MovePlayerCharacter();
                 SetText("PERFECT");
                 Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Perfect));
+            }
+        }
+
+        internal void OnTapStarted(TapStartedInputMessage message)
+        {
+            if (_view.IsCurrentBeatLong())
+            {
+                _view.trail.enabled = true;
+                Debug.Log("TAP: STARTED");
+            }
+        }
+
+        internal void OnTapEnded(TapEndedInputMessage message)
+        {
+            if (_view.IsCurrentBeatLong())
+            {
+                _view.trail.enabled = false;
+                Debug.Log($"TAP: ENDED {message.Duration}");
             }
         }
 

@@ -1,4 +1,4 @@
 namespace ProjectAdvergame.Message
 {
-    public struct TapInputMessageMessage { }
+    public struct TapInputMessage { }
 }

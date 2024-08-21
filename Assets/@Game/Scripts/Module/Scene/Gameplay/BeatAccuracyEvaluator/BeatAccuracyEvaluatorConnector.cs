@@ -9,7 +9,9 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         protected override void Connect()
         {
-            Subscribe<TapInputMessageMessage>(_beatAccuracyEvaluator.OnTap);
+            Subscribe<TapInputMessage>(_beatAccuracyEvaluator.OnTap);
+            Subscribe<TapStartedInputMessage>(_beatAccuracyEvaluator.OnTapStarted);
+            Subscribe<TapEndedInputMessage>(_beatAccuracyEvaluator.OnTapEnded);
             Subscribe<StartPlayMessage>(_beatAccuracyEvaluator.OnStartPlay);
             Subscribe<GameOverMessage>(_beatAccuracyEvaluator.OnGameOver);
             Subscribe<GameSettingVibrateMessage>(_beatAccuracyEvaluator.OnVibrate);
@@ -17,7 +19,9 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         protected override void Disconnect()
         {
-            Unsubscribe<TapInputMessageMessage>(_beatAccuracyEvaluator.OnTap);
+            Unsubscribe<TapInputMessage>(_beatAccuracyEvaluator.OnTap);
+            Unsubscribe<TapStartedInputMessage>(_beatAccuracyEvaluator.OnTapStarted);
+            Unsubscribe<TapEndedInputMessage>(_beatAccuracyEvaluator.OnTapEnded);
             Unsubscribe<StartPlayMessage>(_beatAccuracyEvaluator.OnStartPlay);
             Unsubscribe<GameOverMessage>(_beatAccuracyEvaluator.OnGameOver);
             Unsubscribe<GameSettingVibrateMessage>(_beatAccuracyEvaluator.OnVibrate);

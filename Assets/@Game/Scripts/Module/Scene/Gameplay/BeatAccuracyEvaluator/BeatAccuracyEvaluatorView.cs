@@ -19,15 +19,18 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         private UnityAction onBeatLong;
         private UnityAction onBeatCollectionEnd;
 
-        [Header("Indicator")]
+        [Header("UI Test")]
         public Slider indicator;
         public TMP_Text tapText;
         public TMP_Text accuracyText;
         public TMP_Text currentIntervalText;
         public TMP_Text currentBeatText;
+        
+        [Header("Env Indicator")]
         public MeshRenderer objectIndicator;
         public Material normalMaterial;
         public Material perfectMaterial;
+        public TrailRenderer trail;
         
         [Header("Current State"), ReadOnly] public bool isPlaying;
         [ReadOnly] public int tapIndex;
