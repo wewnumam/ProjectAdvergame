@@ -27,6 +27,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0985c4d33ad74c04b9696553bc382e39
+    m_Address: Material_SkyBox_09a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d02758c369e61946b892e111ac33a37
+    m_Address: LevelData_8
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7381f39b351d51c4e99b7b93d34706cd
+    m_Address: Stone_Bola_01a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0f405cd9b2c2df048b4b86d45beda13d, type: 2}
   m_SchemaSet:

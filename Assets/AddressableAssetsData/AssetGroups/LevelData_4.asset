@@ -32,6 +32,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 773fafe0c51a4a64d899994e8f4df796
+    m_Address: Material_SkyBox_05a
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3118f278885cd34f8b5a96cc1e90891
+    m_Address: LevelData_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0f405cd9b2c2df048b4b86d45beda13d, type: 2}
   m_SchemaSet:

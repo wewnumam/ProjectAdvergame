@@ -63,7 +63,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   environmentPrefab:
-    m_AssetGUID: 0f674179dab1b85499c024eafd0ee5f4
+    m_AssetGUID: 7539b45e8354c0141ac8851b3cc4cec2
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   skybox:
-    m_AssetGUID: f22a0f8642949034cb4950d70e200aa5
+    m_AssetGUID: 6846741e0e7dc744fa51d1037062ec6a
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

@@ -58,12 +58,12 @@ MonoBehaviour:
     type: 0
     direction: 0
   stonePrefabs:
-  - m_AssetGUID: 0f674179dab1b85499c024eafd0ee5f4
+  - m_AssetGUID: 7381f39b351d51c4e99b7b93d34706cd
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   environmentPrefab:
-    m_AssetGUID: 0f674179dab1b85499c024eafd0ee5f4
+    m_AssetGUID: 2d02758c369e61946b892e111ac33a37
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   skybox:
-    m_AssetGUID: f22a0f8642949034cb4950d70e200aa5
+    m_AssetGUID: 0985c4d33ad74c04b9696553bc382e39
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
