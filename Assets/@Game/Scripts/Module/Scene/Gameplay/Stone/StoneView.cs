@@ -23,7 +23,7 @@ namespace ProjectAdvergame.Module.Stone
 
         public void SetCallback(UnityAction onComplete)
         {
-            this.onComplete = onComplete;
+            this.onComplete += onComplete;
         }
 
         public void Play()
