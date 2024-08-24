@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
+using ProjectAdvergame.Module.CharacterData;
 using ProjectAdvergame.Module.GameConstants;
 using ProjectAdvergame.Module.GameSettings;
 using ProjectAdvergame.Module.GameState;
@@ -17,6 +18,7 @@ namespace ProjectAdvergame.Boot
             return new IConnector[] {
                 new SaveSystemConnector(),
                 new LevelDataConnector(),
+                new CharacterDataConnector(),
                 new GameStateConnector(),
                 new GameSettingsConnector(),
             };
@@ -27,6 +29,7 @@ namespace ProjectAdvergame.Boot
             return new IController[] {
                 new SaveSystemController(),
                 new LevelDataController(),
+                new CharacterDataController(),
                 new GameConstantsController(),
                 new GameStateController(),
                 new GameSettingsController(),

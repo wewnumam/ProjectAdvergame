@@ -10,11 +10,20 @@ namespace ProjectAdvergame.Module.PlayerCharacter
     {
         private bool isFly;
         private EnumManager.BeatAccuracy currentBeatAccuracy;
+        private GameObject prefab;
+
+        public void SetCharacterPrefab(GameObject prefab)
+        {
+            this.prefab = prefab;
+        }
 
         public override void SetView(PlayerCharacterView view)
         {
             base.SetView(view);
-            _view.animator.Play(TagManager.ANIM_POSE[Random.Range(0, 2)]);
+            GameObject obj = GameObject.Instantiate(prefab, view.transform);
+            view.playerCharacterObject = obj.transform;
+            view.animator = obj.GetComponentInChildren<Animator>();
+            view.animator.Play(TagManager.ANIM_POSE[Random.Range(0, 2)]);
         }
 
         internal void OnMove(MovePlayerCharacterMessage message)

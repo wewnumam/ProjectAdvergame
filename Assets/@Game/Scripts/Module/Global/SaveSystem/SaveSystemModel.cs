@@ -1,7 +1,4 @@
 using Agate.MVC.Base;
-using ProjectAdvergame.Utility;
-using System;
-using Tayx.Graphy.Utils.NumString;
 
 namespace ProjectAdvergame.Module.SaveSystem
 {
@@ -12,6 +9,12 @@ namespace ProjectAdvergame.Module.SaveSystem
         public void SetSaveData(SaveData saveData)
         {
             SaveData = saveData;
+            SetDataAsDirty();
+        }
+
+        public void SetCurrentCharacterName(string characterName)
+        {
+            SaveData.CurrentCharacterName = characterName;
             SetDataAsDirty();
         }
 

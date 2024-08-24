@@ -62,6 +62,7 @@ Transform:
   m_Children:
   - {fileID: 6878939991311931287}
   - {fileID: 4515814854227690605}
+  - {fileID: 2345737185049128059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4116814330489594758
@@ -167,4 +168,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a46cae8b33bbcda47b307e32f44adc73,
     type: 3}
   m_PrefabInstance: {fileID: 4116814330489594758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5458132066126977537
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9032106584848134688}
+    m_Modifications:
+    - target: {fileID: 5135239873648524200, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_Name
+      value: Stone_CangkirBlirik_01a
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 31a7e06a58e21224ead2215eb72d70b3, type: 3}
+--- !u!4 &2345737185049128059 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7724400931519723130, guid: 31a7e06a58e21224ead2215eb72d70b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5458132066126977537}
   m_PrefabAsset: {fileID: 0}

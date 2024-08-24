@@ -25,6 +25,7 @@ using ProjectAdvergame.Module.GameSettings;
 using ProjectAdvergame.Module.Settings;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Collections.Generic;
+using ProjectAdvergame.Module.CharacterData;
 
 namespace ProjectAdvergame.Scene.Gameplay
 {
@@ -35,6 +36,7 @@ namespace ProjectAdvergame.Scene.Gameplay
         private SaveSystemController _saveSystem;
         private GameConstantsController _gameConstants;
         private LevelDataController _levelData;
+        private CharacterDataController _characterData;
         private GameSettingsController _gameSettings;
 
         private PlayerCharacterController _playerCharacter;
@@ -106,7 +108,11 @@ namespace ProjectAdvergame.Scene.Gameplay
             if (_levelData.Model.CurrentEnvironmentPrefab != null)
                 Instantiate(_levelData.Model.CurrentEnvironmentPrefab);
 
+            yield return StartCoroutine(_characterData.SetCurrentCharacter(_saveSystem.Model.SaveData.CurrentCharacterName));
+
+            _playerCharacter.SetCharacterPrefab(_characterData.Model.CurrentPrefab);
             _playerCharacter.SetView(_view.PlayerCharacterView);
+            
             _cameraManager.SetView(_view.CameraManagerView);
 
             _stoneManager.SetStonePrefab(_levelData.Model.CurrentStonePrefabs);

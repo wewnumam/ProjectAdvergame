@@ -81,6 +81,12 @@ namespace ProjectAdvergame.Module.SaveSystem
             SaveGame(_model.SaveData);
         }
 
+        public void SetCurrentCharacterName(string characterName)
+        {
+            _model.SetCurrentCharacterName(characterName);
+            SaveGame(_model.SaveData);
+        }
+
         internal void SaveHeartResult(GameResultHeartMessage message)
         {
             _model.AddHeart(message.HeartAmount);
