@@ -9,6 +9,7 @@ using TMPro;
 using ProjectAdvergame.Module.Stats;
 using ProjectAdvergame.Module.CheatFeature;
 using ProjectAdvergame.Module.Settings;
+using ProjectAdvergame.Module.CharacterSelection;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -16,6 +17,7 @@ namespace ProjectAdvergame.Scene.MainMenu
     {
         public QuitView QuitView;
         public LevelSelectionView LevelSelectionView;
+        public CharacterSelectionView CharacterSelectionView;
         public StatsView StatsView;
         public CheatFeatureView CheatFeatureView;
         public SettingsView SettingsView;

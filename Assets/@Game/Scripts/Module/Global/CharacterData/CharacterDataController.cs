@@ -32,7 +32,7 @@ namespace ProjectAdvergame.Module.CharacterData
 
             yield return LoadAsset<GameObject>(characterData.prefab, obj => _model.SetCurrentPrefab(obj), "character");
 
-            Publish(new LoadCharacterCompleteMessage(characterName));
+            Publish(new LoadCharacterCompleteMessage(characterName, characterData.fullName, _model.CurrentPrefab));
         }
 
         private IEnumerator LoadAsset<T>(AssetReference assetReference, System.Action<T> onSuccess, string handleKey)

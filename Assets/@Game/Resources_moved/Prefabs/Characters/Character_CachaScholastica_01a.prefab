@@ -183,7 +183,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b8af2478ff869fc4aa041f7df809932e, type: 2}
+  - {fileID: 2100000, guid: d7a121339598b7a4e99748662cdbbf17, type: 2}
   - {fileID: 2100000, guid: 03a3e54730b43374ea954b5374ff1d7d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 4277047839571414807}
   - component: {fileID: 8720848339609907890}
   m_Layer: 0
-  m_Name: Character_ArmanHarjo_01a
+  m_Name: Character_CachaScholastica_01a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

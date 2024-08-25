@@ -14,8 +14,8 @@ using ProjectAdvergame.Utility;
 using ProjectAdvergame.Module.CheatFeature;
 using ProjectAdvergame.Module.Settings;
 using ProjectAdvergame.Module.GameSettings;
-using System.Runtime.InteropServices;
-using UnityEngine.AddressableAssets;
+using ProjectAdvergame.Module.CharacterData;
+using ProjectAdvergame.Module.CharacterSelection;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -25,10 +25,12 @@ namespace ProjectAdvergame.Scene.MainMenu
 
         private SaveSystemController _saveSystem;
         private LevelDataController _levelData;
+        private CharacterDataController _characterData;
         private GameSettingsController _gameSettings;
 
         private QuitController _quit;
         private LevelSelectionController _levelSelection;
+        private CharacterSelectionController _characterSelection;
         private StatsController _stats;
         private CheatFeatureController _cheatFeature;
         private SettingsController _settings;
@@ -38,6 +40,7 @@ namespace ProjectAdvergame.Scene.MainMenu
             return new IController[] {
                 new QuitController(),
                 new LevelSelectionController(),
+                new CharacterSelectionController(),
                 new StatsController(),
                 new CheatFeatureController(),
                 new SettingsController(),
@@ -48,6 +51,7 @@ namespace ProjectAdvergame.Scene.MainMenu
         {
             return new IConnector[] {
                 new LevelSelectionConnector(),
+                new CharacterSelectionConnector(),
                 new StatsConnector(),
             };
         }
@@ -76,7 +80,23 @@ namespace ProjectAdvergame.Scene.MainMenu
             _levelSelection.SetCurrentHeartCount(_saveSystem.Model.SaveData.CurrentHeartCount);
             _levelSelection.SetCurrentStarCount(_saveSystem.Model.SaveData.GetTotalStarCount());
             _levelSelection.SetView(_view.LevelSelectionView);
-            Publish(new LoadLevelCompleteMessage(_saveSystem.Model.SaveData.CurrentLevelName, _levelData.Model.CurrentArtwork, _levelData.Model.CurrentMusicClip, _levelData.Model.CurrentSkybox));
+            Publish(new LoadLevelCompleteMessage(
+                _saveSystem.Model.SaveData.CurrentLevelName, 
+                _levelData.Model.CurrentArtwork, 
+                _levelData.Model.CurrentMusicClip, 
+                _levelData.Model.CurrentSkybox));
+
+            yield return StartCoroutine(_characterData.SetCurrentCharacter(_saveSystem.Model.SaveData.CurrentCharacterName));
+
+            _characterSelection.SetCharacterCollection(_characterData.Model.CharacterCollection);
+            _characterSelection.SetUnlockedCharacters(_saveSystem.Model.SaveData.UnlockedCharacters);
+            _characterSelection.SetCurrentHeartCount(_saveSystem.Model.SaveData.CurrentHeartCount);
+            _characterSelection.SetCurrentStarCount(_saveSystem.Model.SaveData.GetTotalStarCount());
+            _characterSelection.SetView(_view.CharacterSelectionView);
+            Publish(new LoadCharacterCompleteMessage(
+                _saveSystem.Model.SaveData.CurrentCharacterName,
+                _characterData.Model.CurrentCharacterData.fullName,
+                _characterData.Model.CurrentPrefab));
 
             _stats.SetCurrentHeart(_saveSystem.Model.SaveData.CurrentHeartCount);
             _stats.SetCurrentStar(_saveSystem.Model.SaveData.GetTotalStarCount());

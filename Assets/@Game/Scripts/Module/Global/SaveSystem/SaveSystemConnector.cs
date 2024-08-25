@@ -13,6 +13,7 @@ namespace ProjectAdvergame.Module.SaveSystem
             Subscribe<GameResultStarMessage>(_saveSystem.SaveStarResult);
             Subscribe<GameResultScoreMessage>(_saveSystem.SaveScoreResult);
             Subscribe<UnlockLevelMessage>(_saveSystem.UnlockLevel);
+            Subscribe<UnlockCharacterMessage>(_saveSystem.UnlockCharacter);
             Subscribe<DeleteSaveDataMessage>(_saveSystem.DeleteSaveData);
             Subscribe<FullStarMessage>(_saveSystem.FullStar);
         }
@@ -23,6 +24,7 @@ namespace ProjectAdvergame.Module.SaveSystem
             Unsubscribe<GameResultStarMessage>(_saveSystem.SaveStarResult);
             Unsubscribe<GameResultScoreMessage>(_saveSystem.SaveScoreResult);
             Unsubscribe<UnlockLevelMessage>(_saveSystem.UnlockLevel);
+            Unsubscribe<UnlockCharacterMessage>(_saveSystem.UnlockCharacter);
             Unsubscribe<DeleteSaveDataMessage>(_saveSystem.DeleteSaveData);
             Unsubscribe<FullStarMessage>(_saveSystem.FullStar);
         }

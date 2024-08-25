@@ -1,7 +1,6 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Utility;
-using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
@@ -115,6 +114,13 @@ namespace ProjectAdvergame.Module.SaveSystem
         {
             _model.SubtractHeart(message.LevelItem.cost);
             _model.AddStarRecord(message.LevelItem.name);
+            SaveGame(_model.SaveData);
+        }
+
+        internal void UnlockCharacter(UnlockCharacterMessage message)
+        {
+            _model.SubtractHeart(message.CharacterData.cost);
+            _model.AddUnlockedCharacter(message.CharacterData.name);
             SaveGame(_model.SaveData);
         }
 

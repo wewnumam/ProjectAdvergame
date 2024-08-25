@@ -8,6 +8,7 @@ public class SaveData
     public string CurrentCharacterName = TagManager.DEFAULT_CHARACTERNAME;
     public string CurrentLevelName = TagManager.DEFAULT_LEVELNAME;
     public int CurrentHeartCount;
+    public List<string> UnlockedCharacters = new List<string>() { TagManager.DEFAULT_CHARACTERNAME };
     public List<StarRecords> UnlockedLevels = new List<StarRecords>() { new StarRecords(TagManager.DEFAULT_LEVELNAME, 0, 0) };
 
     public StarRecords GetStarRecordsByLevelName(string levelName)

@@ -70,5 +70,11 @@ namespace ProjectAdvergame.Module.SaveSystem
             SaveData.UnlockedLevels.ForEach(level => level.StarCount = 5);
             SetDataAsDirty();
         }
+
+        public void AddUnlockedCharacter(string characterName)
+        {
+            SaveData.UnlockedCharacters.Add(characterName);
+            SetDataAsDirty();
+        }
     }
 }
