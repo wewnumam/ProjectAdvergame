@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0
   index: 0
+  zIndex: 0
   direction: 0
   stoneType: 0
   previousStone: {fileID: 0}
@@ -138,7 +139,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: d7a121339598b7a4e99748662cdbbf17, type: 2}
+      objectReference: {fileID: 2100000, guid: ef8c00ba1fe819a48845f59a811aea44, type: 2}
     - target: {fileID: 919132149155446097, guid: c3d3c3ad1a5e198488594c3f422a4bcf,
         type: 3}
       propertyPath: m_Name
