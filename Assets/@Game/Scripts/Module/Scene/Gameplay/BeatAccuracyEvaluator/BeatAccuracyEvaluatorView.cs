@@ -30,7 +30,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         public MeshRenderer objectIndicator;
         public Material normalMaterial;
         public Material perfectMaterial;
-        public TrailRenderer trail;
+        public ParticleSystem particle;
         
         [Header("Current State"), ReadOnly] public bool isPlaying;
         [ReadOnly] public int tapIndex;

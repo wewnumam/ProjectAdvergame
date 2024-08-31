@@ -125,8 +125,12 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         {
             if (_view.IsCurrentBeatLong())
             {
-                _view.trail.enabled = true;
+                _view.particle.Play();
                 Debug.Log("TAP: STARTED");
+            }
+            else
+            {
+                _view.particle.Stop();
             }
         }
 
@@ -134,7 +138,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         {
             if (_view.IsCurrentBeatLong())
             {
-                _view.trail.enabled = false;
+                _view.particle.Stop();
                 Debug.Log($"TAP: ENDED {message.Duration}");
             }
         }

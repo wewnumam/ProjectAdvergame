@@ -58,7 +58,7 @@ MonoBehaviour:
     type: 0
     direction: 0
   stonePrefabs:
-  - m_AssetGUID: 3f57c9e3c10ee384c85c26a24e9d5299
+  - m_AssetGUID: 0f674179dab1b85499c024eafd0ee5f4
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
