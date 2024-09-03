@@ -28,7 +28,7 @@ namespace ProjectAdvergame.Module.Stone
 
         public void Play()
         {   
-            transform.DOMove(new Vector3(0, 0, zIndex + index), duration).SetEase(Ease.Linear).OnComplete(() => {
+            transform.DOMove(new Vector3(0, 0, zIndex + index), duration).SetEase(Ease.Linear).SetUpdate(UpdateType.Fixed).OnComplete(() => {
                 switchCameraEvent?.Invoke(direction);
                 previousStone?.Fall();
                 onComplete?.Invoke();

@@ -10,11 +10,13 @@ namespace ProjectAdvergame.Module.Stats
         protected override void Connect()
         {
             Subscribe<UnlockLevelMessage>(_stats.OnUnlockLevel);
+            Subscribe<UnlockCharacterMessage>(_stats.OnUnlockCharacter);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<UnlockLevelMessage>(_stats.OnUnlockLevel);
+            Unsubscribe<UnlockCharacterMessage>(_stats.OnUnlockCharacter);
         }
     }
 }

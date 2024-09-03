@@ -16,6 +16,11 @@ namespace ProjectAdvergame.Module.Stats
             _model.UpdateRender();
         }
 
+        internal void OnUnlockCharacter(UnlockCharacterMessage message)
+        {
+            _model.SubtractHeart(message.CharacterData.cost);
+        }
+
         internal void OnUnlockLevel(UnlockLevelMessage message)
         {
             _model.SubtractHeart(message.LevelItem.cost);

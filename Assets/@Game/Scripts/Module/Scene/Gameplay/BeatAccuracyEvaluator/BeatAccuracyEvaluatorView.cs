@@ -37,7 +37,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         [ReadOnly] public int currentBeatIndex;
         [ReadOnly] public float currentInterval;
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (!isPlaying)
                 return;
