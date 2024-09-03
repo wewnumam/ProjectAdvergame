@@ -3196,11 +3196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c8c2844a5559547b85f753fa399900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  earlyReaction: {fileID: 92017557, guid: 0702edd5f6ac8214e9aa40ad5b8d0060, type: 3}
-  perfectReactions:
-  - {fileID: -1135626241, guid: 0702edd5f6ac8214e9aa40ad5b8d0060, type: 3}
-  - {fileID: 318353018, guid: 0702edd5f6ac8214e9aa40ad5b8d0060, type: 3}
-  lateReaction: {fileID: 1399447786, guid: 0702edd5f6ac8214e9aa40ad5b8d0060, type: 3}
+  earlyReaction: {fileID: 0}
+  perfectReactions: []
+  lateReaction: {fileID: 0}
   reactionImage: {fileID: 1949017593}
   playerCharacterObject: {fileID: 0}
   animator: {fileID: 0}

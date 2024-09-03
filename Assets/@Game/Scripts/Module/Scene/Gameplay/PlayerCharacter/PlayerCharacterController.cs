@@ -1,6 +1,7 @@
 using Agate.MVC.Base;
 using DG.Tweening;
 using ProjectAdvergame.Message;
+using ProjectAdvergame.Module.CharacterData;
 using ProjectAdvergame.Utility;
 using UnityEngine;
 
@@ -11,15 +12,26 @@ namespace ProjectAdvergame.Module.PlayerCharacter
         private bool isFly;
         private EnumManager.BeatAccuracy currentBeatAccuracy;
         private GameObject prefab;
+        private CharacterReactions characterReactions;
 
         public void SetCharacterPrefab(GameObject prefab)
         {
             this.prefab = prefab;
         }
 
+        public void SetCharacterReactions(CharacterReactions characterReactions)
+        {
+            this.characterReactions = characterReactions;
+        }
+
         public override void SetView(PlayerCharacterView view)
         {
             base.SetView(view);
+
+            view.earlyReaction = characterReactions.earlyReaction;
+            view.perfectReactions = characterReactions.perfectReactions;
+            view.lateReaction = characterReactions.lateReaction;
+
             GameObject obj = GameObject.Instantiate(prefab, view.transform);
             view.playerCharacterObject = obj.transform;
             view.animator = obj.GetComponentInChildren<Animator>();

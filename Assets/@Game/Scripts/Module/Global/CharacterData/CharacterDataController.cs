@@ -32,7 +32,16 @@ namespace ProjectAdvergame.Module.CharacterData
 
             yield return LoadAsset<GameObject>(characterData.prefab, obj => _model.SetCurrentPrefab(obj), "character");
 
-            Publish(new LoadCharacterCompleteMessage(characterName, characterData.fullName, _model.CurrentPrefab));
+            _model.ResetCurrentCharacterReactions();
+
+            yield return LoadAsset<Sprite>(characterData.earlyReactionSprite, obj => _model.SetCurrentEarlyReaction(obj), "reaction-early");
+
+            for (int i = 0; i < characterData.perfectReactionSprites.Count; i++)
+                yield return LoadAsset<Sprite>(characterData.perfectReactionSprites[i], obj => _model.AddCurrentPerfectReaction(obj), $"reaction-perfect-{i}");
+
+            yield return LoadAsset<Sprite>(characterData.lateReactionSprite, obj => _model.SetCurrentLateReaction(obj), "reaction-early");
+
+            Publish(new LoadCharacterCompleteMessage(characterName, characterData.fullName, _model.CurrentPrefab, _model.CurrentCharacterReactions));
         }
 
         private IEnumerator LoadAsset<T>(AssetReference assetReference, System.Action<T> onSuccess, string handleKey)

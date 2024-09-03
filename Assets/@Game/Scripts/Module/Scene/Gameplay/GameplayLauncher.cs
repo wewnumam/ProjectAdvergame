@@ -110,6 +110,7 @@ namespace ProjectAdvergame.Scene.Gameplay
 
             yield return StartCoroutine(_characterData.SetCurrentCharacter(_saveSystem.Model.SaveData.CurrentCharacterName));
 
+            _playerCharacter.SetCharacterReactions(_characterData.Model.CurrentCharacterReactions);
             _playerCharacter.SetCharacterPrefab(_characterData.Model.CurrentPrefab);
             _playerCharacter.SetView(_view.PlayerCharacterView);
             

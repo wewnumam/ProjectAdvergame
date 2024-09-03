@@ -21,3 +21,26 @@ MonoBehaviour:
   cost: 0
   isUnlockByStar: 1
   starAmount: 25
+  earlyReactionSprite:
+    m_AssetGUID: 0702edd5f6ac8214e9aa40ad5b8d0060
+    m_SubObjectName: Emoji Sheet Rev_6
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  perfectReactionSprites:
+  - m_AssetGUID: 0702edd5f6ac8214e9aa40ad5b8d0060
+    m_SubObjectName: Emoji Sheet Rev_4
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  - m_AssetGUID: 0702edd5f6ac8214e9aa40ad5b8d0060
+    m_SubObjectName: Emoji Sheet Rev_5
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  lateReactionSprite:
+    m_AssetGUID: 0702edd5f6ac8214e9aa40ad5b8d0060
+    m_SubObjectName: Emoji Sheet Rev_7
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1

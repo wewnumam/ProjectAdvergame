@@ -96,7 +96,9 @@ namespace ProjectAdvergame.Scene.MainMenu
             Publish(new LoadCharacterCompleteMessage(
                 _saveSystem.Model.SaveData.CurrentCharacterName,
                 _characterData.Model.CurrentCharacterData.fullName,
-                _characterData.Model.CurrentPrefab));
+                _characterData.Model.CurrentPrefab,
+                _characterData.Model.CurrentCharacterReactions
+                ));
 
             _stats.SetCurrentHeart(_saveSystem.Model.SaveData.CurrentHeartCount);
             _stats.SetCurrentStar(_saveSystem.Model.SaveData.GetTotalStarCount());
