@@ -12,6 +12,7 @@ namespace ProjectAdvergame.Module.CharacterData
 
         public GameObject CurrentPrefab { get; private set; }
         public CharacterReactions CurrentCharacterReactions { get; private set; }
+        public List<Sprite> CharacterIcons { get; private set; }
 
         public void SetCurrentCharacterData(SO_CharacterData characterData)
         {
@@ -53,6 +54,18 @@ namespace ProjectAdvergame.Module.CharacterData
         public void SetCurrentLateReaction(Sprite lateReaction)
         {
             CurrentCharacterReactions.lateReaction = lateReaction;
+            SetDataAsDirty();
+        }
+
+        public void ResetCharacterIcons()
+        {
+            CharacterIcons = new List<Sprite>();
+            SetDataAsDirty();
+        }
+
+        public void AddCharacterIcon(Sprite characterIcon)
+        {
+            CharacterIcons.Add(characterIcon);
             SetDataAsDirty();
         }
     }

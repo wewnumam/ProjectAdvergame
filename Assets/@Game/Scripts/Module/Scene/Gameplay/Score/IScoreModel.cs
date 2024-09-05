@@ -7,6 +7,7 @@ namespace ProjectAdvergame.Module.Score
     public interface IScoreModel : IBaseModel
     {
         int CurrentScore { get; }
+        int CurrentScoreAmount { get; }
 
         List<EnumManager.BeatAccuracy> Accuracies { get; }
     }

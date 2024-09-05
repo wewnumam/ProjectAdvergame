@@ -4,6 +4,7 @@ using ProjectAdvergame.Module.CharacterData;
 using ProjectAdvergame.Module.CharacterItem;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.CharacterSelection
@@ -32,6 +33,7 @@ namespace ProjectAdvergame.Module.CharacterSelection
                 characterItemView.characterData = characterItem;
                 characterItemView.fullName.SetText(characterItem.fullName);
                 characterItemView.cost.SetText($"{characterItem.cost}");
+                characterItemView.faceImage.sprite = characterItem.icon;
                 
                 string unlockedCharacter = _model.UnlockedCharacters.FirstOrDefault(r => r == characterItem.name);
 

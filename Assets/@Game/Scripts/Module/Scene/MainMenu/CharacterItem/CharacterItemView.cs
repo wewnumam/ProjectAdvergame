@@ -15,6 +15,7 @@ namespace ProjectAdvergame.Module.CharacterItem
         public TMP_Text fullName;
         public TMP_Text cost;
         public TMP_Text starProgress;
+        public Image faceImage;
         public Button chooseButton;
         public Button unlockButton;
         public Slider unlockSlider;

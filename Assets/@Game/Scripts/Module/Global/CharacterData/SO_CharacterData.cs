@@ -11,6 +11,7 @@ namespace ProjectAdvergame.Module.CharacterData
         [Header("Display")]
         public string fullName;
         public AssetReferenceGameObject prefab;
+        public Sprite icon;
 
         [Header("Price")]
         public int cost;

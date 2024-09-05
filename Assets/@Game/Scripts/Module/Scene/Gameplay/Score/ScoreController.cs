@@ -1,9 +1,12 @@
 using Agate.MVC.Base;
+using DG.Tweening;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.LevelData;
+using ProjectAdvergame.Utility;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static ProjectAdvergame.Utility.EnumManager;
 
 namespace ProjectAdvergame.Module.Score
 {
@@ -19,6 +22,24 @@ namespace ProjectAdvergame.Module.Score
 
         internal void AddScore(BeatAccuracyMessage message)
         {
+            foreach (var text in _view.scoreTexts)
+            {
+                if (message.BeatAccuracy == EnumManager.BeatAccuracy.Perfect)
+                    text.color = _view.addScoreColor;
+                else
+                    text.color = _view.subtractScoreColor;
+                text.DOColor(_view.initialScoreColor, 1f);
+            }
+
+            foreach (var text in _view.scorePointTexts)
+            {
+                if (message.BeatAccuracy == EnumManager.BeatAccuracy.Perfect)
+                    text.color = _view.addScoreColor;
+                else
+                    text.color = _view.subtractScoreColor;
+                text.DOColor(_view.transparentScoreColor, 1f);
+            }
+
             _model.AddScore(message.BeatAccuracy);
             _model.AddAccuracies(message.BeatAccuracy);
         }

@@ -8,6 +8,7 @@ namespace ProjectAdvergame.Module.Score
     public class ScoreModel : BaseModel, IScoreModel
     {
         public int CurrentScore { get; private set; }
+        public int CurrentScoreAmount { get; private set; }
         
         public int ScoreEarlyAmount { get; private set; }
         public int ScorePerfectAmount { get; private set; }
@@ -22,12 +23,13 @@ namespace ProjectAdvergame.Module.Score
         public void AddScore(EnumManager.BeatAccuracy beatAccuracy)
         {
             if (beatAccuracy == EnumManager.BeatAccuracy.Early)
-                CurrentScore += ScoreEarlyAmount;
+                CurrentScoreAmount = ScoreEarlyAmount;
             else if (beatAccuracy == EnumManager.BeatAccuracy.Perfect)
-                CurrentScore += ScorePerfectAmount;
+                CurrentScoreAmount = ScorePerfectAmount;
             else if (beatAccuracy == EnumManager.BeatAccuracy.Late)
-                CurrentScore += ScoreLateAmount;
+                CurrentScoreAmount = ScoreLateAmount;
 
+            CurrentScore += CurrentScoreAmount;
             CurrentScore = CurrentScore > 0 ? CurrentScore : 0;
 
             SetDataAsDirty();

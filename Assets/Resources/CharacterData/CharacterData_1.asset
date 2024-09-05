@@ -18,6 +18,7 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  icon: {fileID: -2099013948, guid: 0702edd5f6ac8214e9aa40ad5b8d0060, type: 3}
   cost: 10
   isUnlockByStar: 0
   starAmount: 0

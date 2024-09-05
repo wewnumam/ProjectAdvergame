@@ -11,6 +11,8 @@ namespace ProjectAdvergame.Module.CharacterData
 
         GameObject CurrentPrefab { get; }
         CharacterReactions CurrentCharacterReactions { get; }
+
+        List<Sprite> CharacterIcons { get; }
     }
 
     public class CharacterReactions
