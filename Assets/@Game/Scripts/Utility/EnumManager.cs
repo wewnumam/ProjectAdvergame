@@ -32,5 +32,11 @@ namespace ProjectAdvergame.Utility
             AddHealth,
             LongBeat
         }
+
+        public enum TweenerMovementType
+        {
+            LOOP_ON_AWAKE,
+            ONE_WAY,
+        }
     }
 }
