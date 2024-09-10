@@ -10,6 +10,7 @@ using ProjectAdvergame.Module.Stats;
 using ProjectAdvergame.Module.CheatFeature;
 using ProjectAdvergame.Module.Settings;
 using ProjectAdvergame.Module.CharacterSelection;
+using ProjectAdvergame.Module.Review;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -21,6 +22,7 @@ namespace ProjectAdvergame.Scene.MainMenu
         public StatsView StatsView;
         public CheatFeatureView CheatFeatureView;
         public SettingsView SettingsView;
+        public ReviewView ReviewView;
 
         public Button playButton;
 

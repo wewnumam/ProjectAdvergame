@@ -51,6 +51,9 @@ namespace ProjectAdvergame.Module.SaveSystem
 
         public bool DeleteSaveFile()
         {
+            if (PlayerPrefs.HasKey(TagManager.KEY_REVIEW))
+                PlayerPrefs.DeleteKey(TagManager.KEY_REVIEW);
+
             string path = Path.Combine(Application.persistentDataPath, TagManager.DEFAULT_SAVEFILENAME);
 
             if (File.Exists(path))

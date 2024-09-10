@@ -16,6 +16,7 @@ using ProjectAdvergame.Module.Settings;
 using ProjectAdvergame.Module.GameSettings;
 using ProjectAdvergame.Module.CharacterData;
 using ProjectAdvergame.Module.CharacterSelection;
+using ProjectAdvergame.Module.Review;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -34,6 +35,7 @@ namespace ProjectAdvergame.Scene.MainMenu
         private StatsController _stats;
         private CheatFeatureController _cheatFeature;
         private SettingsController _settings;
+        private ReviewController _review;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -44,6 +46,7 @@ namespace ProjectAdvergame.Scene.MainMenu
                 new StatsController(),
                 new CheatFeatureController(),
                 new SettingsController(),
+                new ReviewController(),
             };
         }
 
@@ -109,6 +112,8 @@ namespace ProjectAdvergame.Scene.MainMenu
             _settings.SetInitialVolume(_gameSettings.Model.AudioVolume);
             _settings.SetInitialVibrate(_gameSettings.Model.IsVibrateOn);
             _settings.SetView(_view.SettingsView);
+
+            _review.SetView(_view.ReviewView);
 
             yield return null;
         }
