@@ -27,11 +27,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 50bf6f5f38a7f1947a405a28b5205356
-    m_Address: Material_SkyBox_10a
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67f81192b0dff0142bca0590ae0f3569
     m_Address: LevelData_9
     m_ReadOnly: 0

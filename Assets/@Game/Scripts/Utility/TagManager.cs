@@ -5,6 +5,7 @@
         public const string SCENE_MAINMENU = "MainMenu";
         public const string SCENE_GAMEPLAY = "Gameplay";
         public const string SCENE_SPLASHSCREEN = "SplashScreen";
+        public const string SCENE_SCREENSHOT = "Screenshot";
 
         public const string TAG_PLAYER = "Player";
 

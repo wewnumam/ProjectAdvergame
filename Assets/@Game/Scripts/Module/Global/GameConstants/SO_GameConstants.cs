@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.GameConstants
@@ -18,5 +20,15 @@ namespace ProjectAdvergame.Module.GameConstants
 
         [Header("Health")]
         public int initialHealth;
+
+        [Header("Badge")]
+        public List<Badge> badges;
+    }
+
+    [Serializable]
+    public class Badge
+    {
+        public string name;
+        public int score;
     }
 }

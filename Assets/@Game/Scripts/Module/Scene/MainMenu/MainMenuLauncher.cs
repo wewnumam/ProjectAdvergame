@@ -17,6 +17,7 @@ using ProjectAdvergame.Module.GameSettings;
 using ProjectAdvergame.Module.CharacterData;
 using ProjectAdvergame.Module.CharacterSelection;
 using ProjectAdvergame.Module.Review;
+using System;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -74,7 +75,7 @@ namespace ProjectAdvergame.Scene.MainMenu
 
             yield return StartCoroutine(_levelData.SetCurrentLevel(_saveSystem.Model.SaveData.CurrentLevelName));
 
-            _view.SetButtonCallback(GoToGameplay);
+            _view.SetButtonCallback(GoToGameplay, GoToScreenshot);
 
             _quit.SetView(_view.QuitView);
 
@@ -118,9 +119,14 @@ namespace ProjectAdvergame.Scene.MainMenu
             yield return null;
         }
 
+        private void GoToScreenshot()
+        {
+            SceneLoader.Instance.LoadScene(TagManager.SCENE_SCREENSHOT);
+        }
+
         private void GoToGameplay()
         {
-            SceneLoader.Instance.LoadScene("Gameplay");
+            SceneLoader.Instance.LoadScene(TagManager.SCENE_GAMEPLAY);
         }
     }
 }

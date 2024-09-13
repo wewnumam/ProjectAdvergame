@@ -25,11 +25,14 @@ namespace ProjectAdvergame.Scene.MainMenu
         public ReviewView ReviewView;
 
         public Button playButton;
+        public Button screenshotButton;
 
-        public void SetButtonCallback(UnityAction onPlay)
+        public void SetButtonCallback(UnityAction onPlay, UnityAction onScreenshot)
         {
             playButton.onClick.RemoveAllListeners();
             playButton.onClick.AddListener(onPlay);
+            screenshotButton.onClick.RemoveAllListeners();
+            screenshotButton.onClick.AddListener(onScreenshot);
         }
     }
 }
