@@ -1,6 +1,7 @@
 using Agate.MVC.Base;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Utility;
+using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
@@ -111,6 +112,9 @@ namespace ProjectAdvergame.Module.SaveSystem
                 _model.SetHighscore(message.Score);
                 SaveGame(_model.SaveData);
             }
+
+            _model.AddHistory(message.Score);
+            SaveGame(_model.SaveData);
         }
 
         internal void UnlockLevel(UnlockLevelMessage message)
@@ -136,6 +140,12 @@ namespace ProjectAdvergame.Module.SaveSystem
         internal void FullStar(FullStarMessage message)
         {
             _model.FullStar();
+            SaveGame(_model.SaveData);
+        }
+
+        internal void UpdateUsername(UpdateUsernameMessage message)
+        {
+            _model.SetCurrentUsername(message.Username);
             SaveGame(_model.SaveData);
         }
     }

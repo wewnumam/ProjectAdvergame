@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using System;
 
 namespace ProjectAdvergame.Module.SaveSystem
 {
@@ -47,6 +48,12 @@ namespace ProjectAdvergame.Module.SaveSystem
             SetDataAsDirty();
         }
 
+        public void AddHistory(int score)
+        {
+            PlayingHistory playingHistory = new PlayingHistory(SaveData.CurrentLevelName, score, DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
+            SaveData.PlayingHistories.Add(playingHistory);
+        }
+
         internal bool IsNewHighScore(int score)
         {
             return score > SaveData.GetStarRecordsByLevelName(SaveData.CurrentLevelName).HighScore;
@@ -74,6 +81,12 @@ namespace ProjectAdvergame.Module.SaveSystem
         public void AddUnlockedCharacter(string characterName)
         {
             SaveData.UnlockedCharacters.Add(characterName);
+            SetDataAsDirty();
+        }
+
+        internal void SetCurrentUsername(string username)
+        {
+            SaveData.CurrentUsername = username;
             SetDataAsDirty();
         }
     }

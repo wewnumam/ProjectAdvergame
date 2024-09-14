@@ -21,14 +21,36 @@ namespace ProjectAdvergame.Module.GameConstants
         [Header("Health")]
         public int initialHealth;
 
+        [Header("Leaderboard")]
+        public string publicKey;
+
         [Header("Badge")]
         public List<Badge> badges;
+
+        public Badge GetCurrentBadge(int xp)
+        {
+            if (xp <= 0)
+                return badges[0];
+            
+            foreach (var badge in badges)
+            {
+                if (xp > badge.amount && xp <= GetNextBadge(badge).amount)
+                    return badge;
+            }
+
+            return badges[badges.Count - 1];
+        }
+
+        public Badge GetNextBadge(Badge currentBadge)
+        {
+            return badges[badges.IndexOf(currentBadge) + 1];
+        }
     }
 
     [Serializable]
     public class Badge
     {
         public string name;
-        public int score;
+        public int amount;
     }
 }

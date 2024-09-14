@@ -18,3 +18,25 @@ MonoBehaviour:
   scorePerfectAmount: 3
   scoreLateAmount: -2
   initialHealth: 3
+  publicKey: 0d638ce4837ffb9d3b8c9c0883e98c369fea9c9ae6080d37dd7ee7063e63047d
+  badges:
+  - name: Newbie Performer
+    amount: 0
+  - name: Rhythm Rookie
+    amount: 400
+  - name: Beat Explorer
+    amount: 900
+  - name: Tempo Master
+    amount: 1500
+  - name: Harmony Hero
+    amount: 2200
+  - name: Melody Maestro
+    amount: 3000
+  - name: Song Composer
+    amount: 3900
+  - name: Rhythm Virtuoso
+    amount: 4900
+  - name: Legendary Performer
+    amount: 6000
+  - name: Ultimate Rhythm God
+    amount: 7200

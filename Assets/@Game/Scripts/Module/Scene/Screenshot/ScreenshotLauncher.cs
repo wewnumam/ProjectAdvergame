@@ -10,6 +10,11 @@ using System.IO;
 using ProjectAdvergame.Module.SaveSystem;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.GameConstants;
+using System.Collections.Generic;
+using static TMPro.TMP_Dropdown;
+using Dan.Main;
+using System;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace ProjectAdvergame.Scene.Screenshot
 {
@@ -46,12 +51,52 @@ namespace ProjectAdvergame.Scene.Screenshot
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
 
-            _view.SetButtonCallback(GoToMainMenu, () => StartCoroutine(TakeScreenshotAndShareUrl()), target => StartCoroutine(TakeScreenshotAndShare(target)));
+            _view.SetCallback(GoToMainMenu, () => StartCoroutine(TakeScreenshotAndShareUrl()), target => StartCoroutine(TakeScreenshotAndShare(target)), OnEditUsername);
 
             _view.starText.SetText(_saveSystem.Model.SaveData.GetTotalStarCount().ToString());
             _view.unlockedSongText.SetText($"{_saveSystem.Model.SaveData.UnlockedLevels.Count}/{_levelData.Model.LevelCollection.levelItems.Count}");
 
+            int currentXP = _saveSystem.Model.SaveData.GetTotalXP();
+            Badge currentBadge = _gameConstants.Model.GameConstants.GetCurrentBadge(currentXP);
+            Badge nextBadge = _gameConstants.Model.GameConstants.GetNextBadge(currentBadge);
+
+            _view.currentBadgeText.SetText(currentBadge.name);
+            _view.nextBadgeText.SetText(nextBadge.name);
+            _view.badgeScoreText.SetText($"{currentXP}/{nextBadge.amount}");
+            _view.badgeSlider.maxValue = nextBadge.amount;
+            _view.badgeSlider.value = currentXP;
+
+            _view.favoriteSongs.ClearOptions();
+
+            List<OptionData> options = new List<OptionData>();
+
+            foreach (var levelItem in _levelData.Model.LevelCollection.levelItems)
+                options.Add(new OptionData(levelItem.title, null));
+            _view.favoriteSongs.AddOptions(options);
+
+            _view.usernameText.SetText(_saveSystem.Model.SaveData.CurrentUsername);
+
+            LeaderboardCreator.UploadNewEntry(_gameConstants.Model.GameConstants.publicKey, _saveSystem.Model.SaveData.CurrentUsername, currentXP, isComplete =>
+            {
+                Debug.Log($"Update Leaderboard: {isComplete}");
+
+                LeaderboardCreator.GetEntryCount(_gameConstants.Model.GameConstants.publicKey, count =>
+                {
+                    LeaderboardCreator.GetPersonalEntry(_gameConstants.Model.GameConstants.publicKey, player =>
+                    {
+                        _view.rankText.SetText($"{player.Rank}/{count}");
+                    });
+                });
+            });
+
+
             yield return null;
+        }
+
+        private void OnEditUsername(string text)
+        {
+            Publish(new UpdateUsernameMessage(text));
+            LeaderboardCreator.UploadNewEntry(_gameConstants.Model.GameConstants.publicKey, text, _saveSystem.Model.SaveData.GetTotalXP(), isComplete => Debug.Log($"Update Leaderboard: {isComplete}"));
         }
 
         private void GoToMainMenu()

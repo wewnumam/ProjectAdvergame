@@ -18,6 +18,7 @@
         public const string ANIM_LOSE = "Lose";
         public const string ANIM_WIN = "Win";
 
+        public const string DEFAULT_USERNAME = "Username";
         public const string DEFAULT_CHARACTERNAME = "CharacterData_0";
         public const string DEFAULT_LEVELNAME = "LevelData_0";
         public const string DEFAULT_SAVEFILENAME = "SaveData.json";

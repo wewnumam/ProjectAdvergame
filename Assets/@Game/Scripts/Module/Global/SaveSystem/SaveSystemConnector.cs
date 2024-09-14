@@ -16,6 +16,7 @@ namespace ProjectAdvergame.Module.SaveSystem
             Subscribe<UnlockCharacterMessage>(_saveSystem.UnlockCharacter);
             Subscribe<DeleteSaveDataMessage>(_saveSystem.DeleteSaveData);
             Subscribe<FullStarMessage>(_saveSystem.FullStar);
+            Subscribe<UpdateUsernameMessage>(_saveSystem.UpdateUsername);
         }
 
         protected override void Disconnect()
@@ -27,6 +28,7 @@ namespace ProjectAdvergame.Module.SaveSystem
             Unsubscribe<UnlockCharacterMessage>(_saveSystem.UnlockCharacter);
             Unsubscribe<DeleteSaveDataMessage>(_saveSystem.DeleteSaveData);
             Unsubscribe<FullStarMessage>(_saveSystem.FullStar);
+            Unsubscribe<UpdateUsernameMessage>(_saveSystem.UpdateUsername);
         }
     }
 }
