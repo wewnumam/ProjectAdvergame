@@ -75,6 +75,7 @@ namespace ProjectAdvergame.Scene.Screenshot
             _view.favoriteSongs.AddOptions(options);
 
             _view.usernameText.SetText(_saveSystem.Model.SaveData.CurrentUsername);
+            _view.dateText.SetText(DateTime.Now.ToString("dd MMM yyyy"));
 
             LeaderboardCreator.UploadNewEntry(_gameConstants.Model.GameConstants.publicKey, _saveSystem.Model.SaveData.CurrentUsername, currentXP, isComplete =>
             {
@@ -95,6 +96,9 @@ namespace ProjectAdvergame.Scene.Screenshot
 
         private void OnEditUsername(string text)
         {
+            if (text == string.Empty)
+                return;
+
             Publish(new UpdateUsernameMessage(text));
             LeaderboardCreator.UploadNewEntry(_gameConstants.Model.GameConstants.publicKey, text, _saveSystem.Model.SaveData.GetTotalXP(), isComplete => Debug.Log($"Update Leaderboard: {isComplete}"));
         }
@@ -121,7 +125,8 @@ namespace ProjectAdvergame.Scene.Screenshot
             Destroy(ss);
 
             new NativeShare().AddFile(filePath)
-                .SetSubject("Subject goes here").SetText("Hello world!").SetUrl("https://github.com/yasirkula/UnityNativeShare")
+                .SetSubject("").SetText("Mainkan Langit Sore Rhythm Game sekarang dan buktikan kalau kamu bisa lebih baik! ??")
+                .SetUrl("https://play.google.com/store/apps/details?id=com.feelablesoftware.langitsore")
                 .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
                 .Share();
 
@@ -148,7 +153,8 @@ namespace ProjectAdvergame.Scene.Screenshot
                 new NativeShare().AddFile(filePath)
                     .AddTarget(target)
                     .SetTitle("Title")
-                    .SetText("Hello world!")
+                    .SetText("Mainkan Langit Sore Rhythm Game sekarang dan buktikan kalau kamu bisa lebih baik! ??")
+                    .SetUrl("https://play.google.com/store/apps/details?id=com.feelablesoftware.langitsore")
                     .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
                     .Share();
             

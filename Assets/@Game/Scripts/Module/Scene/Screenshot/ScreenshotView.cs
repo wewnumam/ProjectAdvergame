@@ -30,6 +30,8 @@ namespace ProjectAdvergame.Scene.Screenshot
         public TMP_Text unlockedSongText;
         public TMP_Dropdown favoriteSongs;
 
+        public TMP_Text dateText;
+
         public UnityEvent onStart;
         public UnityEvent onEnd;
 
