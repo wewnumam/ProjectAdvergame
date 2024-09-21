@@ -24,44 +24,44 @@ MonoBehaviour:
   isUnlockByStar: 1
   starAmount: 11
   beats:
-  - interval: 02.82
+  - interval: 2.82
     type: 0
     direction: 0
-  - interval: 03.15
+  - interval: 3.15
     type: 0
     direction: 0
-  - interval: 03.35
+  - interval: 3.35
     type: 0
     direction: 0
-  - interval: 04.18
+  - interval: 4.18
     type: 0
     direction: 0
-  - interval: 04.71
+  - interval: 4.71
+    type: 1
+    direction: 0
+  - interval: 5.09
     type: 0
     direction: 0
-  - interval: 05.09
+  - interval: 6.72
     type: 0
     direction: 0
-  - interval: 06.72
+  - interval: 7.09
     type: 0
     direction: 0
-  - interval: 07.09
+  - interval: 7.34
+    type: 1
+    direction: 0
+  - interval: 8.04
     type: 0
     direction: 0
-  - interval: 07.34
+  - interval: 8.31
     type: 0
     direction: 0
-  - interval: 08.04
+  - interval: 8.72
     type: 0
     direction: 0
-  - interval: 08.31
-    type: 0
-    direction: 0
-  - interval: 08.72
-    type: 0
-    direction: 0
-  - interval: 09.33
-    type: 0
+  - interval: 9.33
+    type: 1
     direction: 0
   - interval: 11.47
     type: 0
@@ -72,8 +72,8 @@ MonoBehaviour:
   - interval: 12.74
     type: 0
     direction: 0
-  - interval: 13.30
-    type: 0
+  - interval: 13.3
+    type: 1
     direction: 0
   - interval: 14.43
     type: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 15.48
-    type: 0
+    type: 1
     direction: 0
   - interval: 16.64
     type: 0
@@ -91,111 +91,111 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 17.62
-    type: 0
+    type: 1
     direction: 0
   - interval: 19.41
     type: 0
-    direction: 0
+    direction: 1
   - interval: 20.27
     type: 0
-    direction: 0
+    direction: 1
   - interval: 21.47
     type: 0
-    direction: 0
+    direction: 1
   - interval: 23.55
     type: 0
-    direction: 0
+    direction: 1
   - interval: 24.26
     type: 0
-    direction: 0
+    direction: 1
   - interval: 24.83
+    type: 1
+    direction: 1
+  - interval: 26
     type: 0
-    direction: 0
-  - interval: 26.00
-    type: 0
-    direction: 0
+    direction: 1
   - interval: 27.71
     type: 0
-    direction: 0
+    direction: 1
   - interval: 28.07
     type: 0
-    direction: 0
+    direction: 1
   - interval: 28.31
     type: 0
-    direction: 0
+    direction: 1
   - interval: 28.89
     type: 0
-    direction: 0
+    direction: 1
   - interval: 29.57
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 30.34
     type: 0
-    direction: 0
+    direction: 1
   - interval: 31.44
     type: 0
-    direction: 0
+    direction: 1
   - interval: 32.31
     type: 0
-    direction: 0
+    direction: 1
   - interval: 32.86
     type: 0
-    direction: 0
+    direction: 1
   - interval: 33.36
     type: 0
-    direction: 0
+    direction: 1
   - interval: 35.51
     type: 0
-    direction: 0
+    direction: 1
   - interval: 36.25
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 36.69
     type: 0
-    direction: 0
+    direction: 1
   - interval: 37.34
     type: 0
-    direction: 0
+    direction: 1
   - interval: 39.47
     type: 0
-    direction: 0
+    direction: 1
   - interval: 40.31
     type: 0
-    direction: 0
+    direction: 1
   - interval: 40.77
     type: 0
-    direction: 0
+    direction: 1
   - interval: 41.35
     type: 0
-    direction: 0
+    direction: 1
   - interval: 43.44
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 44.24
     type: 0
-    direction: 0
+    direction: 1
   - interval: 44.73
     type: 0
-    direction: 0
-  - interval: 45.50
+    direction: 1
+  - interval: 45.5
     type: 0
-    direction: 0
+    direction: 1
   - interval: 45.93
     type: 0
-    direction: 0
+    direction: 1
   - interval: 46.25
     type: 0
-    direction: 0
+    direction: 1
   - interval: 48.02
     type: 0
-    direction: 0
+    direction: 1
   - interval: 48.73
     type: 0
-    direction: 0
+    direction: 1
   - interval: 49.29
-    type: 0
-    direction: 0
-  - interval: 51.50
+    type: 1
+    direction: 1
+  - interval: 51.5
     type: 0
     direction: 0
   - interval: 52.31
@@ -204,14 +204,14 @@ MonoBehaviour:
   - interval: 52.81
     type: 0
     direction: 0
-  - interval: 53.50
+  - interval: 53.5
     type: 0
     direction: 0
   - interval: 54.38
     type: 0
     direction: 0
   - interval: 55.51
-    type: 0
+    type: 1
     direction: 0
   - interval: 56.12
     type: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 60.54
-    type: 0
+    type: 1
     direction: 0
   - interval: 61.48
     type: 0
@@ -244,12 +244,12 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 64.69
-    type: 0
+    type: 1
     direction: 0
   - interval: 65.23
     type: 0
     direction: 0
-  - interval: 67.50
+  - interval: 67.5
     type: 0
     direction: 0
   - interval: 68.18
@@ -262,7 +262,7 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 69.26
-    type: 0
+    type: 1
     direction: 0
   - interval: 70.37
     type: 0
@@ -283,7 +283,7 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 74.71
-    type: 0
+    type: 1
     direction: 0
   - interval: 75.48
     type: 0
@@ -297,11 +297,11 @@ MonoBehaviour:
   - interval: 77.53
     type: 0
     direction: 0
-  - interval: 78.30
+  - interval: 78.3
     type: 0
     direction: 0
   - interval: 78.76
-    type: 0
+    type: 1
     direction: 0
   - interval: 79.49
     type: 0
@@ -319,187 +319,187 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 84.07
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 84.53
     type: 0
-    direction: 0
+    direction: 1
   - interval: 85.05
     type: 0
-    direction: 0
+    direction: 1
   - interval: 85.57
     type: 0
-    direction: 0
+    direction: 1
   - interval: 86.08
     type: 0
-    direction: 0
+    direction: 1
   - interval: 86.54
     type: 0
-    direction: 0
+    direction: 1
   - interval: 87.03
     type: 0
-    direction: 0
+    direction: 1
   - interval: 87.56
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 88.08
     type: 0
-    direction: 0
+    direction: 1
   - interval: 88.54
     type: 0
-    direction: 0
+    direction: 1
   - interval: 89.05
     type: 0
-    direction: 0
+    direction: 1
   - interval: 89.58
     type: 0
-    direction: 0
+    direction: 1
   - interval: 90.06
     type: 0
-    direction: 0
+    direction: 1
   - interval: 90.51
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 91.04
     type: 0
-    direction: 0
+    direction: 1
   - interval: 91.52
     type: 0
-    direction: 0
+    direction: 1
   - interval: 92.03
     type: 0
-    direction: 0
+    direction: 1
   - interval: 92.52
     type: 0
-    direction: 0
+    direction: 1
   - interval: 93.05
     type: 0
-    direction: 0
+    direction: 1
   - interval: 93.57
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 94.06
     type: 0
-    direction: 0
+    direction: 1
   - interval: 94.55
     type: 0
-    direction: 0
+    direction: 1
   - interval: 95.06
     type: 0
-    direction: 0
+    direction: 1
   - interval: 95.56
     type: 0
-    direction: 0
+    direction: 1
   - interval: 96.06
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 96.52
     type: 0
-    direction: 0
+    direction: 1
   - interval: 97.18
     type: 0
-    direction: 0
-  - interval: 97.60
+    direction: 1
+  - interval: 97.6
     type: 0
-    direction: 0
+    direction: 1
   - interval: 98.05
     type: 0
-    direction: 0
+    direction: 1
   - interval: 98.51
     type: 0
-    direction: 0
+    direction: 1
   - interval: 99.05
     type: 0
-    direction: 0
+    direction: 1
   - interval: 99.53
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 100.03
     type: 0
-    direction: 0
+    direction: 1
   - interval: 100.57
     type: 0
-    direction: 0
+    direction: 1
   - interval: 101.03
     type: 0
-    direction: 0
+    direction: 1
   - interval: 101.53
     type: 0
-    direction: 0
+    direction: 1
   - interval: 102.01
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 102.51
     type: 0
-    direction: 0
+    direction: 1
   - interval: 103.02
     type: 0
-    direction: 0
+    direction: 1
   - interval: 103.51
     type: 0
-    direction: 0
+    direction: 1
   - interval: 104.04
     type: 0
-    direction: 0
+    direction: 1
   - interval: 104.52
     type: 0
-    direction: 0
-  - interval: 105.00
-    type: 0
-    direction: 0
+    direction: 1
+  - interval: 105
+    type: 1
+    direction: 1
   - interval: 105.51
     type: 0
-    direction: 0
+    direction: 1
   - interval: 106.04
     type: 0
-    direction: 0
+    direction: 1
   - interval: 106.52
     type: 0
-    direction: 0
+    direction: 1
   - interval: 107.02
     type: 0
-    direction: 0
+    direction: 1
   - interval: 107.52
     type: 0
-    direction: 0
-  - interval: 108.00
+    direction: 1
+  - interval: 108
     type: 0
-    direction: 0
+    direction: 1
   - interval: 108.51
+    type: 1
+    direction: 1
+  - interval: 109
     type: 0
-    direction: 0
-  - interval: 109.00
+    direction: 1
+  - interval: 109.5
     type: 0
-    direction: 0
-  - interval: 109.50
-    type: 0
-    direction: 0
+    direction: 1
   - interval: 110.04
     type: 0
-    direction: 0
+    direction: 1
   - interval: 110.48
     type: 0
-    direction: 0
+    direction: 1
   - interval: 110.97
-    type: 0
-    direction: 0
+    type: 1
+    direction: 1
   - interval: 111.49
     type: 0
-    direction: 0
-  - interval: 112.00
+    direction: 1
+  - interval: 112
     type: 0
-    direction: 0
+    direction: 1
   - interval: 112.47
     type: 0
-    direction: 0
-  - interval: 113.00
+    direction: 1
+  - interval: 113
     type: 0
-    direction: 0
-  - interval: 113.50
+    direction: 1
+  - interval: 113.5
     type: 0
-    direction: 0
-  - interval: 114.00
-    type: 0
+    direction: 1
+  - interval: 114
+    type: 1
     direction: 0
   - interval: 114.47
     type: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
   - interval: 126.45
     type: 0
     direction: 0
-  - interval: 127.40
+  - interval: 127.4
     type: 0
     direction: 0
   - interval: 128.43
@@ -561,16 +561,16 @@ MonoBehaviour:
   - interval: 131.62
     type: 0
     direction: 0
-  - interval: 132.60
+  - interval: 132.6
     type: 0
     direction: 0
   - interval: 133.51
     type: 0
     direction: 0
-  - interval: 134.40
+  - interval: 134.4
     type: 0
     direction: 0
-  - interval: 135.00
+  - interval: 135
     type: 0
     direction: 0
   - interval: 135.52
@@ -588,7 +588,7 @@ MonoBehaviour:
   - interval: 138.44
     type: 0
     direction: 0
-  - interval: 139.00
+  - interval: 139
     type: 0
     direction: 0
   - interval: 139.49
@@ -597,7 +597,7 @@ MonoBehaviour:
   - interval: 140.04
     type: 0
     direction: 0
-  - interval: 140.30
+  - interval: 140.3
     type: 0
     direction: 0
   - interval: 141.11
@@ -610,7 +610,7 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 142.82
-    type: 0
+    type: 1
     direction: 0
   - interval: 143.38
     type: 0
@@ -625,297 +625,6 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 147.43
-    type: 0
-    direction: 0
-  - interval: 148.26
-    type: 0
-    direction: 0
-  - interval: 148.80
-    type: 0
-    direction: 0
-  - interval: 149.31
-    type: 0
-    direction: 0
-  - interval: 151.41
-    type: 0
-    direction: 0
-  - interval: 151.95
-    type: 0
-    direction: 0
-  - interval: 152.20
-    type: 0
-    direction: 0
-  - interval: 152.75
-    type: 0
-    direction: 0
-  - interval: 152.97
-    type: 0
-    direction: 0
-  - interval: 153.23
-    type: 0
-    direction: 0
-  - interval: 155.46
-    type: 0
-    direction: 0
-  - interval: 155.97
-    type: 0
-    direction: 0
-  - interval: 156.21
-    type: 0
-    direction: 0
-  - interval: 156.80
-    type: 0
-    direction: 0
-  - interval: 157.02
-    type: 0
-    direction: 0
-  - interval: 157.26
-    type: 0
-    direction: 0
-  - interval: 157.81
-    type: 0
-    direction: 0
-  - interval: 158.24
-    type: 0
-    direction: 0
-  - interval: 158.72
-    type: 0
-    direction: 0
-  - interval: 159.49
-    type: 0
-    direction: 0
-  - interval: 159.98
-    type: 0
-    direction: 0
-  - interval: 160.61
-    type: 0
-    direction: 0
-  - interval: 161.16
-    type: 0
-    direction: 0
-  - interval: 161.68
-    type: 0
-    direction: 0
-  - interval: 163.53
-    type: 0
-    direction: 0
-  - interval: 163.99
-    type: 0
-    direction: 0
-  - interval: 164.33
-    type: 0
-    direction: 0
-  - interval: 164.79
-    type: 0
-    direction: 0
-  - interval: 165.01
-    type: 0
-    direction: 0
-  - interval: 165.25
-    type: 0
-    direction: 0
-  - interval: 166.21
-    type: 0
-    direction: 0
-  - interval: 166.72
-    type: 0
-    direction: 0
-  - interval: 167.53
-    type: 0
-    direction: 0
-  - interval: 168.02
-    type: 0
-    direction: 0
-  - interval: 168.26
-    type: 0
-    direction: 0
-  - interval: 168.72
-    type: 0
-    direction: 0
-  - interval: 169.23
-    type: 0
-    direction: 0
-  - interval: 171.47
-    type: 0
-    direction: 0
-  - interval: 172.20
-    type: 0
-    direction: 0
-  - interval: 172.77
-    type: 0
-    direction: 0
-  - interval: 173.46
-    type: 0
-    direction: 0
-  - interval: 173.99
-    type: 0
-    direction: 0
-  - interval: 174.34
-    type: 0
-    direction: 0
-  - interval: 174.75
-    type: 0
-    direction: 0
-  - interval: 175.48
-    type: 0
-    direction: 0
-  - interval: 176.63
-    type: 0
-    direction: 0
-  - interval: 177.07
-    type: 0
-    direction: 0
-  - interval: 177.51
-    type: 0
-    direction: 0
-  - interval: 178.27
-    type: 0
-    direction: 0
-  - interval: 178.75
-    type: 0
-    direction: 0
-  - interval: 179.09
-    type: 0
-    direction: 0
-  - interval: 179.55
-    type: 0
-    direction: 0
-  - interval: 180.18
-    type: 0
-    direction: 0
-  - interval: 180.37
-    type: 0
-    direction: 0
-  - interval: 180.81
-    type: 0
-    direction: 0
-  - interval: 180.99
-    type: 0
-    direction: 0
-  - interval: 181.19
-    type: 0
-    direction: 0
-  - interval: 183.48
-    type: 0
-    direction: 0
-  - interval: 184.05
-    type: 0
-    direction: 0
-  - interval: 184.28
-    type: 0
-    direction: 0
-  - interval: 184.77
-    type: 0
-    direction: 0
-  - interval: 184.98
-    type: 0
-    direction: 0
-  - interval: 185.22
-    type: 0
-    direction: 0
-  - interval: 187.54
-    type: 0
-    direction: 0
-  - interval: 188.27
-    type: 0
-    direction: 0
-  - interval: 188.77
-    type: 0
-    direction: 0
-  - interval: 188.97
-    type: 0
-    direction: 0
-  - interval: 189.18
-    type: 0
-    direction: 0
-  - interval: 189.72
-    type: 0
-    direction: 0
-  - interval: 190.14
-    type: 0
-    direction: 0
-  - interval: 190.98
-    type: 0
-    direction: 0
-  - interval: 191.53
-    type: 0
-    direction: 0
-  - interval: 192.00
-    type: 0
-    direction: 0
-  - interval: 192.25
-    type: 0
-    direction: 0
-  - interval: 192.93
-    type: 0
-    direction: 0
-  - interval: 193.19
-    type: 0
-    direction: 0
-  - interval: 195.47
-    type: 0
-    direction: 0
-  - interval: 196.21
-    type: 0
-    direction: 0
-  - interval: 196.77
-    type: 0
-    direction: 0
-  - interval: 196.95
-    type: 0
-    direction: 0
-  - interval: 197.17
-    type: 0
-    direction: 0
-  - interval: 197.72
-    type: 0
-    direction: 0
-  - interval: 198.17
-    type: 0
-    direction: 0
-  - interval: 198.69
-    type: 0
-    direction: 0
-  - interval: 199.52
-    type: 0
-    direction: 0
-  - interval: 200.02
-    type: 0
-    direction: 0
-  - interval: 200.22
-    type: 0
-    direction: 0
-  - interval: 200.74
-    type: 0
-    direction: 0
-  - interval: 201.20
-    type: 0
-    direction: 0
-  - interval: 203.40
-    type: 0
-    direction: 0
-  - interval: 204.25
-    type: 0
-    direction: 0
-  - interval: 204.95
-    type: 0
-    direction: 0
-  - interval: 205.44
-    type: 0
-    direction: 0
-  - interval: 205.92
-    type: 0
-    direction: 0
-  - interval: 206.32
-    type: 0
-    direction: 0
-  - interval: 206.74
-    type: 0
-    direction: 0
-  - interval: 207.33
-    type: 0
-    direction: 0
-  - interval: 215.94
     type: 0
     direction: 0
   stonePrefabs:

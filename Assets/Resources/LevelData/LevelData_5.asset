@@ -24,7 +24,6 @@ MonoBehaviour:
   isUnlockByStar: 0
   starAmount: 0
   beats:
-
   - interval: 1.52
     type: 0
     direction: 0
