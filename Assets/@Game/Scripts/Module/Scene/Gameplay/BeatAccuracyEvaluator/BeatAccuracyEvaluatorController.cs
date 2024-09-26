@@ -59,6 +59,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             base.SetView(view);
             view.SetCallback(OnTapLate, OnBeatLong, OnBeatCollectionEnd);
             view.beats = _beats;
+            view.initialMinPerfectTapPhase = _minPerfectTapPhase;
             view.minPerfectTapPhase = _minPerfectTapPhase;
             view.accuracyText.SetText(string.Empty);
         }

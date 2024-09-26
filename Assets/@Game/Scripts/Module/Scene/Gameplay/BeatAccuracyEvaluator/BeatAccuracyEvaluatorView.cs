@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
 using Agate.MVC.Core;
+using DG.Tweening;
 using NaughtyAttributes;
 using ProjectAdvergame.Module.LevelData;
 using System;
@@ -13,6 +14,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 {
     public class BeatAccuracyEvaluatorView : BaseView
     {
+        [ReadOnly] public float initialMinPerfectTapPhase;
         [ReadOnly] public float minPerfectTapPhase;
         [ReadOnly] public List<Beat> beats;
         private UnityAction onTapLate;
@@ -37,6 +39,8 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         [ReadOnly] public int currentBeatIndex;
         [ReadOnly] public float currentInterval;
 
+        public UnityEvent onPerfect;
+
         private void FixedUpdate()
         {
             if (!isPlaying)
@@ -54,11 +58,15 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
             if (IsCurrentIntervalHasElapsed())
             {
+                if (IsPhasePerfect())
+                    onPerfect?.Invoke();
+
                 if (IsPhaseLate())
                     onTapLate?.Invoke();
 
                 float previousInterval = currentBeatIndex != 0 ? beats[currentBeatIndex - 1].interval : 0;
                 currentInterval = beats[currentBeatIndex].interval - previousInterval;
+                minPerfectTapPhase = currentInterval < initialMinPerfectTapPhase ? currentInterval : initialMinPerfectTapPhase;
                 currentBeatIndex++;
                 currentBeatText?.SetText(currentBeatIndex.ToString());
                 

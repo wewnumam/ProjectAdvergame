@@ -27,7 +27,22 @@ MonoBehaviour:
   - interval: 1.1
     type: 0
     direction: 0
+  - interval: 1.65
+    type: 0
+    direction: 0
+  - interval: 2.2
+    type: 0
+    direction: 0
+  - interval: 2.7
+    type: 0
+    direction: 0
   - interval: 3.2
+    type: 0
+    direction: 0
+  - interval: 4.35
+    type: 0
+    direction: 0
+  - interval: 4.86
     type: 0
     direction: 0
   - interval: 5.43

@@ -6860,7 +6860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -139.99998, y: -288}
+  m_AnchoredPosition: {x: -140, y: -288}
   m_SizeDelta: {x: 140, y: 58}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1380062718
@@ -13852,7 +13852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 197.99998, y: 72}
+  m_AnchoredPosition: {x: 198, y: 72}
   m_SizeDelta: {x: 0, y: 58}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1726749672
@@ -14434,7 +14434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -127.999985, y: -144}
+  m_AnchoredPosition: {x: -128, y: -144}
   m_SizeDelta: {x: 128, y: 58}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1786234438
@@ -15302,7 +15302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -229.99998, y: -216}
+  m_AnchoredPosition: {x: -230, y: -216}
   m_SizeDelta: {x: 230, y: 58}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1882639197
@@ -15808,6 +15808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e105120a56863646ad41e00c8776a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 759133524}
   minPerfectTapPhase: 0.25
   beats: []
   indicator: {fileID: 1663452747}
@@ -15823,6 +15824,9 @@ MonoBehaviour:
   tapIndex: 0
   currentBeatIndex: 0
   currentInterval: 0
+  onPerfect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1964196676
 Transform:
   m_ObjectHideFlags: 0
