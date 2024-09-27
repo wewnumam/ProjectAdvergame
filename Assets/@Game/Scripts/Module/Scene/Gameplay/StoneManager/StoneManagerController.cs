@@ -28,6 +28,7 @@ namespace ProjectAdvergame.Module.StoneManager
             base.SetView(view);
 
             List<StoneView> stones = new List<StoneView>();
+            List<float> zPosCollection = new List<float>();
 
             int currentBeatIndex = 1;
             float zIndex = 0;
@@ -40,7 +41,7 @@ namespace ProjectAdvergame.Module.StoneManager
                     ? new Vector3(beat.interval*2, 0, zIndex + currentBeatIndex)
                     : new Vector3(-beat.interval*2, 0, zIndex + currentBeatIndex);
 
-                
+                zPosCollection.Add(position.z);
 
                 StoneView stone = view.SpawnStone(_stonePrefabs, position, beat.interval, currentBeatIndex, beat.type, previousStone, zIndex);
                 StoneController instance = new StoneController();
@@ -72,6 +73,7 @@ namespace ProjectAdvergame.Module.StoneManager
                 currentBeatIndex++;
             }
 
+            Publish(new UpdateZPosCollectionMessage(zPosCollection));
         }
 
         internal void OnPause(GameOverMessage message)

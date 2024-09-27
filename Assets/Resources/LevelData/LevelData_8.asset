@@ -150,15 +150,6 @@ MonoBehaviour:
   - interval: 35.18
     type: 0
     direction: 1
-  - interval: 34.69
-    type: 0
-    direction: 1
-  - interval: 34.97
-    type: 0
-    direction: 1
-  - interval: 35.18
-    type: 0
-    direction: 1
   - interval: 35.41
     type: 0
     direction: 1

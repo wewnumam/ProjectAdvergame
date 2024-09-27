@@ -15,6 +15,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         private float _minPerfectTapPhase;
         private List<Beat> _beats;
         private bool _isVibrate;
+        private List<float> zPosCollection;
 
         #region Public Function
 
@@ -41,8 +42,8 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             _view.tapText?.SetText(_view.tapIndex.ToString());
 
             if (!_view.IsPhaseLate())
-                Publish(new MovePlayerCharacterMessage(1));
-
+                Publish(new MovePlayerCharacterMessage(zPosCollection[_view.currentBeatIndex - 1]));
+            
             if (_view.isPlaying)
                 if (_view.HasNextBeat())
                     if (_view.IsCurrentBeatAddHealth())
@@ -79,7 +80,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         private void OnBeatLong()
         {
             float interval = _view.beats[_view.currentBeatIndex - 1].interval - _view.beats[_view.currentBeatIndex - 2].interval;
-            Publish(new MovePlayerCharacterEarlyMessage(interval + 1, interval));
+            Publish(new MovePlayerCharacterEarlyMessage(zPosCollection[_view.currentBeatIndex - 1], interval));
         }
         
 
@@ -152,6 +153,11 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         internal void OnVibrate(GameSettingVibrateMessage message)
         {
             SetVibrate(message.Vibrate);
+        }
+
+        internal void UpdateZPosCollection(UpdateZPosCollectionMessage message)
+        {
+            zPosCollection = message.ZPosCollection;
         }
 
         #endregion

@@ -127,5 +127,13 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
             return beats[currentBeatIndex - 2].type == Utility.EnumManager.StoneType.LongBeat;
         }
+
+        public bool IsLateBeatLong()
+        {
+            if (currentBeatIndex < 2)
+                return false;
+
+            return beats[currentBeatIndex - 1].type == Utility.EnumManager.StoneType.LongBeat;
+        }
     }
 }

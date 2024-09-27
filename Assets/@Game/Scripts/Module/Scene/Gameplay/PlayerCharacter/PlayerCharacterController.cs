@@ -3,6 +3,7 @@ using DG.Tweening;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.CharacterData;
 using ProjectAdvergame.Utility;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectAdvergame.Module.PlayerCharacter
@@ -13,6 +14,7 @@ namespace ProjectAdvergame.Module.PlayerCharacter
         private EnumManager.BeatAccuracy currentBeatAccuracy;
         private GameObject prefab;
         private CharacterReactions characterReactions;
+        private List<float> zPosCollection;
 
         public void SetCharacterPrefab(GameObject prefab)
         {
@@ -40,14 +42,15 @@ namespace ProjectAdvergame.Module.PlayerCharacter
 
         internal void OnMove(MovePlayerCharacterMessage message)
         {
-            _view.transform.DOMoveZ(_view.transform.position.z + message.MoveAmount, message.MoveAmount * .1f).OnComplete(() => _view.transform.DOMoveZ(Mathf.Ceil(_view.transform.position.z), 0));
+            _view.transform.DOKill();
+            _view.transform.DOMoveZ(message.CurrentStoneZPos < 0 ? 0 : message.CurrentStoneZPos, 0);
         }
 
         internal void OnMoveEarly(MovePlayerCharacterEarlyMessage message)
         {
             isFly = true;
             _view.animator.Play(TagManager.ANIM_FLY);
-            _view.transform.DOJump(new Vector3(0, 0, _view.transform.position.z + message.MoveAmount), message.MoveAmount * 2, 1, message.Duration - .1f).OnComplete(() =>
+            _view.transform.DOJump(new Vector3(0, 0, message.CurrentStoneZPos < 0 ? 0 : message.CurrentStoneZPos), 5, 1, message.Duration).OnComplete(() =>
             {
                 isFly = false;
                 _view.animator.Play(TagManager.ANIM_IDLE);
@@ -100,10 +103,15 @@ namespace ProjectAdvergame.Module.PlayerCharacter
 
         internal void OnGameWin(GameWinMessage message)
         {
-            OnMove(new MovePlayerCharacterMessage(1));
+            OnMove(new MovePlayerCharacterMessage(_view.transform.position.z + 1));
             _view.animator.Play(TagManager.ANIM_WIN);
             _view.playerCharacterObject.DORotate(new Vector3(0, 180, 0), 1);
             _view.reactionImage.gameObject.SetActive(false);
+        }
+
+        internal void UpdateZPosCollection(UpdateZPosCollectionMessage message)
+        {
+            zPosCollection = message.ZPosCollection;
         }
     }
 }

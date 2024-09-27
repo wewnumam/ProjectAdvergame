@@ -2,11 +2,11 @@ namespace ProjectAdvergame.Message
 {
     public struct MovePlayerCharacterMessage 
     {
-        public float MoveAmount { get; }
+        public float CurrentStoneZPos { get; }
 
-        public MovePlayerCharacterMessage(float moveAmount = 1)
+        public MovePlayerCharacterMessage(float currentStoneZPos)
         {
-            MoveAmount = moveAmount;
+            CurrentStoneZPos = currentStoneZPos;
         }
     }
 }
