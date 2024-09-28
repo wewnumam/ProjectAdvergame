@@ -42,6 +42,7 @@ namespace ProjectAdvergame.Module.PlayerCharacter
 
         internal void OnMove(MovePlayerCharacterMessage message)
         {
+            _view.transform.DOComplete();
             _view.transform.DOKill();
             _view.transform.DOMoveZ(message.CurrentStoneZPos < 0 ? 0 : message.CurrentStoneZPos, 0);
         }

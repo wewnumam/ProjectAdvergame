@@ -38,8 +38,8 @@ namespace ProjectAdvergame.Module.StoneManager
                 StoneView previousStone = currentBeatIndex > 1 ? stones[currentBeatIndex - 2] : null;
                 
                 Vector3 position = beat.direction == EnumManager.Direction.FromEast
-                    ? new Vector3(beat.interval*2, 0, zIndex + currentBeatIndex)
-                    : new Vector3(-beat.interval*2, 0, zIndex + currentBeatIndex);
+                    ? new Vector3(beat.interval*3, 0, zIndex + currentBeatIndex)
+                    : new Vector3(-beat.interval*3, 0, zIndex + currentBeatIndex);
 
                 zPosCollection.Add(position.z);
 

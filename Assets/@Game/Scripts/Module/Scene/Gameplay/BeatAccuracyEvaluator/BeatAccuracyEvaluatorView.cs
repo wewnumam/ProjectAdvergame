@@ -27,6 +27,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         public TMP_Text accuracyText;
         public TMP_Text currentIntervalText;
         public TMP_Text currentBeatText;
+        public TMP_Text offsetBeat;
         
         [Header("Env Indicator")]
         public MeshRenderer objectIndicator;
@@ -60,24 +61,29 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             {
                 if (IsPhasePerfect())
                     onPerfect?.Invoke();
+                
 
                 if (IsPhaseLate())
                     onTapLate?.Invoke();
 
                 float previousInterval = currentBeatIndex != 0 ? beats[currentBeatIndex - 1].interval : 0;
                 currentInterval = beats[currentBeatIndex].interval - previousInterval;
-                minPerfectTapPhase = currentInterval < initialMinPerfectTapPhase ? currentInterval : initialMinPerfectTapPhase;
+                minPerfectTapPhase = currentInterval < initialMinPerfectTapPhase ? currentInterval + .1f : initialMinPerfectTapPhase;
+                offsetBeat?.SetText($"{minPerfectTapPhase}");
                 currentBeatIndex++;
                 currentBeatText?.SetText(currentBeatIndex.ToString());
                 
                 if (IsCurrentBeatLong())
                     onBeatLong?.Invoke();
 
+                
+                tapIndex = currentBeatIndex - 1;
+                
                 #region Indicator
                 
                 indicator.fillRect.GetComponent<Image>().color = Color.red;
                 objectIndicator.material = normalMaterial;
-                
+
                 #endregion
             }
 

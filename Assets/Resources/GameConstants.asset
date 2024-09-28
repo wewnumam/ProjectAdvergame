@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameConstants
   m_EditorClassIdentifier: 
   onReadyCountdown: 3
-  minPerfectTapPhase: 0.4
+  minPerfectTapPhase: 0.5
   scoreEarlyAmount: -1
   scorePerfectAmount: 3
   scoreLateAmount: -2
