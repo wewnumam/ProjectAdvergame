@@ -15,6 +15,10 @@ using static TMPro.TMP_Dropdown;
 using Dan.Main;
 using System;
 using UnityEngine.SocialPlatforms.Impl;
+using Dan.Enums;
+using Dan.Models;
+using UnityEditor.PackageManager;
+using TMPro;
 
 namespace ProjectAdvergame.Scene.Screenshot
 {
@@ -51,7 +55,7 @@ namespace ProjectAdvergame.Scene.Screenshot
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
 
-            _view.SetCallback(GoToMainMenu, () => StartCoroutine(TakeScreenshotAndShareUrl()), target => StartCoroutine(TakeScreenshotAndShare(target)), OnEditUsername);
+            _view.SetCallback(GoToMainMenu, () => StartCoroutine(TakeScreenshotAndShare(null)), target => StartCoroutine(TakeScreenshotAndShare(target)), OnEditUsername);
 
             _view.starText.SetText(_saveSystem.Model.SaveData.GetTotalStarCount().ToString());
             _view.unlockedSongText.SetText($"{_saveSystem.Model.SaveData.UnlockedLevels.Count}/{_levelData.Model.LevelCollection.levelItems.Count}");
@@ -81,17 +85,28 @@ namespace ProjectAdvergame.Scene.Screenshot
             {
                 Debug.Log($"Update Leaderboard: {isComplete}");
 
-                LeaderboardCreator.GetEntryCount(_gameConstants.Model.GameConstants.publicKey, count =>
-                {
-                    LeaderboardCreator.GetPersonalEntry(_gameConstants.Model.GameConstants.publicKey, player =>
-                    {
-                        _view.rankText.SetText($"{player.Rank}/{count}");
-                    });
-                });
+                LeaderboardCreator.GetLeaderboard(_gameConstants.Model.GameConstants.publicKey, LeaderboardSearchQuery.ByTimePeriod(TimePeriodType.ThisWeek), OnEntriesLoaded, OnError);
+
             });
 
 
             yield return null;
+        }
+
+        private void OnEntriesLoaded(Entry[] entries)
+        {
+            foreach (var entry in entries)
+            {
+                if (entry.IsMine())
+                {
+                    _view.rankText.SetText($"{entry.Rank}/{entries.Length}");
+                }
+            }
+        }
+
+        private void OnError(string error)
+        {
+            Debug.LogError(error);
         }
 
         private void OnEditUsername(string text)
@@ -108,57 +123,49 @@ namespace ProjectAdvergame.Scene.Screenshot
             SceneLoader.Instance.LoadScene(TagManager.SCENE_MAINMENU);
         }
 
-        private IEnumerator TakeScreenshotAndShareUrl()
+        private IEnumerator TakeScreenshotAndShare(string target = null)
         {
             _view.onStart?.Invoke();
 
             yield return new WaitForEndOfFrame();
 
+            Texture2D ss = CaptureScreenshot();
+            string filePath = SaveScreenshotToFile(ss);
+
+            if (NativeShare.TargetExists(target) || target == null)
+                ShareScreenshot(filePath, target);
+
+            _view.onEnd?.Invoke();
+        }
+
+        private Texture2D CaptureScreenshot()
+        {
             Texture2D ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
             ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
             ss.Apply();
+            return ss;
+        }
 
+        private string SaveScreenshotToFile(Texture2D ss)
+        {
             string filePath = Path.Combine(Application.temporaryCachePath, "shared img.png");
             File.WriteAllBytes(filePath, ss.EncodeToPNG());
+            Destroy(ss); // Avoid memory leaks
+            return filePath;
+        }
 
-            // To avoid memory leaks
-            Destroy(ss);
-
-            new NativeShare().AddFile(filePath)
-                .SetSubject("").SetText("Mainkan Langit Sore Rhythm Game sekarang dan buktikan kalau kamu bisa lebih baik! ??")
+        private void ShareScreenshot(string filePath, string target)
+        {
+            var share = new NativeShare().AddFile(filePath)
+                .SetText("Mainkan Langit Sore Rhythm Game sekarang dan buktikan kalau kamu bisa lebih baik! ??")
                 .SetUrl("https://play.google.com/store/apps/details?id=com.feelablesoftware.langitsore")
-                .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
-                .Share();
+                .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget));
 
-            _view.onEnd?.Invoke();
+            if (!string.IsNullOrEmpty(target))
+                share.AddTarget(target).SetTitle("Title");
+
+            share.Share();
         }
 
-        private IEnumerator TakeScreenshotAndShare(string target)
-        {
-            _view.onStart?.Invoke();
-
-            yield return new WaitForEndOfFrame();
-
-            Texture2D ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-            ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
-            ss.Apply();
-
-            string filePath = Path.Combine(Application.temporaryCachePath, "shared img.png");
-            File.WriteAllBytes(filePath, ss.EncodeToPNG());
-
-            // To avoid memory leaks
-            Destroy(ss);
-
-            if (NativeShare.TargetExists(target))
-                new NativeShare().AddFile(filePath)
-                    .AddTarget(target)
-                    .SetTitle("Title")
-                    .SetText("Mainkan Langit Sore Rhythm Game sekarang dan buktikan kalau kamu bisa lebih baik! ??")
-                    .SetUrl("https://play.google.com/store/apps/details?id=com.feelablesoftware.langitsore")
-                    .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
-                    .Share();
-            
-            _view.onEnd?.Invoke();
-        }
     }
 }

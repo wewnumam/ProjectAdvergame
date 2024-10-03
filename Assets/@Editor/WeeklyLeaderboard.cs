@@ -1,3 +1,4 @@
+using Dan.Enums;
 using Dan.Main;
 using Dan.Models;
 using ProjectAdvergame.Module.GameConstants;
@@ -23,7 +24,7 @@ public class WeeklyLeaderboard : MonoBehaviour
 
     private void LoadEntries()
     {
-        LeaderboardCreator.GetLeaderboard(gameConstants.publicKey, OnEntriesLoaded, OnError);
+        LeaderboardCreator.GetLeaderboard(gameConstants.publicKey, LeaderboardSearchQuery.ByTimePeriod(TimePeriodType.ThisWeek), OnEntriesLoaded, OnError);
     }
 
     private void OnEntriesLoaded(Entry[] entries)

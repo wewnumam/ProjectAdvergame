@@ -22,25 +22,28 @@ namespace ProjectAdvergame.Module.Score
 
         internal void AddScore(BeatAccuracyMessage message)
         {
-            foreach (var text in _view.scoreTexts)
+            if (message.StoneType == StoneType.Normal)
             {
-                if (message.BeatAccuracy == EnumManager.BeatAccuracy.Perfect)
-                    text.color = _view.addScoreColor;
-                else
-                    text.color = _view.subtractScoreColor;
-                text.DOColor(_view.initialScoreColor, 1f);
-            }
+                foreach (var text in _view.scoreTexts)
+                {
+                    if (message.BeatAccuracy == EnumManager.BeatAccuracy.Perfect)
+                        text.color = _view.addScoreColor;
+                    else
+                        text.color = _view.subtractScoreColor;
+                    text.DOColor(_view.initialScoreColor, 1f);
+                }
 
-            foreach (var text in _view.scorePointTexts)
-            {
-                if (message.BeatAccuracy == EnumManager.BeatAccuracy.Perfect)
-                    text.color = _view.addScoreColor;
-                else
-                    text.color = _view.subtractScoreColor;
-                text.DOColor(_view.transparentScoreColor, 1f);
-            }
+                foreach (var text in _view.scorePointTexts)
+                {
+                    if (message.BeatAccuracy == EnumManager.BeatAccuracy.Perfect)
+                        text.color = _view.addScoreColor;
+                    else
+                        text.color = _view.subtractScoreColor;
+                    text.DOColor(_view.transparentScoreColor, 1f);
+                }
 
-            _model.AddScore(message.BeatAccuracy);
+                _model.AddScore(message.BeatAccuracy);
+            }
             _model.AddAccuracies(message.BeatAccuracy);
         }
 
@@ -48,6 +51,12 @@ namespace ProjectAdvergame.Module.Score
         {
             Publish(new GameResultStarMessage(_model.StarCalculator(_beats.Count)));
             Publish(new GameResultScoreMessage(_model.CurrentScore));
+        }
+
+        internal void OnLongBeat(OnLongBeatMessage message)
+        {
+            Debug.Log("LONG BEAT------------------");
+            _model.AddScore(EnumManager.BeatAccuracy.Perfect);
         }
     }
 }

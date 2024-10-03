@@ -42,9 +42,9 @@ namespace ProjectAdvergame.Module.PlayerCharacter
 
         internal void OnMove(MovePlayerCharacterMessage message)
         {
-            _view.transform.DOComplete();
-            _view.transform.DOKill();
-            _view.transform.DOMoveZ(message.CurrentStoneZPos < 0 ? 0 : message.CurrentStoneZPos, 0);
+            Vector3 modifiedPosition = _view.transform.position;
+            modifiedPosition.z = message.CurrentStoneZPos < 0 ? 0 : message.CurrentStoneZPos;
+            _view.transform.position = modifiedPosition;
         }
 
         internal void OnMoveEarly(MovePlayerCharacterEarlyMessage message)

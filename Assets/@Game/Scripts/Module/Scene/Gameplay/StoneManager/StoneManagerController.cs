@@ -91,11 +91,12 @@ namespace ProjectAdvergame.Module.StoneManager
 
         internal void StartPlay(StartPlayMessage message)
         {
-
+            Time.timeScale = 0;
             foreach (var stone in _view.stones)
             {
                 stone.Play();
             }
+            Time.timeScale = 1;
         }
 
         private void SwitchCamera(EnumManager.Direction direction)

@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Unity.Mathematics;
+using System.Collections;
+using ProjectAdvergame.Boot;
 
 namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 {
@@ -16,6 +18,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         private List<Beat> _beats;
         private bool _isVibrate;
         private List<float> zPosCollection;
+        private bool isLongBeatState;
 
         #region Public Function
 
@@ -71,7 +74,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         {
             MovePlayerCharacter();
             SetText("LATE");
-            Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Late));
+            Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Late, _view.IsCurrentBeatLong() ? EnumManager.StoneType.LongBeat : EnumManager.StoneType.Normal));
             
             if (_isVibrate)
                 Handheld.Vibrate();
@@ -96,6 +99,15 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             Publish(new AddHealthMessage());
         }
 
+        private IEnumerator AddLongBeatScore()
+        {
+            while (isLongBeatState)
+            {
+                Publish(new OnLongBeatMessage());
+                yield return new WaitForSecondsRealtime(_minPerfectTapPhase);
+            }
+        }
+
         #endregion
 
         #region Connector Listener
@@ -110,7 +122,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             if (_view.IsPhaseEarly() && !_view.IsCurrentBeatLong())
             {
                 SetText("EARLY");
-                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Early));
+                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Early, EnumManager.StoneType.Normal));
 
                 if (_isVibrate)
                     Handheld.Vibrate();
@@ -119,7 +131,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             {
                 MovePlayerCharacter();
                 SetText("PERFECT");
-                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Perfect));
+                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Perfect, EnumManager.StoneType.Normal));
             }
         }
 
@@ -128,6 +140,8 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             if (_view.IsCurrentBeatLong())
             {
                 _view.particle.Play();
+                isLongBeatState = true;
+                GameMain.Instance.RunCoroutine(AddLongBeatScore());
                 Debug.Log("TAP: STARTED");
             }
             else
@@ -141,6 +155,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             if (_view.IsCurrentBeatLong())
             {
                 _view.particle.Stop();
+                isLongBeatState = false;
                 Debug.Log($"TAP: ENDED {message.Duration}");
             }
         }
