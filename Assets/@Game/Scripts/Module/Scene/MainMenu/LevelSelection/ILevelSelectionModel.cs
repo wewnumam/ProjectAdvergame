@@ -7,7 +7,7 @@ namespace ProjectAdvergame.Module.LevelSelection
 {
     public interface ILevelSelectionModel : IBaseModel
     {
-        SO_LevelCollection LevelCollection { get; }
+        List<SO_LevelData> LevelCollection { get; }
         List<StarRecords> UnlockedLevels {  get; }
         int CurrentHeartCount { get; }
         int CurrentStarCount { get; }

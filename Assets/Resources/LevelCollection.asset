@@ -13,13 +13,43 @@ MonoBehaviour:
   m_Name: LevelCollection
   m_EditorClassIdentifier: 
   levelItems:
-  - {fileID: 11400000, guid: 5daa64cb427a95542be9aa9725657d9c, type: 2}
-  - {fileID: 11400000, guid: fe5676aba043dc941bfde021255cfff5, type: 2}
-  - {fileID: 11400000, guid: 3dec0c61568cb514cadabce9fd5d610c, type: 2}
-  - {fileID: 11400000, guid: 296dab6607479be4c96b3428d635ced5, type: 2}
-  - {fileID: 11400000, guid: 922bcd3847c4c5944a951bb96fe28b26, type: 2}
-  - {fileID: 11400000, guid: 5c5ef7a7460aa4e4bb98c580d13f43dd, type: 2}
-  - {fileID: 11400000, guid: db905d454ee0853469614b0860c473e9, type: 2}
-  - {fileID: 11400000, guid: b9e7c3837fbc86b4da63878f46351603, type: 2}
-  - {fileID: 11400000, guid: eb07ed1f2993d85438a685f8a98d8678, type: 2}
-  - {fileID: 11400000, guid: 39baf6ecb9dda2642bba47c31544bf5c, type: 2}
+  - m_AssetGUID: 5daa64cb427a95542be9aa9725657d9c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: fe5676aba043dc941bfde021255cfff5
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 3dec0c61568cb514cadabce9fd5d610c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 296dab6607479be4c96b3428d635ced5
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 922bcd3847c4c5944a951bb96fe28b26
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 5c5ef7a7460aa4e4bb98c580d13f43dd
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: db905d454ee0853469614b0860c473e9
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: b9e7c3837fbc86b4da63878f46351603
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: eb07ed1f2993d85438a685f8a98d8678
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 39baf6ecb9dda2642bba47c31544bf5c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

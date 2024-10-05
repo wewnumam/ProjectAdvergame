@@ -8,7 +8,7 @@ namespace ProjectAdvergame.Module.LevelSelection
 {
     public class LevelSelectionModel : BaseModel, ILevelSelectionModel
     {
-        public SO_LevelCollection LevelCollection { get; private set; }
+        public List<SO_LevelData> LevelCollection { get; private set; }
         public List<StarRecords> UnlockedLevels { get; private set; }
         public int CurrentHeartCount { get; private set; }
         public int CurrentStarCount { get; private set; }
@@ -19,7 +19,7 @@ namespace ProjectAdvergame.Module.LevelSelection
         public AudioClip CurrentClip { get; private set; }
         public Material CurrentSkybox { get; private set; }
 
-        public void SetLevelCollection(SO_LevelCollection levelCollection)
+        public void SetLevelCollection(List<SO_LevelData> levelCollection)
         {
             LevelCollection = levelCollection;
             SetDataAsDirty();

@@ -13,7 +13,7 @@ namespace ProjectAdvergame.Module.LevelSelection
 {
     public class LevelSelectionController : ObjectController<LevelSelectionController, LevelSelectionModel, ILevelSelectionModel, LevelSelectionView>
     {
-        public void SetLevelCollection(SO_LevelCollection levelCollection) => _model.SetLevelCollection(levelCollection);
+        public void SetLevelCollection(List<SO_LevelData> levelCollection) => _model.SetLevelCollection(levelCollection);
         public void SetUnlockedLevel(List<StarRecords> unlockedLevels) => _model.SetUnlockedLevel(unlockedLevels);
         public void SetCurrentHeartCount(int count) => _model.SetCurrentHeartCount(count);
         public void SetCurrentStarCount(int count) => _model.SetCurrentStarCount(count);
@@ -22,13 +22,13 @@ namespace ProjectAdvergame.Module.LevelSelection
         {
             base.SetView(view);
 
-            for (global::System.Int32 i = view.listedLevel.Count; i < _model.LevelCollection.levelItems.Count; i++)
+            for (global::System.Int32 i = view.listedLevel.Count; i < _model.LevelCollection.Count; i++)
             {
                 GameObject obj = GameObject.Instantiate(view.template, view.container);
                 obj.SetActive(true);
 
                 LevelItemView levelItemView = obj.GetComponent<LevelItemView>();
-                SO_LevelData levelItem = _model.LevelCollection.levelItems[i];
+                SO_LevelData levelItem = _model.LevelCollection[i];
 
                 view.listedLevel.Add(levelItemView);
 
@@ -82,7 +82,7 @@ namespace ProjectAdvergame.Module.LevelSelection
                 return;
 
             // Find the level data
-            SO_LevelData levelData = _model.LevelCollection.levelItems.FirstOrDefault(r => r.name == message.LevelName);
+            SO_LevelData levelData = _model.LevelCollection.FirstOrDefault(r => r.name == message.LevelName);
             // Find the star records
             StarRecords starRecords = _model.UnlockedLevels.FirstOrDefault(r => r.LevelName == message.LevelName);
 

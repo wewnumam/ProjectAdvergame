@@ -7,7 +7,7 @@ namespace ProjectAdvergame.Module.LevelData
     public interface ILevelDataModel : IBaseModel
     {
         SO_LevelData CurrentLevelData { get; }
-        SO_LevelCollection LevelCollection { get; }
+        List<SO_LevelData> LevelCollection { get; }
 
         Sprite CurrentArtwork { get; }
         List<GameObject> CurrentStonePrefabs { get; }

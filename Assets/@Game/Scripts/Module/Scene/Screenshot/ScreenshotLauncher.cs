@@ -14,11 +14,8 @@ using System.Collections.Generic;
 using static TMPro.TMP_Dropdown;
 using Dan.Main;
 using System;
-using UnityEngine.SocialPlatforms.Impl;
 using Dan.Enums;
 using Dan.Models;
-using UnityEditor.PackageManager;
-using TMPro;
 
 namespace ProjectAdvergame.Scene.Screenshot
 {
@@ -58,7 +55,7 @@ namespace ProjectAdvergame.Scene.Screenshot
             _view.SetCallback(GoToMainMenu, () => StartCoroutine(TakeScreenshotAndShare(null)), target => StartCoroutine(TakeScreenshotAndShare(target)), OnEditUsername);
 
             _view.starText.SetText(_saveSystem.Model.SaveData.GetTotalStarCount().ToString());
-            _view.unlockedSongText.SetText($"{_saveSystem.Model.SaveData.UnlockedLevels.Count}/{_levelData.Model.LevelCollection.levelItems.Count}");
+            _view.unlockedSongText.SetText($"{_saveSystem.Model.SaveData.UnlockedLevels.Count}/{_levelData.Model.LevelCollection.Count}");
 
             int currentXP = _saveSystem.Model.SaveData.GetTotalXP();
             Badge currentBadge = _gameConstants.Model.GameConstants.GetCurrentBadge(currentXP);
@@ -74,7 +71,7 @@ namespace ProjectAdvergame.Scene.Screenshot
 
             List<OptionData> options = new List<OptionData>();
 
-            foreach (var levelItem in _levelData.Model.LevelCollection.levelItems)
+            foreach (var levelItem in _levelData.Model.LevelCollection)
                 options.Add(new OptionData(levelItem.title, null));
             _view.favoriteSongs.AddOptions(options);
 

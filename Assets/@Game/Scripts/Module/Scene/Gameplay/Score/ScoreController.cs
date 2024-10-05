@@ -22,7 +22,7 @@ namespace ProjectAdvergame.Module.Score
 
         internal void AddScore(BeatAccuracyMessage message)
         {
-            if (message.StoneType == StoneType.Normal)
+            if (message.StoneType != StoneType.LongBeat)
             {
                 foreach (var text in _view.scoreTexts)
                 {

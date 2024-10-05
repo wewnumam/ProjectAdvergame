@@ -8,7 +8,7 @@ namespace ProjectAdvergame.Module.LevelData
     public class LevelDataModel : BaseModel, ILevelDataModel
     {
         public SO_LevelData CurrentLevelData { get; private set; }
-        public SO_LevelCollection LevelCollection { get; private set; }
+        public List<SO_LevelData> LevelCollection { get; private set; }
 
         public Sprite CurrentArtwork { get; private set; }
         public List<GameObject> CurrentStonePrefabs { get; private set; }
@@ -22,7 +22,7 @@ namespace ProjectAdvergame.Module.LevelData
             SetDataAsDirty();
         }
 
-        public void SetLevelCollection(SO_LevelCollection levelCollection)
+        public void SetLevelCollection(List<SO_LevelData> levelCollection)
         {
             LevelCollection = levelCollection;
             SetDataAsDirty();

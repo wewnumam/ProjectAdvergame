@@ -4,6 +4,7 @@ using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.SaveSystem;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -20,14 +21,22 @@ namespace ProjectAdvergame.Module.LevelData
         public override IEnumerator Initialize()
         {
             SO_LevelCollection levelCollection = Resources.Load<SO_LevelCollection>(@"LevelCollection");
-            _model.SetLevelCollection(levelCollection);
+
+            List<SO_LevelData> levelDatas = new List<SO_LevelData>();
+
+            for (int i = 0; i < levelCollection.levelItems.Count; i++)
+            {
+                yield return LoadAsset<SO_LevelData>(levelCollection.levelItems[i], levelData => levelDatas.Add(levelData), $"leveldata-{i}");
+            }
+
+            _model.SetLevelCollection(levelDatas);
 
             yield return base.Initialize();
         }
 
         public IEnumerator SetCurrentLevel(string levelName)
         {
-            SO_LevelData levelData = Resources.Load<SO_LevelData>(@"LevelData/" + levelName);
+            SO_LevelData levelData = _model.LevelCollection.FirstOrDefault(ld => ld.name == levelName);
             _model.SetCurrentLevelData(levelData);
             _model.ResetStonePrefabs();
 
@@ -56,8 +65,9 @@ namespace ProjectAdvergame.Module.LevelData
 
             while (!handle.IsDone)
             {
-                Publish(new LoadProgressMessage($"{_model.CurrentLevelData.title} {handleKey}", handle.PercentComplete, false));
-                SplashScreen.Instance.LoadProgress($"{_model.CurrentLevelData.title} {handleKey}", handle.PercentComplete, false);
+                string currentLevelTitle = _model.CurrentLevelData != null ? _model.CurrentLevelData.title : string.Empty;
+                Publish(new LoadProgressMessage($"{currentLevelTitle} {handleKey}", handle.PercentComplete, false));
+                SplashScreen.Instance.LoadProgress($"{currentLevelTitle} {handleKey}", handle.PercentComplete, false);
                 yield return null;
             }
             
