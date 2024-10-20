@@ -3,6 +3,7 @@ using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.Stone;
 using ProjectAdvergame.Utility;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -74,6 +75,36 @@ namespace ProjectAdvergame.Module.StoneManager
             }
 
             Publish(new UpdateZPosCollectionMessage(zPosCollection));
+        }
+
+        internal void OnBeatAccuracy(BeatAccuracyMessage message)
+        {
+            if (message.CurrentIndex < 2)
+                return;
+
+            MeshRenderer[] meshRenderers = _view.stones[message.CurrentIndex - 2].GetComponentsInChildren<MeshRenderer>();
+            if (meshRenderers != null)
+            {
+                if (message.BeatAccuracy == EnumManager.BeatAccuracy.Late && message.StoneType != EnumManager.StoneType.LongBeat)
+                {
+                    foreach (var meshRenderer in meshRenderers)
+                    {
+                        Material[] materials = new Material[meshRenderer.materials.Length];
+                        for (int i = 0; i < materials.Length; i++)
+                            materials[i] = _view.failMaterial;
+                        meshRenderer.materials = materials;
+                    }
+                } else if (message.BeatAccuracy == EnumManager.BeatAccuracy.Perfect || message.StoneType == EnumManager.StoneType.LongBeat)
+                {
+                    foreach (var meshRenderer in meshRenderers)
+                    {
+                        Material[] materials = new Material[meshRenderer.materials.Length];
+                        for (int i = 0; i < materials.Length; i++)
+                            materials[i] = _view.successMaterial;
+                        meshRenderer.materials = materials;
+                    }
+                }
+            }
         }
 
         internal void OnPause(GameOverMessage message)

@@ -9,6 +9,7 @@ namespace ProjectAdvergame.Module.StoneManager
 
         protected override void Connect()
         {
+            Subscribe<BeatAccuracyMessage>(_stoneManager.OnBeatAccuracy);
             Subscribe<OnReadyMessage>(_stoneManager.OnReady);
             Subscribe<StartPlayMessage>(_stoneManager.StartPlay);
             Subscribe<GameOverMessage>(_stoneManager.OnPause);
@@ -16,6 +17,7 @@ namespace ProjectAdvergame.Module.StoneManager
 
         protected override void Disconnect()
         {
+            Unsubscribe<BeatAccuracyMessage>(_stoneManager.OnBeatAccuracy);
             Unsubscribe<OnReadyMessage>(_stoneManager.OnReady);
             Unsubscribe<StartPlayMessage>(_stoneManager.StartPlay);
             Unsubscribe<GameOverMessage>(_stoneManager.OnPause);

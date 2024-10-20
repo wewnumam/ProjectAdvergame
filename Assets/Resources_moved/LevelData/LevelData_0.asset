@@ -211,7 +211,7 @@ MonoBehaviour:
     type: 0
     direction: 1
   - interval: 77.64883
-    type: 0
+    type: 1
     direction: 1
   - interval: 78.53985
     type: 1
@@ -253,13 +253,13 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 93.69162
-    type: 0
+    type: 1
     direction: 0
   - interval: 94.61586
-    type: 0
+    type: 1
     direction: 0
   - interval: 95.50746
-    type: 0
+    type: 1
     direction: 0
   - interval: 96.39883
     type: 0
@@ -310,10 +310,10 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 120.297966
-    type: 0
+    type: 1
     direction: 0
   - interval: 122.112885
-    type: 0
+    type: 1
     direction: 0
   - interval: 123.861984
     type: 0
@@ -349,10 +349,10 @@ MonoBehaviour:
     type: 0
     direction: 1
   - interval: 137.29355
-    type: 0
+    type: 1
     direction: 1
   - interval: 138.1515
-    type: 0
+    type: 1
     direction: 1
   - interval: 139.0423
     type: 0
@@ -367,7 +367,7 @@ MonoBehaviour:
     type: 0
     direction: 1
   - interval: 144.3877
-    type: 0
+    type: 1
     direction: 1
   - interval: 145.27864
     type: 0
@@ -439,7 +439,7 @@ MonoBehaviour:
     type: 1
     direction: 0
   - interval: 173.721
-    type: 0
+    type: 1
     direction: 0
   - interval: 174.61195
     type: 0
@@ -457,7 +457,7 @@ MonoBehaviour:
     type: 0
     direction: 0
   - interval: 180.81725
-    type: 0
+    type: 1
     direction: 0
   - interval: 181.74156
     type: 0
@@ -475,7 +475,7 @@ MonoBehaviour:
     type: 1
     direction: 0
   - interval: 187.94734
-    type: 0
+    type: 1
     direction: 0
   - interval: 188.839
     type: 0
@@ -493,19 +493,19 @@ MonoBehaviour:
     type: 1
     direction: 1
   - interval: 201.0189
-    type: 0
+    type: 1
     direction: 1
   - interval: 203.13129
-    type: 0
+    type: 1
     direction: 1
   - interval: 205.30945
-    type: 0
+    type: 1
     direction: 1
   - interval: 207.28964
-    type: 0
+    type: 1
     direction: 1
   - interval: 209.43507
-    type: 0
+    type: 1
     direction: 1
   - interval: 211.97697
     type: 0

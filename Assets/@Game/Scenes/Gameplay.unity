@@ -15096,6 +15096,8 @@ MonoBehaviour:
     type: 3}
   addHealthPrefab: {fileID: 8000378295652299047, guid: 2e39df558cdc0fe4fa03599b85fa02dd,
     type: 3}
+  successMaterial: {fileID: 2100000, guid: 2a8092f5e6162024db55030b4410a6ac, type: 2}
+  failMaterial: {fileID: 2100000, guid: 3bfdb99b50151364da97ea81c1e35586, type: 2}
 --- !u!1 &1821506071
 GameObject:
   m_ObjectHideFlags: 0

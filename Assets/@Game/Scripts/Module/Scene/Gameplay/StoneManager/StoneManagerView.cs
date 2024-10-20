@@ -14,6 +14,8 @@ namespace ProjectAdvergame.Module.StoneManager
 
         public GameObject defaultStonePrefab;
         public GameObject addHealthPrefab;
+        public Material successMaterial;
+        public Material failMaterial;
 
         private StoneView currentStone;
 

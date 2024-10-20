@@ -92,11 +92,12 @@ namespace ProjectAdvergame.Scene.Screenshot
 
         private void OnEntriesLoaded(Entry[] entries)
         {
-            foreach (var entry in entries)
+            for (int i = 0; i < entries.Length; i++)
             {
+                Entry entry = entries[i];
                 if (entry.IsMine())
                 {
-                    _view.rankText.SetText($"{entry.Rank}/{entries.Length}");
+                    _view.rankText.SetText($"{i+1}/{entries.Length}");
                 }
             }
         }
@@ -155,7 +156,7 @@ namespace ProjectAdvergame.Scene.Screenshot
         {
             var share = new NativeShare().AddFile(filePath)
                 .SetText("Mainkan Langit Sore Rhythm Game sekarang dan buktikan kalau kamu bisa lebih baik! ??")
-                .SetUrl("https://play.google.com/store/apps/details?id=com.feelablesoftware.langitsore")
+                .SetUrl("https://wewnumam.itch.io/langit-sore")
                 .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget));
 
             if (!string.IsNullOrEmpty(target))

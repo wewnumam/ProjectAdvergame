@@ -18,6 +18,7 @@ using ProjectAdvergame.Module.CharacterData;
 using ProjectAdvergame.Module.CharacterSelection;
 using ProjectAdvergame.Module.Review;
 using System;
+using ProjectAdvergame.Module.LoadNotification;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
@@ -30,6 +31,7 @@ namespace ProjectAdvergame.Scene.MainMenu
         private CharacterDataController _characterData;
         private GameSettingsController _gameSettings;
 
+        private LoadNotificationController _loadNotification;
         private QuitController _quit;
         private LevelSelectionController _levelSelection;
         private CharacterSelectionController _characterSelection;
@@ -41,6 +43,7 @@ namespace ProjectAdvergame.Scene.MainMenu
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
+                new LoadNotificationController(),
                 new QuitController(),
                 new LevelSelectionController(),
                 new CharacterSelectionController(),
@@ -54,6 +57,7 @@ namespace ProjectAdvergame.Scene.MainMenu
         protected override IConnector[] GetSceneConnectors()
         {
             return new IConnector[] {
+                new LoadNotificationConnector(),
                 new LevelSelectionConnector(),
                 new CharacterSelectionConnector(),
                 new StatsConnector(),
@@ -72,6 +76,8 @@ namespace ProjectAdvergame.Scene.MainMenu
             Publish(new GameStateMessage(Utility.EnumManager.GameState.PreGame));
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneName));
+
+            _loadNotification.SetView(_view.LoadNotificationView);
 
             yield return StartCoroutine(_levelData.SetCurrentLevel(_saveSystem.Model.SaveData.CurrentLevelName));
 

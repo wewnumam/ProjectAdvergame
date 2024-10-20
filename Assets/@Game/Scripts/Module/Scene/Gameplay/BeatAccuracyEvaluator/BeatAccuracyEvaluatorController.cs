@@ -74,9 +74,9 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
         {
             MovePlayerCharacter();
             SetText("LATE");
-            Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Late, _view.IsCurrentBeatLong() ? EnumManager.StoneType.LongBeat : EnumManager.StoneType.Normal));
+            Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Late, _view.IsCurrentBeatLong() ? EnumManager.StoneType.LongBeat : EnumManager.StoneType.Normal, _view.currentBeatIndex));
             
-            if (_isVibrate)
+            if (_isVibrate && !_view.IsCurrentBeatLong())
                 Handheld.Vibrate();
         }
 
@@ -122,7 +122,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             if (_view.IsPhaseEarly() && !_view.IsCurrentBeatLong())
             {
                 SetText("EARLY");
-                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Early, EnumManager.StoneType.Normal));
+                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Early, EnumManager.StoneType.Normal, _view.currentBeatIndex));
 
                 if (_isVibrate)
                     Handheld.Vibrate();
@@ -131,7 +131,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             {
                 MovePlayerCharacter();
                 SetText("PERFECT");
-                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Perfect, EnumManager.StoneType.Normal));
+                Publish(new BeatAccuracyMessage(EnumManager.BeatAccuracy.Perfect, EnumManager.StoneType.Normal, _view.currentBeatIndex));
             }
         }
 
@@ -142,7 +142,6 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
                 _view.particle.Play();
                 isLongBeatState = true;
                 GameMain.Instance.RunCoroutine(AddLongBeatScore());
-                Debug.Log("TAP: STARTED");
             }
             else
             {
@@ -156,7 +155,6 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             {
                 _view.particle.Stop();
                 isLongBeatState = false;
-                Debug.Log($"TAP: ENDED {message.Duration}");
             }
         }
 

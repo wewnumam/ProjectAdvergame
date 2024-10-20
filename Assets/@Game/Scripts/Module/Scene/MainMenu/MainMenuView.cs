@@ -11,11 +11,13 @@ using ProjectAdvergame.Module.CheatFeature;
 using ProjectAdvergame.Module.Settings;
 using ProjectAdvergame.Module.CharacterSelection;
 using ProjectAdvergame.Module.Review;
+using ProjectAdvergame.Module.LoadNotification;
 
 namespace ProjectAdvergame.Scene.MainMenu
 {
     public class MainMenuView : BaseSceneView
     {
+        public LoadNotificationView LoadNotificationView;
         public QuitView QuitView;
         public LevelSelectionView LevelSelectionView;
         public CharacterSelectionView CharacterSelectionView;

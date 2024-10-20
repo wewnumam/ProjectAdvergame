@@ -81,6 +81,7 @@ namespace ProjectAdvergame.Module.LevelData
             }
             else
             {
+                Publish(new OnFailedToLoadAssetMessage());
                 Debug.LogError($"{handleKey} failed to install");
             }
 

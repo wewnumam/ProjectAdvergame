@@ -18,7 +18,7 @@ namespace ProjectAdvergame.Module.Health
 
         internal void DecreaseHealth(BeatAccuracyMessage message)
         {
-            if (message.BeatAccuracy != EnumManager.BeatAccuracy.Perfect)
+            if (message.BeatAccuracy == EnumManager.BeatAccuracy.Late && message.StoneType != EnumManager.StoneType.LongBeat)
             {
                 _view.isIncrease = false;
                 _model.DecreaseHealth();
