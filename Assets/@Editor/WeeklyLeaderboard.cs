@@ -3,44 +3,67 @@ using Dan.Main;
 using Dan.Models;
 using ProjectAdvergame.Module.GameConstants;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class WeeklyLeaderboard : MonoBehaviour
+public class DateFilteredLeaderboard : MonoBehaviour
 {
     [SerializeField] SO_GameConstants gameConstants;
-    [SerializeField] GameObject entryPrefab;
-    [SerializeField] Transform entryParent;
-    [SerializeField] List<GameObject> leaderBoardItems;
-    [SerializeField] TMP_Text weekText;
+    [SerializeField] List<AllTimeLeaderboardItem> allTimeLeaderboardItems;
+    [SerializeField] List<WeeklyLeaderboardItem> leaderBoardItems;
+    [SerializeField] TMP_Text dateRangeText;
+    [SerializeField] ulong startUnixTime; // Set this in the Inspector as a Unix timestamp
 
     private void Start()
     {
         LoadEntries();
-        weekText?.SetText(GetCurrentWeek());
     }
 
     private void LoadEntries()
     {
-        LeaderboardCreator.GetLeaderboard(gameConstants.publicKey, LeaderboardSearchQuery.ByTimePeriod(TimePeriodType.ThisWeek), OnEntriesLoaded, OnError);
+        // Retrieve all-time entries as a broad filter
+        LeaderboardCreator.GetLeaderboard(gameConstants.publicKey,
+            LeaderboardSearchQuery.ByTimePeriod(TimePeriodType.AllTime),
+            OnEntriesLoaded, OnError);
     }
 
     private void OnEntriesLoaded(Entry[] entries)
     {
-        for (int i = 0; i < entries.Length; i++)
+        dateRangeText?.SetText(GetDateRangeText());
+
+        // Get the current Unix timestamp
+        ulong currentUnixTime = (ulong)DateTimeOffset.Now.ToUnixTimeSeconds();
+
+        // Filter entries by Unix timestamp
+        List<Entry> filteredEntries = new List<Entry>();
+        foreach (var entry in entries)
         {
-            if (i >= leaderBoardItems.Count)
-                break;
-            
-            Entry entry = entries[i];
-            TextMeshProUGUI textObject = leaderBoardItems[i].GetComponentInChildren<TextMeshProUGUI>();
+            Debug.Log(entry.Date);
+            ulong entryUnixTime = entry.Date;// Assuming entry.UnixTimestamp exists
+            if (entryUnixTime >= startUnixTime && entryUnixTime <= currentUnixTime)
+            {
+                filteredEntries.Add(entry);
+            }
+        }
+
+        // Display the filtered entries
+        for (int i = 0; i < filteredEntries.Count && i < leaderBoardItems.Count; i++)
+        {
+            Entry entry = filteredEntries[i];
             string username = entry.Username;
             if (entry.Username.Equals("Username"))
                 username = "Anonymous";
-            textObject.text = $"{entry.Rank}. {username} - {entry.Score}";
-            leaderBoardItems[i].SetActive(true);
+            
+            leaderBoardItems[i].rank.text = entry.Rank.ToString();
+            leaderBoardItems[i].username.text = username;
+            leaderBoardItems[i].score.text = entry.Score.ToString();
+        }
+
+        for (int i = 0; i < entries.Length && i < allTimeLeaderboardItems.Count; i++)
+        {
+            allTimeLeaderboardItems[i].username?.SetText(entries[i].Username);
+            allTimeLeaderboardItems[i].score?.SetText(entries[i].Score.ToString());
         }
     }
 
@@ -49,17 +72,13 @@ public class WeeklyLeaderboard : MonoBehaviour
         Debug.LogError(error);
     }
 
-    private string GetCurrentWeek()
+    private string GetDateRangeText()
     {
-        // Get the current date
-        DateTime today = DateTime.Now;
+        // Convert Unix timestamps to DateTime for display
+        DateTime startDate = DateTimeOffset.FromUnixTimeSeconds((long)startUnixTime).DateTime;
+        DateTime endDate = DateTimeOffset.FromUnixTimeSeconds((long)DateTimeOffset.Now.ToUnixTimeSeconds()).DateTime;
 
-        // Calculate the start and end of the current week (Sunday to Saturday)
-        DayOfWeek currentDay = today.DayOfWeek;
-        DateTime startOfWeek = today.AddDays(-(int)currentDay); // Sunday
-        DateTime endOfWeek = startOfWeek.AddDays(6); // Saturday
-
-        // Format the dates as "29 Sep - 5 Oct"
-        return $"{startOfWeek:dd MMM} - {endOfWeek:dd MMM}";
+        // Format the date range as "29 Sep - today"
+        return $"{startDate:dd MMM} - {endDate:dd MMM}";
     }
 }
