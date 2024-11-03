@@ -42,7 +42,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
         public UnityEvent onPerfect;
 
-        private void FixedUpdate()
+        private void Update()
         {
             if (!isPlaying)
                 return;
@@ -68,7 +68,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
 
                 float previousInterval = currentBeatIndex != 0 ? beats[currentBeatIndex - 1].interval : 0;
                 currentInterval = beats[currentBeatIndex].interval - previousInterval;
-                minPerfectTapPhase = currentInterval < initialMinPerfectTapPhase ? currentInterval + .1f : initialMinPerfectTapPhase;
+                //minPerfectTapPhase = currentInterval < initialMinPerfectTapPhase ? currentInterval : initialMinPerfectTapPhase;
                 offsetBeat?.SetText($"{minPerfectTapPhase}");
                 currentBeatIndex++;
                 currentBeatText?.SetText(currentBeatIndex.ToString());
@@ -108,7 +108,7 @@ namespace ProjectAdvergame.Module.BeatAccuracyEvaluator
             this.onBeatCollectionEnd = onBeatCollectionEnd;
         }
 
-        private bool IsCurrentIntervalHasElapsed() => currentInterval < 0;
+        private bool IsCurrentIntervalHasElapsed() => currentInterval <= 0;
 
         public bool HasNextBeat() => currentBeatIndex < beats.Count;
 

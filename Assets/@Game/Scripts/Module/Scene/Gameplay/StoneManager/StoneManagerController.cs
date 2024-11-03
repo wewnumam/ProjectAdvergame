@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using DG.Tweening;
 using ProjectAdvergame.Message;
 using ProjectAdvergame.Module.LevelData;
 using ProjectAdvergame.Module.Stone;
@@ -13,6 +14,7 @@ namespace ProjectAdvergame.Module.StoneManager
     {
         private List<Beat> _beats;
         private List<GameObject> _stonePrefabs;
+        private Sequence sequence;
 
         public void SetBeatCollections(List<Beat> beats)
         {
@@ -28,6 +30,9 @@ namespace ProjectAdvergame.Module.StoneManager
         {
             base.SetView(view);
 
+            sequence = DOTween.Sequence();
+            sequence.Pause();
+
             List<StoneView> stones = new List<StoneView>();
             List<float> zPosCollection = new List<float>();
 
@@ -39,8 +44,8 @@ namespace ProjectAdvergame.Module.StoneManager
                 StoneView previousStone = currentBeatIndex > 1 ? stones[currentBeatIndex - 2] : null;
                 
                 Vector3 position = beat.direction == EnumManager.Direction.FromEast
-                    ? new Vector3(beat.interval*3, 0, zIndex + currentBeatIndex)
-                    : new Vector3(-beat.interval*3, 0, zIndex + currentBeatIndex);
+                    ? new Vector3(beat.interval, 0, zIndex + currentBeatIndex)
+                    : new Vector3(-beat.interval, 0, zIndex + currentBeatIndex);
 
                 zPosCollection.Add(position.z);
 
@@ -49,6 +54,7 @@ namespace ProjectAdvergame.Module.StoneManager
                 InjectDependencies(instance);
                 instance.Init(stone);
 
+                stone.SetMove(sequence);
                 stones.Add(stone);
 
                 if (currentBeatIndex > 1 && currentBeatIndex < _beats.Count)
@@ -109,10 +115,6 @@ namespace ProjectAdvergame.Module.StoneManager
 
         internal void OnPause(GameOverMessage message)
         {
-            foreach (var stone in _view.stones)
-            {
-                stone.Pause();
-            }
         }
 
         internal void OnReady(OnReadyMessage message)
@@ -122,12 +124,7 @@ namespace ProjectAdvergame.Module.StoneManager
 
         internal void StartPlay(StartPlayMessage message)
         {
-            Time.timeScale = 0;
-            foreach (var stone in _view.stones)
-            {
-                stone.Play();
-            }
-            Time.timeScale = 1;
+            sequence?.Play();
         }
 
         private void SwitchCamera(EnumManager.Direction direction)
