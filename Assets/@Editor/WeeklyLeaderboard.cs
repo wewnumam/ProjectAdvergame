@@ -14,6 +14,7 @@ public class DateFilteredLeaderboard : MonoBehaviour
     [SerializeField] List<WeeklyLeaderboardItem> leaderBoardItems;
     [SerializeField] TMP_Text dateRangeText;
     [SerializeField] ulong startUnixTime; // Set this in the Inspector as a Unix timestamp
+    [SerializeField] ulong endUnixTime; // Set this in the Inspector as a Unix timestamp
 
     private void Start()
     {
@@ -32,20 +33,18 @@ public class DateFilteredLeaderboard : MonoBehaviour
     {
         dateRangeText?.SetText(GetDateRangeText());
 
-        // Get the current Unix timestamp
-        ulong currentUnixTime = (ulong)DateTimeOffset.Now.ToUnixTimeSeconds();
-
         // Filter entries by Unix timestamp
         List<Entry> filteredEntries = new List<Entry>();
         foreach (var entry in entries)
         {
             Debug.Log(entry.Date);
             ulong entryUnixTime = entry.Date;// Assuming entry.UnixTimestamp exists
-            if (entryUnixTime >= startUnixTime && entryUnixTime <= currentUnixTime)
+            if (entryUnixTime >= startUnixTime && entryUnixTime <= endUnixTime)
             {
                 filteredEntries.Add(entry);
             }
         }
+        filteredEntries.Sort((entry1, entry2) => entry2.Score.CompareTo(entry1.Rank));
 
         // Display the filtered entries
         for (int i = 0; i < filteredEntries.Count && i < leaderBoardItems.Count; i++)
@@ -62,7 +61,10 @@ public class DateFilteredLeaderboard : MonoBehaviour
 
         for (int i = 0; i < entries.Length && i < allTimeLeaderboardItems.Count; i++)
         {
-            allTimeLeaderboardItems[i].username?.SetText(entries[i].Username);
+            string username = entries[i].Username;
+            if (entries[i].Username.Equals("Username"))
+                username = "Anonymous";
+            allTimeLeaderboardItems[i].username?.SetText(username);
             allTimeLeaderboardItems[i].score?.SetText(entries[i].Score.ToString());
         }
     }
@@ -76,7 +78,7 @@ public class DateFilteredLeaderboard : MonoBehaviour
     {
         // Convert Unix timestamps to DateTime for display
         DateTime startDate = DateTimeOffset.FromUnixTimeSeconds((long)startUnixTime).DateTime;
-        DateTime endDate = DateTimeOffset.FromUnixTimeSeconds((long)DateTimeOffset.Now.ToUnixTimeSeconds()).DateTime;
+        DateTime endDate = DateTimeOffset.FromUnixTimeSeconds((long)endUnixTime).DateTime;
 
         // Format the date range as "29 Sep - today"
         return $"{startDate:dd MMM} - {endDate:dd MMM}";
